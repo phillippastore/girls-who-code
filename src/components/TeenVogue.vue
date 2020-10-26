@@ -22,7 +22,7 @@ export default {
       resolution: devicePixelRatio
     })
     this.$refs.container.appendChild(this.pixi.view)
-    const bg = PIXI.Sprite.from('/static/img/glitch.6138e6b.png')
+    const bg = PIXI.Sprite.from(require('@/assets/glitch.png'))
 
     bg.anchor.set(0)
     bg.x = this.pixi.screen.width
