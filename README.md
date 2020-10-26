@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-# girls-who-code
-=======
 # girls_who_code
 
 > A Vue.js project
@@ -22,4 +19,4 @@ npm run build --report
 ```
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
->>>>>>> e3e4d49425ed4b4a9786ad9d62e796b89e1959d5
+
