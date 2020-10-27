@@ -39,8 +39,30 @@
         <div class="popup popup_12">
           <img src="@/assets/popup_12.png">
         </div>
-        <div class="popup popup_13" @click="onClick">
+        <div class="popup popup_13">
+          <router-link class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
           <img src="@/assets/popup_13.png">
+        </div>
+        <div class="arrow arrow_1">
+          <img src="@/assets/mouse_1.png">
+        </div>
+        <div class="arrow arrow_2">
+          <img src="@/assets/mouse_1.png">
+        </div>
+        <div class="arrow arrow_3">
+          <img src="@/assets/mouse_1.png">
+        </div>
+        <div class="arrow arrow_4">
+          <img src="@/assets/mouse_1.png">
+        </div>
+        <div class="arrow arrow_5">
+          <img src="@/assets/mouse_1.png">
+        </div>
+        <div class="arrow arrow_6">
+          <img src="@/assets/mouse_1.png">
+        </div>
+        <div class="arrow arrow_7">
+          <img src="@/assets/mouse_1.png">
         </div>
       </div>
     </div>
@@ -167,90 +189,160 @@ export default {
 
 .popup {
   position: absolute;
-  box-shadow: 0px 5px 13px 2px rgba(0,0,0,0.31);
 }
 
 .popup_1 {
-  width: 20%;
-  left: 1%;
-  top: 10%;
+  width: 25%;
+  left: -1%;
+  top: 5.5%;
 }
 
 .popup_2 {
   width: 23%;
-  left: 20%;
-  top: 13%;
+  left: 14%;
+  top: 22.7%;
 }
 
 .popup_3 {
-  width: 15%;
-  left: 38%;
-  top: 3%;
+  width: 22%;
+  left: 27.5%;
+  top: 9%;
 }
 
 .popup_4 {
-  width: 17%;
-  left: 47.5%;
-  top: 16%;
+  width: 29%;
+  left: 39.5%;
+  top: 24%;
 }
 
 .popup_5 {
-  width: 15%;
-  left: 64%;
-  top: 11%;
+  width: 20%;
+  left: 57.5%;
+  top: 12%;
 }
 
 .popup_6 {
-  width: 20%;
-  left: 78%;
-  top: 7%;
+  width: 29%;
+  left: 73%;
+  top: 3%;
 }
 
 .popup_7 {
-  width: 20%;
-  left: 2%;
-  top: 47%;
+  width: 24%;
+  left: 0%;
+  top: 51%;
 }
 
 .popup_8 {
-  width: 16%;
-  left: 21%;
-  top: 41%;
+  width: 20%;
+  left: 18.5%;
+  top: 49%;
 }
 
 .popup_9 {
-  width: 17%;
-  left: 31%;
-  top: 54%;
+  width: 19%;
+  left: 30%;
+  top: 63%;
 }
 
 .popup_10 {
-  width: 28%;
-  left: 44%;
-  top: 39%;
+  width: 30%;
+  left: 42.4%;
+  top: 46%;
 }
 
 .popup_11 {
-  width: 18%;
-  left: 71%;
-  top: 34%;
+  width: 30%;
+  left: 66%;
+  top: 39%;
 }
 
 .popup_12 {
-  width: 14%;
-  left: 55.8%;
+  width: 18%;
+  left: 48.8%;
   top: 80%;
 }
 
 .popup_13 {
   cursor: pointer;
-  width: 24%;
-  left: 69.4%;
-  top: 67%;
+  width: 27%;
+  left: 62%;
+  top: 70%;
 }
 
 img {
   width: 100%;
   height: auto;
 }
+
+.arrow {
+  position: absolute;
+}
+
+.arrow_1 {
+  width: 3%;
+  top: 34%;
+  left: 3%;
+}
+
+.arrow_2 {
+  width: 4%;
+  top: 86%;
+  left: 73%;
+  transform: rotate(44deg);
+}
+
+.arrow_3 {
+  width: 2.4%;
+  top: 81%;
+  left: 78.3%;
+  transform: rotate(117deg);
+}
+
+.arrow_4 {
+  width: 5%;
+  top: 75%;
+  left: 83.5%;
+  transform: rotate(167deg);
+}
+
+.arrow_5 {
+  width: 3%;
+  top: 85%;
+  left: 86.5%;
+  transform: rotate(223deg);
+}
+
+.arrow_6 {
+  width: 5%;
+  top: 90%;
+  left: 84%;
+  transform: rotate(275deg);
+}
+
+.arrow_7 {
+  width: 3%;
+  top: 91%;
+  left: 78%;
+  transform: rotate(356deg);
+}
+
+.cta {
+  position: absolute;
+  bottom: 61px;
+  right: 56px;
+  color: white;
+  padding: 4px 19px;
+  border-radius: 2px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-family: 'Bebas Neue', cursive;
+  border: 1px solid #5856e6;
+  background: linear-gradient(0deg, #007bff, #5ac7fa);
+}
+
+.cta:hover {
+  background: linear-gradient(0deg, #007bff, #64d2ff);
+}
+
 </style>
