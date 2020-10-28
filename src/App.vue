@@ -12,6 +12,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import 'assets/fonts/digitany.css';
 
 body,
 html {
@@ -23,7 +24,7 @@ html {
 }
 
 #app {
-  font-family: 'Baloo Thambi 2', cursive;
+  font-family: 'DigitanyRegular', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import TeenVogue from '@/components/TeenVogue'
 import Netflix from '@/components/Netflix'
+import EndSlide from '@/components/EndSlide'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/netflix',
       name: 'Netflix',
       component: Netflix
+    },
+    {
+      path: '/endslide',
+      name: 'EndSlide',
+      component: EndSlide
     }
   ]
 })

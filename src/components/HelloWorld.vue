@@ -332,6 +332,7 @@ img {
   bottom: 61px;
   right: 56px;
   color: white;
+  font-size: 20px;
   padding: 4px 19px;
   border-radius: 2px;
   text-decoration: none;
