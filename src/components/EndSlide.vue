@@ -63,20 +63,24 @@ export default {
       const yStart = 5
       return gsap.timeline({ onComplete: done })
         .from('.popup_1', duration, {
-          opacity: 0,
-          y: yStart
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
         }, 0)
         .from('.popup_2', duration, {
-          opacity: 0,
-          y: yStart
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
         })
         .from('.popup_3', duration, {
-          opacity: 0,
-          y: yStart
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
         })
         .from('.popup_4', duration, {
-          opacity: 0,
-          y: yStart
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
         })
     }
   }

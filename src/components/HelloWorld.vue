@@ -1,7 +1,9 @@
 <template>
   <transition @enter="enter" appear>
     <div class="container">
-      <div class="logo">Girls Who Code</div>
+      <div class="logo">
+        <img src="@/assets/GWC_Final-Logo_White.png">
+      </div>
       <div class="popup-container">
         <div class="popup popup_1">
           <img src="@/assets/popup_1.png">
@@ -40,29 +42,26 @@
           <img src="@/assets/popup_12.png">
         </div>
         <div class="popup popup_13">
+          <div class="arrow arrow_2">
+            <img src="@/assets/mouse_1.png">
+          </div>
+          <div class="arrow arrow_3">
+            <img src="@/assets/mouse_1.png">
+          </div>
+          <div class="arrow arrow_4">
+            <img src="@/assets/mouse_1.png">
+          </div>
+          <div class="arrow arrow_5">
+            <img src="@/assets/mouse_1.png">
+          </div>
+          <div class="arrow arrow_6">
+            <img src="@/assets/mouse_1.png">
+          </div>
+          <div class="arrow arrow_7">
+            <img src="@/assets/mouse_1.png">
+          </div>
           <router-link class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
           <img src="@/assets/popup_13.png">
-        </div>
-        <div class="arrow arrow_1">
-          <img src="@/assets/mouse_1.png">
-        </div>
-        <div class="arrow arrow_2">
-          <img src="@/assets/mouse_1.png">
-        </div>
-        <div class="arrow arrow_3">
-          <img src="@/assets/mouse_1.png">
-        </div>
-        <div class="arrow arrow_4">
-          <img src="@/assets/mouse_1.png">
-        </div>
-        <div class="arrow arrow_5">
-          <img src="@/assets/mouse_1.png">
-        </div>
-        <div class="arrow arrow_6">
-          <img src="@/assets/mouse_1.png">
-        </div>
-        <div class="arrow arrow_7">
-          <img src="@/assets/mouse_1.png">
         </div>
       </div>
     </div>
@@ -87,61 +86,134 @@ export default {
       this.$router.push({ name: 'TeenVogue' })
     },
     enter(el, done) {
-      const duration = 0.4
+      const duration = 0.8
       const yStart = 5
-      return gsap.timeline({ onComplete: done })
+      return gsap.timeline({ onComplete: this.onComplete, delay: 2 })
         .from('.popup_1', duration, {
-          opacity: 0,
-          y: yStart
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
         }, 0)
         .from('.popup_2', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 0.4)
         .from('.popup_3', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 0.7)
         .from('.popup_4', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 1.1)
         .from('.popup_5', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 1.3)
         .from('.popup_6', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 1.6)
         .from('.popup_7', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 2)
         .from('.popup_8', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 2.2)
         .from('.popup_9', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 2.5)
         .from('.popup_10', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 2.8)
         .from('.popup_11', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 3.1)
         .from('.popup_12', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 3.5)
         .from('.popup_13', duration, {
-          opacity: 0,
-          y: yStart
-        })
+          scale: 0,
+          y: yStart,
+          ease: 'bounce.out'
+        }, 4)
+        .from('.arrow_2', 0.4, {
+          x: -30,
+          scale: 0,
+          ease: 'elastic.out'
+        }, 4.5)
+        .from('.arrow_3', 0.4, {
+          x: -5,
+          y: -30,
+          scale: 0,
+          ease: 'elastic.out'
+        }, 4.7)
+        .from('.arrow_4', 0.4, {
+          x: 5,
+          y: -30,
+          scale: 0,
+          ease: 'elastic.out'
+        }, 4.9)
+        .from('.arrow_5', 0.4, {
+          x: 30,
+          scale: 0,
+          ease: 'elastic.out'
+        }, 5.1)
+        .from('.arrow_6', 0.4, {
+          x: 15,
+          y: 25,
+          scale: 0,
+          ease: 'elastic.out'
+        }, 5.3)
+        .from('.arrow_7', 0.4, {
+          x: -2,
+          y: 25,
+          scale: 0,
+          ease: 'elastic.out'
+        }, 5.5)
+    },
+    onComplete() {
+      console.log('complete')
+      gsap.timeline({ repeat: -1 })
+        .to('.arrow_2', 2, { x: '-=5', rotation: '-=5', ease: 'power.easeinout' })
+        .to('.arrow_2', 3, { x: '+=5', rotation: '+=5', ease: 'power.easeinout' })
+
+      gsap.timeline({ repeat: -1 })
+        .to('.arrow_3', 3, { y: '-=5', rotation: '-=5', ease: 'power.easeinout' })
+        .to('.arrow_3', 2.2, { y: '+=5', rotation: '+=5', ease: 'power.easeinout' })
+
+      gsap.timeline({ repeat: -1 })
+        .to('.arrow_4', 2, { x: '+=5', y: '-=5', rotation: '-=5', ease: 'power.easeinout' })
+        .to('.arrow_4', 2.5, { x: '-=5', y: '+=5', rotation: '+=5', ease: 'power.easeinout' })
+
+      gsap.timeline({ repeat: -1 })
+        .to('.arrow_5', 3.2, { x: '+=5', rotation: '-=5', ease: 'power.easeinout' })
+        .to('.arrow_5', 2.8, { x: '-=5', rotation: '+=5', ease: 'power.easeinout' })
+
+      gsap.timeline({ repeat: -1 })
+        .to('.arrow_6', 2.7, { x: '+=5', y: '-=5', rotation: '-=5', ease: 'power.easeinout' })
+        .to('.arrow_6', 2.5, { x: '-=5', y: '+=5', rotation: '+=5', ease: 'power.easeinout' })
+
+      gsap.timeline({ repeat: -1 })
+        .to('.arrow_7', 3, { x: '+=2', y: '+=5', ease: 'power.easeinout' })
+        .to('.arrow_7', 3, { x: '-=2', y: '-=5', ease: 'power.easeinout' })
     }
   }
 }
@@ -176,12 +248,13 @@ export default {
   color: white;
   bottom: 50px;
   left: 80px;
+  width: 9%;
 }
 
 .popup-container {
   position: relative;
   width: 100%;
-  max-width: 1500px;
+  max-width: 1350px;
   height: 100%;
   min-height: 750px;;
   margin: 0 auto;
@@ -258,16 +331,16 @@ export default {
 }
 
 .popup_12 {
-  width: 18%;
-  left: 48.8%;
-  top: 80%;
+  width: 20%;
+  left: 54%;
+  top: 77%;
 }
 
 .popup_13 {
   cursor: pointer;
-  width: 27%;
-  left: 62%;
-  top: 70%;
+  width: 31%;
+  left: 69%;
+  top: 65%;
 }
 
 img {
@@ -286,44 +359,44 @@ img {
 }
 
 .arrow_2 {
-  width: 4%;
-  top: 86%;
-  left: 73%;
+  width: 10%;
+  top: 66%;
+  left: 48%;
   transform: rotate(44deg);
 }
 
 .arrow_3 {
-  width: 2.4%;
-  top: 81%;
-  left: 78.3%;
+  width: 8.4%;
+  top: 41%;
+  left: 60.3%;
   transform: rotate(117deg);
 }
 
 .arrow_4 {
-  width: 5%;
-  top: 75%;
-  left: 83.5%;
+  width: 15%;
+  top: 23%;
+  left: 81.5%;
   transform: rotate(167deg);
 }
 
 .arrow_5 {
-  width: 3%;
-  top: 85%;
-  left: 86.5%;
+  width: 11%;
+  top: 54%;
+  left: 91.5%;
   transform: rotate(223deg);
 }
 
 .arrow_6 {
-  width: 5%;
-  top: 90%;
-  left: 84%;
+  width: 16%;
+  top: 75%;
+  left: 82%;
   transform: rotate(275deg);
 }
 
 .arrow_7 {
-  width: 3%;
-  top: 91%;
-  left: 78%;
+  width: 10%;
+  top: 79%;
+  left: 62%;
   transform: rotate(356deg);
 }
 
