@@ -12,6 +12,7 @@ export default {
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import 'assets/fonts/digitany.css';
 
 body,
 html {
@@ -33,17 +34,5 @@ html {
   padding: 0;
   width: 100%;
   height: 100%;
-}
-
-@font-face {
-  font-family: 'DigitanyRegular';
-  src: url('assets/fonts/digitany.eot');
-  src: url('assets/fonts/digitany.eot?#iefix') format('embedded-opentype'),
-       url('assets/fonts/digitany.woff2') format('woff2'),
-       url('assets/fonts/digitany.woff') format('woff'),
-       url('assets/fonts/digitany.ttf') format('truetype'),
-       url('assets/fonts/digitany.svg#youworkforthem') format('svg');
-  font-weight: normal;
-  font-style: normal;
 }
 </style>
