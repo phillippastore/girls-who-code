@@ -19,7 +19,9 @@ export default {
       ground: null,
       ceil: null,
       leftwall: null,
-      rightwall: null
+      rightwall: null,
+      counter: -1,
+      dragBody: null
     }
   },
   mounted() {
@@ -41,8 +43,8 @@ export default {
       const height = window.innerHeight
       const Engine = Matter.Engine
       const Render = Matter.Render
-      this.world = Matter.World
-      this.bodies = Matter.Bodies
+      const World = Matter.World
+      const Bodies = Matter.Bodies
       this.engine = Engine.create()
       var render = Render.create({
         canvas: this.$refs.canvas,
@@ -53,22 +55,19 @@ export default {
           wireframes: false
         }
       })
-      this.engine.events = {}
-      Matter.World.clear(this.engine.world)
-      Matter.Engine.clear(this.engine)
-      const boxA = this.bodies.rectangle(400, 200, 80, 80)
-      const ballA = this.bodies.circle(380, 100, 40, 10)
-      const ballB = this.bodies.circle(460, 10, 40, 10)
-      this.ground = this.bodies.rectangle(width / 2, height + 25, width, 50, { isStatic: true })
-      this.ceil = this.bodies.rectangle(width / 2, -25, width, 50, { isStatic: true })
-      this.leftwall = this.bodies.rectangle(-25, height / 2, 50, height, { isStatic: true })
-      this.rightwall = this.bodies.rectangle(width + 25, height / 2, 50, height, { isStatic: true })
-      this.world.add(this.engine.world, [boxA, ballA, ballB, this.ground, this.ceil, this.leftwall, this.rightwall])
+      const boxA = Bodies.rectangle(400, 200, 80, 80)
+      const ballA = Bodies.circle(380, 100, 40, 10)
+      const ballB = Bodies.circle(460, 10, 40, 10)
+      this.ground = Bodies.rectangle(width / 2, height + 25, width, 50, { isStatic: true })
+      this.ceil = Bodies.rectangle(width / 2, -25, width, 50, { isStatic: true })
+      this.leftwall = Bodies.rectangle(-25, height / 2, 50, height, { isStatic: true })
+      this.rightwall = Bodies.rectangle(width + 25, height / 2, 50, height, { isStatic: true })
+      World.add(this.engine.world, [boxA, ballA, ballB, this.ground, this.ceil, this.leftwall, this.rightwall])
 
       for (let i = 0; i < 10; i++) {
         let radius = Math.round(Math.random() * 100)
         let size = Math.random() * height / 4
-        this.world.add(this.engine.world, this.bodies.circle(
+        World.add(this.engine.world, Bodies.circle(
           Math.random() * width,
           size,
           radius, {
@@ -79,6 +78,33 @@ export default {
           }
         ))
       }
+
+      Matter.Events.on(this.engine, 'beforeUpdate', event => {
+        this.counter += 0.014
+        if (this.counter < 0) { return }
+        if (this.dragBody != null) {
+          if (this.dragBody.velocity.x > 25.0) {
+            Matter.Body.setVelocity(this.dragBody, { x: 25, y: this.dragBody.velocity.y })
+          }
+          if (this.dragBody.velocity.y > 25.0) {
+            Matter.Body.setVelocity(this.dragBody, { x: this.dragBody.velocity.x, y: 25 })
+          }
+          if (this.dragBody.positionImpulse.x > 25.0) {
+            this.dragBody.positionImpulse.x = 25.0
+          }
+          if (this.dragBody.positionImpulse.y > 25.0) {
+            this.dragBody.positionImpulse.y = 25.0
+          }
+        }
+      })
+
+      const mouse = Matter.Mouse.create(render.canvas)
+      const mouseConstraint = Matter.MouseConstraint.create(this.engine, { mouse: mouse, constraint: { stiffness: 0.1, render: { visible: false } } })
+
+      Matter.Events.on(mouseConstraint, 'startdrag', function(event) {
+        console.log(event)
+        this.dragBody = event.body
+      })
 
       Engine.run(this.engine)
       Render.run(render)
