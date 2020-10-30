@@ -1,9 +1,9 @@
 <template>
   <div class="container" ref="container">
-    <div class="logo">
+    <div v-show="bgLoaded" class="logo">
       <img src="@/assets/teen-vogue-logo.png">
     </div>
-    <div class="generation">
+    <div v-show="bgLoaded" class="generation">
       <img src="@/assets/teenvogue_generation.png">
     </div>
     <div v-if="showModal" class="modal">
@@ -29,6 +29,7 @@ export default {
     return {
       pixi: null,
       bg: null,
+      bgLoaded: false,
       showModal: false
     }
   },
@@ -38,48 +39,65 @@ export default {
       resolution: devicePixelRatio
     })
     this.$refs.container.appendChild(this.pixi.view)
-    this.bg = PIXI.Sprite.from(require('@/assets/BG_TeenVogue.jpg'))
-    this.pixi.stage.addChild(this.bg)
 
-    const glitchFilter = new GlitchFilter({
-      fillMode: 1,
-      offset: 10
-    })
+    if (PIXI.utils.TextureCache['teenvogue']) {
+      this.bg = new PIXI.Sprite(PIXI.utils.TextureCache['teenvogue'])
+      this.init()
+    } else {
+      const loader = PIXI.Loader.shared
+      loader.add('teenvogue', require('@/assets/BG_TeenVogue.jpg'))
+      loader.load((loader, resources) => {
+        this.bg = new PIXI.Sprite(resources.teenvogue.texture)
+      })
 
-    this.bg.filters = [glitchFilter]
-
-    this.pixi.ticker.add(() => {
-      glitchFilter.slices = Math.floor(Math.random() * 4)
-    })
-
-    window.addEventListener('resize', this.resize)
-    this.$nextTick(() => this.resize())
-
-    // Animate the logo and teen vogue generation text
-    gsap.timeline({ repeat: -1 })
-      .to('.logo', 1.2, { rotation: 15, ease: 'power.easeinout', transformOrigin: 'top left' })
-      .to('.logo', 1.5, { rotation: 0, ease: 'power.easeinout' })
-      .to('.logo', 0.9, { rotation: 38, ease: 'power.easeinout' })
-      .to('.logo', 2.1, { rotation: -10, ease: 'power.easeinout' })
-
-    gsap.timeline({ repeat: -1 })
-      .to('.generation', 1.4, { rotation: 20, ease: 'power.easeinout', transformOrigin: 'top left' })
-      .to('.generation', 0.4, { rotation: 10, ease: 'power.easeinout' })
-      .to('.generation', 0.9, { rotation: 38, ease: 'power.easeinout' })
-      .to('.generation', 0.3, { rotation: -10, ease: 'power.easeinout' })
-      .to('.generation', 0.6, { rotation: -5, ease: 'power.easeinout' })
-      .to('.generation', 0.4, { rotation: -12, ease: 'power.easeinout' })
-
-    // Timeout to show the modal
-    setTimeout(() => {
-      this.showModal = true
-    }, 10000)
+      loader.onComplete.add(() => {
+        this.init()
+      })
+    }
   },
   destroy() {
     window.removeEventListener('resize', this.resize)
-    this.pixi = null
+    this.pixi.destroy()
+    PIXI.Texture.removeTextureFromCache('teenvogue').destroy(true)
   },
   methods: {
+    init() {
+      this.bgLoaded = true
+      this.pixi.stage.addChild(this.bg)
+
+      const glitchFilter = new GlitchFilter({
+        fillMode: 1,
+        offset: 10
+      })
+      this.bg.filters = [glitchFilter]
+
+      this.pixi.ticker.add(() => {
+        glitchFilter.slices = Math.floor(Math.random() * 4)
+      })
+
+      // Animate the logo and teen vogue generation text
+      gsap.timeline({ repeat: -1 })
+        .to('.logo', 1.2, { rotation: 15, ease: 'power.easeinout', transformOrigin: 'top left' })
+        .to('.logo', 1.5, { rotation: 0, ease: 'power.easeinout' })
+        .to('.logo', 0.9, { rotation: 38, ease: 'power.easeinout' })
+        .to('.logo', 2.1, { rotation: -10, ease: 'power.easeinout' })
+
+      gsap.timeline({ repeat: -1 })
+        .to('.generation', 1.4, { rotation: 20, ease: 'power.easeinout', transformOrigin: 'top left' })
+        .to('.generation', 0.4, { rotation: 10, ease: 'power.easeinout' })
+        .to('.generation', 0.9, { rotation: 38, ease: 'power.easeinout' })
+        .to('.generation', 0.3, { rotation: -10, ease: 'power.easeinout' })
+        .to('.generation', 0.6, { rotation: -5, ease: 'power.easeinout' })
+        .to('.generation', 0.4, { rotation: -12, ease: 'power.easeinout' })
+
+      // Timeout to show the modal
+      setTimeout(() => {
+        this.showModal = true
+      }, 15000)
+
+      window.addEventListener('resize', this.resize)
+      this.resize()
+    },
     resize() {
       // Resize the renderer
       this.pixi.renderer.resize(window.innerWidth, window.innerHeight)
