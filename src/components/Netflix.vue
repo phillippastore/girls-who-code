@@ -1,113 +1,119 @@
 <template>
- <div class="container" ref="container">
-   <div class="logo">Girls Who Code</div>
-   <router-link class="cta" :to="{ name: 'EndSlide'}">Next</router-link>
-   <canvas ref="canvas"></canvas>
- </div>
+  <div class="container" ref="container">
+    <div v-if="showModal" class="modal">
+      <img class="modal-header" src="@/assets/modal-header.png">
+      <img class="img-404" src="@/assets/404.png">
+      <div class="content">
+        THE FIRST EVER PROGRAMMER<br>WAS A WOMAN.<br><br>AKA NONE OF THIS S%$# WOULD EVEN<br>BE POSSIBLE WITHOUT GIRLS.
+      </div>
+      <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
+      <router-link class="windows-button" :to="{ name: 'Netflix'}">NEXT</router-link>
+    </div>
+  </div>
 </template>
 
 <script>
-import * as Matter from 'matter-js'
+import * as PIXI from 'pixi.js'
+// import { GlitchFilter } from '@pixi/filter-glitch'
 
 export default {
-  name: 'Netflix',
+  name: 'TeenVogue',
   data() {
     return {
-      world: null,
-      bodies: null,
-      engine: null,
-      ground: null,
-      ceil: null,
-      leftwall: null,
-      rightwall: null,
-      counter: -1,
-      dragBody: null
+      pixi: null,
+      bg: null,
+      showModal: false,
+      slides: {},
+      numSlides: 190,
+      currentIndex: 0,
+      counter: 0
     }
   },
   mounted() {
-    console.log(this.$mq)
-    window.addEventListener('resize', this.resize)
-    this.init()
-  },
-  destroy() {
-    this.engine.events = {}
-    Matter.World.clear(this.engine.world)
-    Matter.Engine.clear(this.engine)
-  },
-  methods: {
-    resize() {
-      this.init()
-    },
-    init() {
-      const width = window.innerWidth
-      const height = window.innerHeight
-      const Engine = Matter.Engine
-      const Render = Matter.Render
-      const World = Matter.World
-      const Bodies = Matter.Bodies
-      this.engine = Engine.create()
-      var render = Render.create({
-        canvas: this.$refs.canvas,
-        engine: this.engine,
-        options: {
-          width: width,
-          height: height,
-          wireframes: false
-        }
-      })
-      const boxA = Bodies.rectangle(400, 200, 80, 80)
-      const ballA = Bodies.circle(380, 100, 40, 10)
-      const ballB = Bodies.circle(460, 10, 40, 10)
-      this.ground = Bodies.rectangle(width / 2, height + 25, width, 50, { isStatic: true })
-      this.ceil = Bodies.rectangle(width / 2, -25, width, 50, { isStatic: true })
-      this.leftwall = Bodies.rectangle(-25, height / 2, 50, height, { isStatic: true })
-      this.rightwall = Bodies.rectangle(width + 25, height / 2, 50, height, { isStatic: true })
-      World.add(this.engine.world, [boxA, ballA, ballB, this.ground, this.ceil, this.leftwall, this.rightwall])
+    // Start PIXI and animate the background with the glitch filter
+    this.pixi = new PIXI.Application({
+      resolution: devicePixelRatio
+    })
+    this.$refs.container.appendChild(this.pixi.view)
 
-      for (let i = 0; i < 10; i++) {
-        let radius = Math.round(Math.random() * 100)
-        let size = Math.random() * height / 4
-        World.add(this.engine.world, Bodies.circle(
-          Math.random() * width,
-          size,
-          radius, {
-            mass: size / 5,
-            render: {
-              fillStyle: ['#EA1070', '#EAC03C', '#25DDBC', '#007DB0', '#252B7F', '#FF6040'][Math.round(Math.random() * 6 - 0.5)]
-            }
-          }
-        ))
+    if (PIXI.utils.TextureCache['teenvogue']) {
+      this.bg = new PIXI.Sprite(PIXI.utils.TextureCache['teenvogue'])
+      this.init()
+    } else {
+      const loader = PIXI.Loader.shared
+
+      for (var i = 0; i < this.numSlides; i++) {
+        var num = 0
+        if (i < 10) {
+          num = `0000${i}`
+        } else if (i < 100) {
+          num = `000${i}`
+        } else {
+          num = `00${i}`
+        }
+        loader.add(`netflix_${i}`, require(`@/assets/Netflix/Netflix_${num}.jpg`))
       }
 
-      Matter.Events.on(this.engine, 'beforeUpdate', event => {
-        this.counter += 0.014
-        if (this.counter < 0) { return }
-        if (this.dragBody != null) {
-          if (this.dragBody.velocity.x > 25.0) {
-            Matter.Body.setVelocity(this.dragBody, { x: 25, y: this.dragBody.velocity.y })
-          }
-          if (this.dragBody.velocity.y > 25.0) {
-            Matter.Body.setVelocity(this.dragBody, { x: this.dragBody.velocity.x, y: 25 })
-          }
-          if (this.dragBody.positionImpulse.x > 25.0) {
-            this.dragBody.positionImpulse.x = 25.0
-          }
-          if (this.dragBody.positionImpulse.y > 25.0) {
-            this.dragBody.positionImpulse.y = 25.0
-          }
+      loader.load((loader, resources) => {
+        for (var i = 0; i < this.numSlides; i++) {
+          this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`netflix_${i}`].texture)
         }
       })
 
-      const mouse = Matter.Mouse.create(render.canvas)
-      const mouseConstraint = Matter.MouseConstraint.create(this.engine, { mouse: mouse, constraint: { stiffness: 0.1, render: { visible: false } } })
-
-      Matter.Events.on(mouseConstraint, 'startdrag', function(event) {
-        console.log(event)
-        this.dragBody = event.body
+      loader.onLoad.add(() => {
+        console.log('added')
       })
 
-      Engine.run(this.engine)
-      Render.run(render)
+      loader.onComplete.add(() => {
+        this.init()
+      })
+    }
+  },
+  destroy() {
+    window.removeEventListener('resize', this.resize)
+    this.pixi.destroy()
+    PIXI.Texture.removeTextureFromCache('teenvogue').destroy(true)
+  },
+  methods: {
+    init() {
+      this.pixi.stage.addChild(this.slides['slide_0'])
+
+      /*
+      const glitchFilter = new GlitchFilter({
+        fillMode: 1,
+        offset: 10
+      })
+      this.bg.filters = [glitchFilter]
+      */
+
+      this.pixi.ticker.speed = 0.2
+
+      this.pixi.ticker.add(time => {
+        this.counter += time
+        if (this.counter > 1) {
+          this.pixi.stage.removeChild(this.slides[`slide_${this.currentIndex}`])
+          this.currentIndex = this.currentIndex < this.numSlides - 1 ? this.currentIndex + 1 : 0
+          this.pixi.stage.addChild(this.slides[`slide_${this.currentIndex}`])
+          this.counter = 0
+        }
+      })
+
+      // Timeout to show the modal
+      setTimeout(() => {
+        // this.showModal = true
+      }, 15000)
+
+      window.addEventListener('resize', this.resize)
+      this.resize()
+    },
+    resize() {
+      // Resize the renderer
+      const texture = this.slides[`slide_${this.currentIndex}`]
+      this.pixi.renderer.resize(window.innerWidth, window.innerHeight)
+      var scale = Math.max(window.innerWidth / texture.width, window.innerHeight / texture.height)
+      texture.scale.set(scale, scale)
+      texture.x = 0
+      texture.y = 0
     }
   }
 }
@@ -124,9 +130,16 @@ export default {
 
 .logo {
   position: absolute;
-  color: white;
-  bottom: 50px;
-  left: 80px;
+  top: 2%;
+  left: 3.5%;
+  width: 10%;
+}
+
+.generation {
+  position: absolute;
+  top: 37%;
+  left: 30%;
+  width: 50%;
 }
 
 img {
@@ -134,13 +147,64 @@ img {
   height: auto;
 }
 
-.cta {
-  position: absolute;
-  bottom: 50px;
-  right: 80px;
+.modal {
+  position: fixed;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 500px;
+  z-index: 2;
+  background-color: black;
+  box-shadow:
+    inset -2px 4px 1px -2px #999999,
+    inset 0px 0px 1px 1px #000000,
+    inset 0px -4px 1px -2px #999999,
+    inset -5px 0px 1px -2px #999999;
+}
+
+.modal-header {
+  width: 98%;
+  margin-top: 3px;
+}
+
+.img-404 {
+  width: 65%;
+  padding: 0 37%;
+}
+
+.content {
   color: white;
-  background-color: blue;
-  padding: 10px 30px;
-  border-radius: 2px;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 28px;
+  width: 100%;
+}
+
+.windows-button {
+  box-sizing: border-box;
+  border: none;
+  background: #c0c0c0;
+  box-shadow:
+    inset -2px 4px 1px -2px #e1e1e1,
+    inset 4px 0px 1px -2px #e1e1e1,
+    inset 0px -4px 1px -2px #999999,
+    inset -5px 0px 1px -2px #999999;
+  border-radius: 0;
+  font-family: 'Bebas Neue', cursive;
+  font-size: 22px;
+  min-width: 200px;
+  margin: 0 11px;
+  padding-top: 7px;
+  min-height: 40px;
+  color: black;
+  text-decoration: none;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
 }
 </style>

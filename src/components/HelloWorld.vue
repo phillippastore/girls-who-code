@@ -60,7 +60,7 @@
           <div class="arrow arrow_7">
             <img src="@/assets/mouse_1.png">
           </div>
-          <router-link class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
+          <router-link class="cta" :to="{ name: 'Netflix'}">Let's See</router-link>
           <img src="@/assets/popup_13.png">
         </div>
       </div>

@@ -45,7 +45,7 @@ export default {
       this.init()
     } else {
       const loader = PIXI.Loader.shared
-      loader.add('teenvogue', require('@/assets/BG_TeenVogue.jpg'))
+      loader.add('teenvogue', require('@/assets/Netflix/Netflix_00000.jpg'))
       loader.load((loader, resources) => {
         this.bg = new PIXI.Sprite(resources.teenvogue.texture)
       })
@@ -92,7 +92,7 @@ export default {
 
       // Timeout to show the modal
       setTimeout(() => {
-        this.showModal = true
+        // this.showModal = true
       }, 15000)
 
       window.addEventListener('resize', this.resize)
