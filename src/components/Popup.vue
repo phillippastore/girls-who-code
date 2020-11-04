@@ -153,7 +153,7 @@ export default {
 .windowInternet { background-image: url('../assets/internet.png');}
 .windowLooklike { background-image: url('../assets/looklike.png');}
 .windowWithout { background-image: url('../assets/without.png');}
-.windowThem { background-image: url('../assets/them.gif');}
+.windowThem { background-image: url('../assets/them.gif'); background-position: center top;}
   
 .windowGray { background-color: #ececec; }
 .windowWhite { background-color: #ffffff; }
@@ -192,90 +192,290 @@ export default {
 }
 
 .popup_1 {
-  width: 23%;
+  width: 300px;
   left: -1%;
   top: 5.5%;
 }
 
-@media(min-width:768px) and (max-width:850px) {
+.popup_1 .window_body {
+  height: 150px;
+}
+
+@media(max-width:1100px) {
   .popup_1 {
-    width: 29%;
-    left: -1%;
-    top: 5.5%;
+    width: 200px;
+    left: 3%;
+    top: 3%;
+  }
+
+  .popup_1 .window_body {
+    height: 100px;
   }
 }
 
 .popup_2 {
-  width: 21%;
+  width: 275px;
   left: 14%;
   top: 22.7%;
 }
 
+.popup_2 .window_body {
+  height: 130px;
+}
+
+@media(max-width:1100px) {
+  .popup_2 {
+    width: 200px;
+    left: 16%;
+    top: 15%;
+  }
+
+  .popup_2 .window_body {
+    height: 100px;
+  }
+}
+
 .popup_3 {
-  width: 20%;
+  width: 220px;
   left: 27.5%;
-  top: 9%;
-}
-
-.popup_4 {
-  width: 27%;
-  left: 39.5%;
-  top: 24%;
-}
-
-.popup_5 {
-  width: 18%;
-  left: 57.5%;
   top: 12%;
 }
 
+.popup_3 .window_body {
+  height: 110px;
+}
+
+@media(max-width:1100px) {
+  .popup_3 {
+    width: 160px;
+    left: 30%;
+    top: 7%;
+  }
+
+  .popup_3 .window_body {
+    height: 80px;
+  }
+}
+
+.popup_4 {
+  width: 370px;
+  left: 39.5%;
+  top: 23%;
+}
+
+.popup_4 .window_body {
+  height: 110px;
+}
+
+@media(max-width:1100px) {
+  .popup_4 {
+    width: 270px;
+    left: 39.5%;
+    top: 16%;
+  }
+
+  .popup_4 .window_body {
+    height: 80px;
+  }
+}
+
+.popup_5 {
+  width: 180px;
+  left: 59%;
+  top: 15%;
+}
+
+.popup_5 .window_body {
+  height: 90px;
+}
+
+@media(max-width:1100px) {
+  .popup_5 {
+    width: 150px;
+    left: 59%;
+    top: 9%;
+  }
+
+  .popup_5 .window_body {
+    height: 70px;
+  }
+}
+
 .popup_6 {
-  width: 27%;
-  left: 73%;
+  width: 320px;
+  left: 71%;
   top: 3%;
 }
 
+.popup_6 .window_body {
+  height: 110px;
+}
+
+@media(max-width:1100px) {
+  .popup_6 {
+    width: 250px;
+    left: 73%;
+    top: 3%;
+  }
+
+  .popup_6 .window_body {
+    height: 70px;
+  }
+}
+
 .popup_7 {
-  width: 20%;
+  width: 280px;
   left: 0%;
   top: 51%;
 }
 
+.popup_7 .window_body {
+  height: 140px;
+}
+
+@media(max-width:1100px) {
+  .popup_7 {
+    width: 180px;
+    left: 2%;
+    top: 51%;
+  }
+
+  .popup_7 .window_body {
+    height: 90px;
+  }
+}
+
 .popup_8 {
-  width: 17%;
+  width: 240px;
   left: 19%;
-  top: 43%;
+  top: 47%;
+}
+
+.popup_8 .window_body {
+  height: 110px;
+}
+
+@media(max-width:1100px) {
+  .popup_8 {
+    width: 200px;
+    left: 19%;
+    top: 47%;
+  }
+
+  .popup_8 .window_body {
+    height: 80px;
+  }
 }
 
 .popup_9 {
-  width: 15%;
+  width: 220px;
   left: 30%;
-  top: 56%;
+  top: 58%;
+}
+
+.popup_9 .window_body {
+  height: 110px;
+}
+
+@media(max-width:1100px) {
+  .popup_9 {
+    width: 150px;
+    left: 32%;
+    top: 56%;
+  }
+
+  .popup_9 .window_body {
+    height: 70px;
+  }
 }
 
 .popup_10 {
-  width: 30%;
+  width: 420px;
   left: 42.4%;
-  top: 43%;
+  top: 44%;
+}
+
+.popup_10 .window_body {
+  height: 150px;
+}
+
+@media(max-width:1100px) {
+  .popup_10 {
+    width: 280px;
+    left: 42.4%;
+    top: 44%;
+  }
+
+  .popup_10 .window_body {
+    height: 100px;
+  }
 }
 
 .popup_11 {
-  width: 24%;
+  width: 320px;
   left: 71%;
   top: 37%;
 }
 
+.popup_11 .window_body {
+  height: 100px;
+}
+
+@media(max-width:1100px) {
+  .popup_11 {
+    width: 260px;
+    left: 69%;
+    top: 39%;
+  }
+
+  .popup_11 .window_body {
+    height: 90px;
+  }
+}
+
 .popup_12 {
-  width: 20%;
+  width: 270px;
   left: 51%;
   top: 77%;
 }
 
+.popup_12 .window_body {
+  height: 110px;
+}
+
+@media(max-width:1100px) {
+  .popup_12 {
+    width: 220px;
+    left: 44%;
+    top: 77%;
+  }
+
+  .popup_12 .window_body {
+    height: 90px;
+  }
+}
+
 .popup_13 {
   cursor: pointer;
-  width: 30%;
+  width: 360px;
   left: 70%;
   top: 65%;
+}
+
+.popup_13 .window_body {
+  height: 180px;
+}
+
+@media(max-width:1100px) {
+  .popup_13 {
+    width: 300px;
+    left: 64%;
+    top: 65%;
+  }
+
+  .popup_13 .window_body {
+    height: 170px;
+  }
 }
 
 img {
@@ -308,8 +508,8 @@ img {
 }
 
 .arrow_4 {
-  width: 15%;
-  top: 23%;
+  width: 10%;
+  top: 36%;
   left: 81.5%;
   transform: rotate(167deg);
 }
@@ -339,10 +539,19 @@ img {
   z-index: 1;
   position: absolute;
   width: 30%;
-  left: 71.5%;
+  left: 68%;
   top: 65%;
   height: 250px;
   pointer-events: none;
+}
+
+@media(max-width:1100px) {
+  .all_arrows { 
+    width: 300px;
+    left: 63%;
+    top: 65%;
+    height: 250px;
+  }
 }
 
 .cta {
