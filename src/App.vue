@@ -22,6 +22,14 @@ html {
   overflow: hidden;
 }
 
+@media(max-width:600px) {
+  body,
+  html {
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+}
+
 #app {
   font-family: 'DigitanyRegular', serif;
   -webkit-font-smoothing: antialiased;

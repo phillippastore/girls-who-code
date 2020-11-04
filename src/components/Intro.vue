@@ -266,6 +266,17 @@ export default {
   bottom: 50px;
   left: 80px;
   width: 9%;
+  min-width: 15vh;
+}
+
+@media(max-width:600px) {
+  .logo {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    width: 30%;
+    min-width: 10vh;
+  }
 }
 
 .popup-container {

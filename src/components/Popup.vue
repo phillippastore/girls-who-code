@@ -27,10 +27,10 @@
         <div class="header_button green"></div>
       </div>
       <div class="window_body" :class="{
-        'windowGray': (type == '1'), 
-        'windowWhite': (type == '2'), 
-        'windowToday': (background == 'today'), 
-        'window24': (background == '24'), 
+        'windowGray': (type == '1'),
+        'windowWhite': (type == '2'),
+        'windowToday': (background == 'today'),
+        'window24': (background == '24'),
         'windowAll': (background == 'all'),
         'windowCoders': (background == 'coders'),
         'windowAre': (background == 'are'),
@@ -50,7 +50,7 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 
 export default {
   name: 'Popup',
@@ -133,7 +133,7 @@ export default {
 .red { background-color: #ff0000; }
 .yellow { background-color: #ffbe2d; }
 .green { background-color: #2acb42; }
-    
+
 .window_body {
   height: var(--height);
   background-size: contain;
@@ -154,7 +154,7 @@ export default {
 .windowLooklike { background-image: url('../assets/looklike.png');}
 .windowWithout { background-image: url('../assets/without.png');}
 .windowThem { background-image: url('../assets/them.gif'); background-position: center top;}
-  
+
 .windowGray { background-color: #ececec; }
 .windowWhite { background-color: #ffffff; }
 
@@ -186,6 +186,12 @@ export default {
   min-height: 750px;;
   margin: 0 auto;
 }
+/*
+@media(max-width:600px) {
+  .popup-container {
+    overflow: scroll;
+  }
+} */
 
 .popup {
   position: absolute;
@@ -213,6 +219,18 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_1 {
+    width: 70vw;
+    left: 3%;
+    top: 3%;
+  }
+
+  .popup_1 .window_body {
+    height: 30vw;
+  }
+}
+
 .popup_2 {
   width: 275px;
   left: 14%;
@@ -235,6 +253,17 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_2 {
+    width: 45vw;
+    left: 38%;
+    top: 19%;
+  }
+
+  .popup_2 .window_body {
+    height: 22vw;
+  }
+}
 .popup_3 {
   width: 220px;
   left: 27.5%;
@@ -254,6 +283,18 @@ export default {
 
   .popup_3 .window_body {
     height: 80px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_3 {
+    width: 60vw;
+    left: 10%;
+    top: 30%;
+  }
+
+  .popup_3 .window_body {
+    height: 26vw;
   }
 }
 
@@ -279,6 +320,18 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_4 {
+    width: 65vw;
+    left: 15.5%;
+    top: 42%;
+  }
+
+  .popup_4 .window_body {
+    height: 20vw;
+  }
+}
+
 .popup_5 {
   width: 180px;
   left: 59%;
@@ -298,6 +351,18 @@ export default {
 
   .popup_5 .window_body {
     height: 70px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_5 {
+    width: 37vw;
+    left: 50%;
+    top: 52%;
+  }
+
+  .popup_5 .window_body {
+    height: 20vw;
   }
 }
 
@@ -323,6 +388,18 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_6 {
+    width: 80vw;
+    left: 10%;
+    top: 62%;
+  }
+
+  .popup_6 .window_body {
+    height: 30vw;
+  }
+}
+
 .popup_7 {
   width: 280px;
   left: 0%;
@@ -342,6 +419,18 @@ export default {
 
   .popup_7 .window_body {
     height: 90px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_7 {
+    width: 60vw;
+    left: 3%;
+    top: 78%;
+  }
+
+  .popup_7 .window_body {
+    height: 30vw;
   }
 }
 
@@ -367,6 +456,18 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_8 {
+    width: 40vw;
+    left: 19%;
+    top: 94%;
+  }
+
+  .popup_8 .window_body {
+    height: 23vw;
+  }
+}
+
 .popup_9 {
   width: 220px;
   left: 30%;
@@ -386,6 +487,18 @@ export default {
 
   .popup_9 .window_body {
     height: 70px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_9 {
+    width: 40vw;
+    left: 42%;
+    top: 105%;
+  }
+
+  .popup_9 .window_body {
+    height: 20vw;
   }
 }
 
@@ -411,6 +524,18 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_10 {
+    width: 85vw;
+    left: 5%;
+    top: 116%;
+  }
+
+  .popup_10 .window_body {
+    height: 30vw;
+  }
+}
+
 .popup_11 {
   width: 320px;
   left: 71%;
@@ -430,6 +555,18 @@ export default {
 
   .popup_11 .window_body {
     height: 90px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_11 {
+    width: 70vw;
+    left: 15%;
+    top: 132%;
+  }
+
+  .popup_11 .window_body {
+    height: 27vw;
   }
 }
 
@@ -455,6 +592,17 @@ export default {
   }
 }
 
+@media(max-width:600px) {
+  .popup_12 {
+    width: 60vw;
+    left: 10%;
+    top: 145%;
+  }
+
+  .popup_12 .window_body {
+    height: 26vw;
+  }
+}
 .popup_13 {
   cursor: pointer;
   width: 360px;
@@ -475,6 +623,19 @@ export default {
 
   .popup_13 .window_body {
     height: 170px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_13 {
+    width: 90vw;
+    left: 5%;
+    top: 158%;
+    margin-bottom: 30vw;
+  }
+
+  .popup_13 .window_body {
+    height: 50vw;
   }
 }
 
@@ -546,11 +707,20 @@ img {
 }
 
 @media(max-width:1100px) {
-  .all_arrows { 
+  .all_arrows {
     width: 300px;
     left: 63%;
     top: 65%;
     height: 250px;
+  }
+}
+
+@media(max-width:600px) {
+  .all_arrows {
+    width: 100vw;
+    left: -5vw;
+    top: 155%;
+    height: 80vw;
   }
 }
 
