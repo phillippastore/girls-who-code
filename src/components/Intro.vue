@@ -5,7 +5,20 @@
         <img src="@/assets/GWC_Final-Logo_White.png">
       </div>
       <div class="popup-container">
-        <div class="popup popup_1">
+        <Popup name="popup_1" type=2 width=14 height=9 left=1 top=7.5 background="today" />
+        <Popup name="popup_2" type=1 width=13 height=8 left=11.5 top=23.7 background="24" />
+        <Popup name="popup_3" type=1 width=12.5 height=8.5 left=20.7 top=10.5 background="all" />
+        <Popup name="popup_4" type=1 width=16.5 height=6.5 left=29.7 top=25 background="coders" />
+        <Popup name="popup_5" type=1 width=11.35 height=7.8 left=41.7 top=13.5 background="are" />
+        <Popup name="popup_6" type=2 width=17.35 height=7.6 left=52.7 top=4.6 background="women" />
+        <Popup name="popup_7" type=2 width=13.35 height=9 left=1.7 top=53.35 background="what" />
+        <Popup name="popup_8" type=1 width=11.35 height=7.3 left=14.7 top=50.35 background="would" />
+        <Popup name="popup_9" type=1 width=11 height=7.1 left=22.2 top=64.35 background="the" />
+        <Popup name="popup_10" type=2 width=18 height=8.9 left=31.2 top=47.8 background="internet" />
+        <Popup name="popup_11" type=1 width=17.35 height=7.4 left=48.3 top=40.35 background="looklike" />
+        <Popup name="popup_12" type=1 width=11.35 height=6.5 left=39.2 top=78.2 background="without" />
+        <Popup name="popup_13" type=1 width=17.6 height=10.6 left=50.4 top=67.35 background="them" />
+        <!-- <div class="popup popup_1">
           <img src="@/assets/popup_1.png">
         </div>
         <div class="popup popup_2">
@@ -40,8 +53,8 @@
         </div>
         <div class="popup popup_12">
           <img src="@/assets/popup_12.png">
-        </div>
-        <div class="popup popup_13">
+        </div> -->
+        <!-- <div class="popup popup_13">
           <div class="arrow arrow_2">
             <img src="@/assets/mouse_1.png">
           </div>
@@ -62,7 +75,7 @@
           </div>
           <router-link class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
           <img src="@/assets/popup_13.png">
-        </div>
+        </div> -->
       </div>
     </div>
   </transition>
@@ -70,9 +83,13 @@
 
 <script>
 import { gsap } from 'gsap'
+import Popup from '@/components/Popup.vue'
 
 export default {
-  name: 'HelloWorld',
+  name: 'Intro',
+  components: {
+    Popup
+  },
   data () {
     return {
       msg: 'Welcome to Your Vue.js App!!'
@@ -86,108 +103,108 @@ export default {
       this.$router.push({ name: 'TeenVogue' })
     },
     enter(el, done) {
-      const duration = 0.8
+      const duration = 0.4
       const yStart = 5
       return gsap.timeline({ onComplete: this.onComplete, delay: 2 })
         .from('.popup_1', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
+          ease: 'back.out'
         }, 0)
         .from('.popup_2', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 0.4)
+          ease: 'back.out'
+        }, 1.0)
         .from('.popup_3', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 0.7)
+          ease: 'back.out'
+        }, 1.2)
         .from('.popup_4', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 1.1)
+          ease: 'back.out'
+        }, 1.5)
         .from('.popup_5', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 1.3)
+          ease: 'back.out'
+        }, 1.6)
         .from('.popup_6', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 1.6)
+          ease: 'back.out'
+        }, 1.7)
         .from('.popup_7', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 2)
+          ease: 'back.out'
+        }, 3.5)
         .from('.popup_8', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 2.2)
+          ease: 'back.out'
+        }, 3.7)
         .from('.popup_9', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 2.5)
+          ease: 'back.out'
+        }, 4.0)
         .from('.popup_10', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 2.8)
+          ease: 'back.out'
+        }, 4.3)
         .from('.popup_11', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 3.1)
+          ease: 'back.out'
+        }, 4.6)
         .from('.popup_12', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 3.5)
+          ease: 'back.out'
+        }, 5.0)
         .from('.popup_13', duration, {
           scale: 0,
           y: yStart,
-          ease: 'bounce.out'
-        }, 4)
+          ease: 'back.out'
+        }, 5.5)
         .from('.arrow_2', 0.4, {
           x: -30,
           scale: 0,
-          ease: 'elastic.out'
-        }, 4.5)
+          ease: 'back.out'
+        }, 7.0)
         .from('.arrow_3', 0.4, {
           x: -5,
           y: -30,
           scale: 0,
-          ease: 'elastic.out'
-        }, 4.7)
+          ease: 'back.out'
+        }, 7.1)
         .from('.arrow_4', 0.4, {
           x: 5,
           y: -30,
           scale: 0,
-          ease: 'elastic.out'
-        }, 4.9)
+          ease: 'back.out'
+        }, 7.2)
         .from('.arrow_5', 0.4, {
           x: 30,
           scale: 0,
-          ease: 'elastic.out'
-        }, 5.1)
+          ease: 'back.out'
+        }, 7.3)
         .from('.arrow_6', 0.4, {
           x: 15,
           y: 25,
           scale: 0,
-          ease: 'elastic.out'
-        }, 5.3)
+          ease: 'back.out'
+        }, 7.4)
         .from('.arrow_7', 0.4, {
           x: -2,
           y: 25,
           scale: 0,
-          ease: 'elastic.out'
-        }, 5.5)
+          ease: 'back.out'
+        }, 7.5)
     },
     onComplete() {
       console.log('complete')
@@ -226,7 +243,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
@@ -307,9 +324,9 @@ export default {
 }
 
 .popup_8 {
-  width: 20%;
-  left: 18.5%;
-  top: 49%;
+  width: 19%;
+  left: 20.5%;
+  top: 43%;
 }
 
 .popup_9 {
