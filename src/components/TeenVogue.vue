@@ -46,12 +46,12 @@ export default {
         num = `00${i}`
       }
 
-      if (PIXI.utils.TextureCache[`netflix_${i}`]) {
-        console.log('cached')
-        this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`netflix_${i}`])
-      } else {
-        loader.add(`netflix_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
-      }
+      // if (PIXI.utils.TextureCache[`netflix_${i}`]) {
+      // console.log('cached')
+      // this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`netflix_${i}`])
+      // } else {
+      loader.add(`netflix_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
+      // }
     }
 
     loader.load((loader, resources) => {
@@ -91,7 +91,7 @@ export default {
         this.counter += time
         if (this.counter > 1) {
           this.pixi.stage.removeChild(this.slides[`slide_${this.currentIndex}`])
-          this.currentIndex = this.currentIndex < this.numSlides - 1 ? this.currentIndex + 1 : 0
+          this.currentIndex = this.currentIndex < Object.keys(this.slides).length - 1 ? this.currentIndex + 1 : 0
           const slide = this.slides[`slide_${this.currentIndex}`]
           slide.width = window.innerWidth
           slide.height = window.innerWidth * 2.59
@@ -109,20 +109,9 @@ export default {
       this.resize()
     },
     resize() {
-      // Resize the renderer
-      const texture = this.slides[`slide_${this.currentIndex}`]
       const width = window.innerWidth
       const height = width * 2.59
-
-      // console.log(`${width} : ${height}`)
-
       this.pixi.renderer.resize(width, height)
-      // var scale = width / texture.width
-      // texture.scale.set(scale, scale)
-      // texture.width = width
-      // texture.height = height
-      // texture.x = 0
-      // texture.y = 0
     }
   }
 }
