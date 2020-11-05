@@ -71,7 +71,7 @@ export default {
   },
   beforeDestroy() {
     const loader = PIXI.Loader.shared
-    loader.destroy()
+    loader.reset()
   },
   methods: {
     onClick() {

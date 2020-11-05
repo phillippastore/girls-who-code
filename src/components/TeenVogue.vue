@@ -68,10 +68,9 @@ export default {
       this.init()
     })
   },
-  destroy() {
+  beforeDestroy() {
     window.removeEventListener('resize', this.resize)
     this.pixi.destroy()
-    PIXI.Texture.removeTextureFromCache('teenvogue').destroy(true)
   },
   methods: {
     init() {
