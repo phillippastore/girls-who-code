@@ -84,7 +84,7 @@ export default {
   mounted() {
     console.log(this.$mq)
     const loader = PIXI.Loader.shared
-
+    /*
     for (var i = 0; i < this.numSlides; i++) {
       var num = 0
       if (i < 10) {
@@ -108,6 +108,7 @@ export default {
         this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`netflix_${i}`].texture)
       }
     })
+    */
   },
   methods: {
     onClick() {
