@@ -7,7 +7,7 @@
         THE FIRST EVER PROGRAMMER<br>WAS A WOMAN.<br><br>AKA NONE OF THIS S%$# WOULD EVEN<br>BE POSSIBLE WITHOUT GIRLS.
       </div>
       <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
-      <router-link class="windows-button" :to="{ name: 'Netflix'}">NEXT</router-link>
+      <router-link class="windows-button" :to="{ name: 'EndSlide'}">NEXT</router-link>
     </div>
   </div>
 </template>
@@ -100,8 +100,8 @@ export default {
 
       // Timeout to show the modal
       setTimeout(() => {
-        // this.showModal = true
-      }, 15000)
+        this.showModal = true
+      }, 20000)
 
       window.addEventListener('resize', this.resize)
       this.resize()

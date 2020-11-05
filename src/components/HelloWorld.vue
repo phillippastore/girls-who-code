@@ -60,7 +60,7 @@
           <div class="arrow arrow_7">
             <img src="@/assets/mouse_1.png">
           </div>
-          <router-link class="cta" :to="{ name: 'Netflix'}">Let's See</router-link>
+          <router-link class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
           <img src="@/assets/popup_13.png">
         </div>
       </div>
@@ -70,16 +70,44 @@
 
 <script>
 import { gsap } from 'gsap'
+import * as PIXI from 'pixi.js'
 
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App!!'
+      msg: 'Welcome to Your Vue.js App!!',
+      slides: {},
+      numSlides: 190
     }
   },
   mounted() {
     console.log(this.$mq)
+    const loader = PIXI.Loader.shared
+
+    for (var i = 0; i < this.numSlides; i++) {
+      var num = 0
+      if (i < 10) {
+        num = `0000${i}`
+      } else if (i < 100) {
+        num = `000${i}`
+      } else {
+        num = `00${i}`
+      }
+
+      if (PIXI.utils.TextureCache[`netflix_${i}`]) {
+        console.log('cached')
+        this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`netflix_${i}`])
+      } else {
+        loader.add(`netflix_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
+      }
+    }
+
+    loader.load((loader, resources) => {
+      for (var i = 0; i < this.numSlides; i++) {
+        this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`netflix_${i}`].texture)
+      }
+    })
   },
   methods: {
     onClick() {

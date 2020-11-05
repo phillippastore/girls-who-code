@@ -1,11 +1,5 @@
 <template>
   <div class="container" ref="container">
-    <div v-show="bgLoaded" class="logo">
-      <img src="@/assets/teen-vogue-logo.png">
-    </div>
-    <div v-show="bgLoaded" class="generation">
-      <img src="@/assets/teenvogue_generation.png">
-    </div>
     <div v-if="showModal" class="modal">
       <img class="modal-header" src="@/assets/modal-header.png">
       <img class="img-404" src="@/assets/404.png">
@@ -20,8 +14,7 @@
 
 <script>
 import * as PIXI from 'pixi.js'
-import { GlitchFilter } from '@pixi/filter-glitch'
-import { gsap } from 'gsap'
+// import { GlitchFilter } from '@pixi/filter-glitch'
 
 export default {
   name: 'TeenVogue',
@@ -29,31 +22,51 @@ export default {
     return {
       pixi: null,
       bg: null,
-      bgLoaded: false,
-      showModal: false
+      showModal: false,
+      slides: {},
+      numSlides: 190,
+      currentIndex: 0,
+      counter: 0
     }
   },
   mounted() {
     // Start PIXI and animate the background with the glitch filter
-    this.pixi = new PIXI.Application({
-      resolution: devicePixelRatio
-    })
+    this.pixi = new PIXI.Application()
     this.$refs.container.appendChild(this.pixi.view)
 
-    if (PIXI.utils.TextureCache['teenvogue']) {
-      this.bg = new PIXI.Sprite(PIXI.utils.TextureCache['teenvogue'])
-      this.init()
-    } else {
-      const loader = PIXI.Loader.shared
-      loader.add('teenvogue', require('@/assets/Netflix/Netflix_00000.jpg'))
-      loader.load((loader, resources) => {
-        this.bg = new PIXI.Sprite(resources.teenvogue.texture)
-      })
+    const loader = PIXI.Loader.shared
 
-      loader.onComplete.add(() => {
-        this.init()
-      })
+    for (var i = 0; i < this.numSlides; i++) {
+      var num = 0
+      if (i < 10) {
+        num = `0000${i}`
+      } else if (i < 100) {
+        num = `000${i}`
+      } else {
+        num = `00${i}`
+      }
+
+      if (PIXI.utils.TextureCache[`netflix_${i}`]) {
+        console.log('cached')
+        this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`netflix_${i}`])
+      } else {
+        loader.add(`netflix_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
+      }
     }
+
+    loader.load((loader, resources) => {
+      for (var i = 0; i < this.numSlides; i++) {
+        this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`netflix_${i}`].texture)
+      }
+    })
+
+    loader.onLoad.add(() => {
+      console.log('added')
+    })
+
+    loader.onComplete.add(() => {
+      this.init()
+    })
   },
   destroy() {
     window.removeEventListener('resize', this.resize)
@@ -62,49 +75,54 @@ export default {
   },
   methods: {
     init() {
-      this.bgLoaded = true
-      this.pixi.stage.addChild(this.bg)
+      this.pixi.stage.addChild(this.slides['slide_0'])
 
+      /*
       const glitchFilter = new GlitchFilter({
         fillMode: 1,
         offset: 10
       })
       this.bg.filters = [glitchFilter]
+      */
 
-      this.pixi.ticker.add(() => {
-        glitchFilter.slices = Math.floor(Math.random() * 4)
+      this.pixi.ticker.speed = 0.2
+
+      this.pixi.ticker.add(time => {
+        this.counter += time
+        if (this.counter > 1) {
+          this.pixi.stage.removeChild(this.slides[`slide_${this.currentIndex}`])
+          this.currentIndex = this.currentIndex < this.numSlides - 1 ? this.currentIndex + 1 : 0
+          const slide = this.slides[`slide_${this.currentIndex}`]
+          slide.width = window.innerWidth
+          slide.height = window.innerWidth * 2.59
+          this.pixi.stage.addChild(slide)
+          this.counter = 0
+        }
       })
-
-      // Animate the logo and teen vogue generation text
-      gsap.timeline({ repeat: -1 })
-        .to('.logo', 1.2, { rotation: 15, ease: 'power.easeinout', transformOrigin: 'top left' })
-        .to('.logo', 1.5, { rotation: 0, ease: 'power.easeinout' })
-        .to('.logo', 0.9, { rotation: 38, ease: 'power.easeinout' })
-        .to('.logo', 2.1, { rotation: -10, ease: 'power.easeinout' })
-
-      gsap.timeline({ repeat: -1 })
-        .to('.generation', 1.4, { rotation: 20, ease: 'power.easeinout', transformOrigin: 'top left' })
-        .to('.generation', 0.4, { rotation: 10, ease: 'power.easeinout' })
-        .to('.generation', 0.9, { rotation: 38, ease: 'power.easeinout' })
-        .to('.generation', 0.3, { rotation: -10, ease: 'power.easeinout' })
-        .to('.generation', 0.6, { rotation: -5, ease: 'power.easeinout' })
-        .to('.generation', 0.4, { rotation: -12, ease: 'power.easeinout' })
 
       // Timeout to show the modal
       setTimeout(() => {
-        // this.showModal = true
-      }, 15000)
+        this.showModal = true
+      }, 20000)
 
       window.addEventListener('resize', this.resize)
       this.resize()
     },
     resize() {
       // Resize the renderer
-      this.pixi.renderer.resize(window.innerWidth, window.innerHeight)
-      var scale = Math.max(window.innerWidth / this.bg.texture.width, window.innerHeight / this.bg.texture.height)
-      this.bg.scale.set(scale, scale)
-      this.bg.x = 0
-      this.bg.y = 0
+      const texture = this.slides[`slide_${this.currentIndex}`]
+      const width = window.innerWidth
+      const height = width * 2.59
+
+      // console.log(`${width} : ${height}`)
+
+      this.pixi.renderer.resize(width, height)
+      // var scale = width / texture.width
+      // texture.scale.set(scale, scale)
+      // texture.width = width
+      // texture.height = height
+      // texture.x = 0
+      // texture.y = 0
     }
   }
 }
@@ -115,7 +133,7 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100vw * 2.59);
   background-color: black;
 }
 
