@@ -2,45 +2,15 @@
   <transition @enter="enter" appear>
     <div class="container">
       <div class="popup-container">
-        <div class="popup popup_1">
-          <img src="@/assets/popup_outro.png">
-        </div>
         <Popup name="popup_15" type=3 width=17.6 height=10.6 left=50.4 top=67.35 background="outro1" />
         <Popup name="popup_16" type=3 width=17.6 height=10.6 left=50.4 top=67.35 background="outro2" />
         <Popup name="popup_17" type=3 width=17.6 height=10.6 left=50.4 top=67.35 background="outro3" />
-        <!-- <div class="popup popup_2">
-          <img src="@/assets/popup_outro.png">
-        </div> -->
-        <!-- <div class="popup popup_3">
-            <div class="text">
-              The online resources we use every day exist and work like they should, in part, because of the contributions of women coders.<br><br>
-              By learning to code, girls can reach millions of people and impact the world in ways we have, and haven’t yet, seen.<br><br><br>
-              <span class="text-small">Learn more, get involved, and get a girl coding at...</span>
-          </div>
-          <img src="@/assets/popup_outro.png">
-        </div> -->
         <Popup name="popup_14" type=1 width=17.6 height=10.6 left=50.4 top=67.35 background="ending" />
-        <!-- <div class="popup popup_4">
-          <div class="arrow arrow_1">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_2">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_3">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_4">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <img class="logo" src="@/assets/GWC_Logo_Black.png"> -->
-          <!-- <img src="@/assets/popup_outro_2.png"> -->
-          <!-- <a class="cta" href="https://www.girlswhocode.com" target="_blank">Let's Go</a> -->
-        <!-- </div> --> 
       </div>
       <div class="folders">
         <img src="@/assets/folders.png">
       </div>
+      <div class="gradient_background"></div>
     </div>
   </transition>
 </template>
@@ -144,10 +114,19 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+}
+
+.gradient_background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
   background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
+
 
 @keyframes gradient {
   0% {
@@ -230,6 +209,20 @@ export default {
   width: 5%;
   right: 4%;
   top: 11%;
+  z-index: 0;
+}
+
+
+@media(max-width:1250px) {
+  .folders {
+    width: 7%;
+  }
+}
+
+@media(max-width:800px) {
+  .folders {
+    width: 11%;
+  }
 }
 
 img {

@@ -18,65 +18,8 @@
         <Popup name="popup_11" type=1 width=17.35 height=7.4 left=48.3 top=40.35 background="looklike" />
         <Popup name="popup_12" type=1 width=11.35 height=6.5 left=39.2 top=78.2 background="without" />
         <Popup name="popup_13" type=1 width=17.6 height=10.6 left=50.4 top=67.35 background="them" />
-        <!-- <div class="popup popup_1">
-          <img src="@/assets/popup_1.png">
-        </div>
-        <div class="popup popup_2">
-          <img src="@/assets/popup_2.png">
-        </div>
-        <div class="popup popup_3">
-          <img src="@/assets/popup_3.png">
-        </div>
-        <div class="popup popup_4">
-          <img src="@/assets/popup_4.png">
-        </div>
-        <div class="popup popup_5">
-          <img src="@/assets/popup_5.png">
-        </div>
-        <div class="popup popup_6">
-          <img src="@/assets/popup_6.png">
-        </div>
-        <div class="popup popup_7">
-          <img src="@/assets/popup_7.png">
-        </div>
-        <div class="popup popup_8">
-          <img src="@/assets/popup_8.png">
-        </div>
-        <div class="popup popup_9">
-          <img src="@/assets/popup_9.png">
-        </div>
-        <div class="popup popup_10">
-          <img src="@/assets/popup_10.png">
-        </div>
-        <div class="popup popup_11">
-          <img src="@/assets/popup_11.png">
-        </div>
-        <div class="popup popup_12">
-          <img src="@/assets/popup_12.png">
-        </div> -->
-        <!-- <div class="popup popup_13">
-          <div class="arrow arrow_2">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_3">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_4">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_5">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_6">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <div class="arrow arrow_7">
-            <img src="@/assets/mouse_1.png">
-          </div>
-          <router-link class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
-          <img src="@/assets/popup_13.png">
-        </div> -->
       </div>
+      <div class="gradient_background"></div>
     </div>
   </transition>
 </template>
@@ -243,6 +186,17 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
+  /* background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite; */
+}
+
+.gradient_background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
   background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
