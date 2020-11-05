@@ -31,9 +31,7 @@ export default {
   },
   mounted() {
     // Start PIXI and animate the background with the glitch filter
-    this.pixi = new PIXI.Application({
-      resolution: devicePixelRatio
-    })
+    this.pixi = new PIXI.Application()
     this.$refs.container.appendChild(this.pixi.view)
 
     if (PIXI.utils.TextureCache['teenvogue']) {
@@ -51,7 +49,7 @@ export default {
         } else {
           num = `00${i}`
         }
-        loader.add(`netflix_${i}`, require(`@/assets/Netflix/Netflix_${num}.jpg`))
+        loader.add(`netflix_${i}`, require(`@/assets/NetflixCompressed30/Netflix Final_2_${num}.jpg`))
       }
 
       loader.load((loader, resources) => {
@@ -93,7 +91,10 @@ export default {
         if (this.counter > 1) {
           this.pixi.stage.removeChild(this.slides[`slide_${this.currentIndex}`])
           this.currentIndex = this.currentIndex < this.numSlides - 1 ? this.currentIndex + 1 : 0
-          this.pixi.stage.addChild(this.slides[`slide_${this.currentIndex}`])
+          const slide = this.slides[`slide_${this.currentIndex}`]
+          slide.width = window.innerWidth
+          slide.height = window.innerWidth * 2.59
+          this.pixi.stage.addChild(slide)
           this.counter = 0
         }
       })
@@ -107,13 +108,9 @@ export default {
       this.resize()
     },
     resize() {
-      // Resize the renderer
-      const texture = this.slides[`slide_${this.currentIndex}`]
-      this.pixi.renderer.resize(window.innerWidth, window.innerHeight)
-      var scale = Math.max(window.innerWidth / texture.width, window.innerHeight / texture.height)
-      texture.scale.set(scale, scale)
-      texture.x = 0
-      texture.y = 0
+      const width = window.innerWidth
+      const height = width * 2.59
+      this.pixi.renderer.resize(width, height)
     }
   }
 }
@@ -124,7 +121,7 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100vw * 2.59);
   background-color: black;
 }
 
