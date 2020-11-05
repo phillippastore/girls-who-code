@@ -224,7 +224,7 @@ export default {
   height: 150px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_1 {
     width: 200px;
     left: 3%;
@@ -258,7 +258,7 @@ export default {
   height: 130px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_2 {
     width: 200px;
     left: 16%;
@@ -291,7 +291,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_3 {
     width: 160px;
     left: 30%;
@@ -325,7 +325,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_4 {
     width: 270px;
     left: 39.5%;
@@ -359,7 +359,7 @@ export default {
   height: 90px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_5 {
     width: 150px;
     left: 59%;
@@ -393,7 +393,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_6 {
     width: 250px;
     left: 73%;
@@ -427,7 +427,7 @@ export default {
   height: 140px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_7 {
     width: 180px;
     left: 2%;
@@ -461,7 +461,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_8 {
     width: 200px;
     left: 19%;
@@ -495,7 +495,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_9 {
     width: 150px;
     left: 32%;
@@ -529,7 +529,7 @@ export default {
   height: 150px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_10 {
     width: 280px;
     left: 42.4%;
@@ -563,7 +563,7 @@ export default {
   height: 100px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_11 {
     width: 260px;
     left: 69%;
@@ -597,7 +597,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_12 {
     width: 220px;
     left: 44%;
@@ -632,7 +632,7 @@ export default {
   height: 180px;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .popup_13 {
     width: 300px;
     left: 64%;
@@ -938,7 +938,7 @@ img {
   display: none;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .all_arrows {
     width: 300px;
     left: 63%;
@@ -1033,7 +1033,7 @@ img {
   font-size: 1.6rem;
 }
 
-@media(max-width:1100px) {
+@media(max-width:1300px) {
   .text-small {
     font-size: 1.3rem;
   }
