@@ -49,7 +49,7 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 @media(max-width:600px) {
