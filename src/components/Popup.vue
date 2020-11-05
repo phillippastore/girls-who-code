@@ -1,6 +1,6 @@
 <template>
   <div class="popup_wrapper">
-    <div v-if="(background == 'them')" class="all_arrows">
+    <div v-if="(background == 'them' || background == 'ending')" class="all_arrows" :class="{'ending': (background == 'ending')}">
       <div class="arrow arrow_2">
         <img src="@/assets/mouse_1.png">
       </div>
@@ -21,14 +21,14 @@
       </div>
     </div>
     <div class="popup" :class="name" :style="computedPositioning">
-      <div class="header" :class="{'editor': (type == '2')}">
+      <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
       </div>
       <div class="window_body" :class="{
         'windowGray': (type == '1'),
-        'windowWhite': (type == '2'),
+        'windowWhite': (type == '2' || type == '3'),
         'windowToday': (background == 'today'),
         'window24': (background == '24'),
         'windowAll': (background == 'all'),
@@ -41,9 +41,16 @@
         'windowInternet': (background == 'internet'),
         'windowLooklike': (background == 'looklike'),
         'windowWithout': (background == 'without'),
-        'windowThem': (background == 'them')
+        'windowThem': (background == 'them'),
+        'windowEnding': (background == 'ending')
         }" :style="computedWindow" >
         <router-link v-if="(background == 'them')" class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
+        <a v-if="(background == 'ending')"  class="cta" href="https://girlswhocode.com/programs/code-at-home" target="_blank">Let's Go</a>
+         <div v-if="(background == 'outro3')"  class="text">
+            The online resources we use every day exist and work like they should, in part, because of the contributions of women coders.<br><br>
+            By learning to code, girls can reach millions of people and impact the world in ways we have, and haven’t yet, seen.<br><br><br>
+            <span class="text-small">Learn more, get involved, and get a girl coding at...</span>
+         </div>
       </div>
     </div>
   </div>
@@ -122,6 +129,14 @@ export default {
   height: 40px;
 }
 
+.header.outro {
+  background-image: url('../assets/popup_outro.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 116px;
+}
+
 .header_button {
   width: 10px;
   height: 10px;
@@ -144,7 +159,7 @@ export default {
 .windowToday { background-image: url('../assets/today.png');}
 .window24 { background-image: url('../assets/24.png');}
 .windowAll { background-image: url('../assets/ofall.png');}
-.windowCoders { background-image: url('../assets/coders.png');}
+.windowCoders { background-image: url('../assets/coders2.gif');}
 .windowAre { background-image: url('../assets/are.png');}
 .windowWomen { background-image: url('../assets/women.png');}
 .windowWhat { background-image: url('../assets/what.png');}
@@ -154,6 +169,7 @@ export default {
 .windowLooklike { background-image: url('../assets/looklike.png');}
 .windowWithout { background-image: url('../assets/without.png');}
 .windowThem { background-image: url('../assets/them.gif'); background-position: center top;}
+.windowEnding { background-image: url('../assets/GWC_Logo_Black_window.png'); background-position: center top;}
 
 .windowGray { background-color: #ececec; }
 .windowWhite { background-color: #ffffff; }
@@ -603,6 +619,7 @@ export default {
     height: 26vw;
   }
 }
+
 .popup_13 {
   cursor: pointer;
   width: 360px;
@@ -638,6 +655,158 @@ export default {
     height: 50vw;
   }
 }
+
+
+.popup_14 {
+  cursor: pointer;
+  width: 360px;
+  left: 70%;
+  top: 65%;
+}
+
+.popup_14 .window_body {
+  height: 200px;
+}
+
+@media(max-width:1100px) {
+  .popup_14 {
+    width: 300px;
+    left: 64%;
+    top: 65%;
+  }
+
+  .popup_14 .window_body {
+    height: 170px;
+  }
+}
+
+@media(max-width:600px) {
+  .popup_14 {
+    width: 90vw;
+    left: 5%;
+    top: 158%;
+    margin-bottom: 30vw;
+  }
+
+  .popup_14 .window_body {
+    height: 50vw;
+  }
+}
+
+
+
+
+.popup_15 {
+  cursor: pointer;
+  width: 944px;
+  left: 2%;
+  top: 11%;
+}
+
+.popup_15 .window_body {
+  height: 615px;
+}
+
+@media(max-width:1100px) {
+  .popup_15 {
+    width: 644px;
+    left: 2%;
+    top: 11%;
+  }
+
+  .popup_15 .window_body {
+    height: 415px;
+  }
+}
+
+@media(max-width:800px) {
+  .popup_15 {
+    width: 400px;
+    left: 2%;
+    top: 11%;
+    margin-bottom: 30vw;
+  }
+
+  .popup_15 .window_body {
+    height: 400px;
+  }
+}
+
+
+.popup_16 {
+  cursor: pointer;
+  width: 944px;
+  left: 3.5%;
+  top: 9%;
+}
+
+.popup_16 .window_body {
+  height: 615px;
+}
+
+@media(max-width:1100px) {
+  .popup_16 {
+    width: 644px;
+    left: 3.5%;
+    top: 9%;
+  }
+
+  .popup_16 .window_body {
+    height: 415px;
+  }
+}
+
+@media(max-width:800px) {
+  .popup_16 {
+    width: 400px;
+    left: 3.5%;
+    top: 9%;
+    margin-bottom: 30vw;
+  }
+
+  .popup_16 .window_body {
+    height: 400px;
+  }
+}
+
+
+.popup_17 {
+  cursor: pointer;
+  width: 944px;
+  left: 5%;
+  top: 7%;
+}
+
+.popup_17 .window_body {
+  height: 615px;
+}
+
+@media(max-width:1100px) {
+  .popup_17 {
+    width: 644px;
+    left: 5%;
+    top: 7%;
+  }
+
+  .popup_17 .window_body {
+    height: 415px;
+  }
+}
+
+@media(max-width:800px) {
+  .popup_17 {
+    width: 400px;
+    left: 5%;
+    top: 7%;
+    margin-bottom: 30vw;
+  }
+
+  .popup_17 .window_body {
+    height: 400px;
+  }
+}
+
+
 
 img {
   width: 100%;
@@ -706,6 +875,16 @@ img {
   pointer-events: none;
 }
 
+.all_arrows.ending {
+  left: 61%;
+  top: 66.5%;
+}
+
+.all_arrows.ending .arrow_3,
+.all_arrows.ending .arrow_4 {
+  display: none;
+}
+
 @media(max-width:1100px) {
   .all_arrows {
     width: 300px;
@@ -745,6 +924,52 @@ img {
   background: linear-gradient(0deg, #007bff, #64d2ff);
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: .8;
+}
+
+.windowEnding .cta {
+  right: 35%;
+}
+
+
+.text {
+  color: #060606;
+  position: absolute;
+  top: 22%;
+  width: 80%;
+  left: 10%;
+  font-size: 2.2rem;
+  text-align: left;
+}
+
+@media(max-width:1100px) {
+  .text {
+    top: 27%;
+    font-size: 1.4rem;
+  }
+}
+
+@media(max-width:800px) {
+  .text {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+  }
+}
+
+.text-small {
+  font-size: 1.6rem;
+}
+
+@media(max-width:1100px) {
+  .text-small {
+    font-size: 1.3rem;
+  }
+}
+
+@media(max-width:800px) {
+  .text-small {
+    font-size: 1.1rem;
+    line-height: 1.4rem;
+  }
 }
 
 </style>
