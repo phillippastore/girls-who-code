@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Intro from '@/components/Intro'
 import TeenVogue from '@/components/TeenVogue'
 import Netflix from '@/components/Netflix'
 import EndSlide from '@/components/EndSlide'
@@ -12,8 +12,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Intro',
+      component: Intro
     },
     {
       path: '/teenvogue',
