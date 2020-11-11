@@ -1,5 +1,5 @@
 <template>
-  <div class="container" ref="container">
+  <div class="container twitter" ref="container">
     <div v-if="showModal" class="modal">
       <img class="modal-header" src="@/assets/modal-header.png">
       <img class="img-404" src="@/assets/404.png">
@@ -45,15 +45,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .container {
   position: relative;
   width: 100%;
   height: 259vw;
   max-height: 3626px;
-  background-color: white;
   overflow-x: hidden;
+}
+
+.container.twitter {
+  background-color: white;
 }
 
 .logo {

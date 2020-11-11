@@ -45,15 +45,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 
 .container {
   position: relative;
   width: 100%;
   height: 259vw;
   max-height: 3626px;
-  background-color: #e1e1e1;
   overflow-x: hidden;
+}
+
+.container.teenvogue {
+  background-color: #e1e1e1;
 }
 
 .logo {
