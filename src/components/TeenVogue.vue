@@ -9,7 +9,7 @@
       <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
       <router-link class="windows-button" :to="{ name: 'Netflix'}">NEXT</router-link>
     </div>
-    <vimeo-player ref="player" :video-id="477844508" :loop="true" :player-width="playerWidth" :player-height="playerHeight" :controls="false" :autoplay="true" @ready="onReady"/>
+    <vimeo-player ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
   </div>
 </template>
 
@@ -21,29 +21,16 @@ export default {
   name: 'TeenVogue',
   data() {
     return {
-      showModal: false,
-      playerWidth: null,
-      playerheight: null
+      showModal: false
     }
   },
   mounted() {
     setTimeout(() => {
+      this.pause()
       this.showModal = true
     }, 20000)
-
-    window.addEventListener('resize', this.resize)
-    this.resize()
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.resize)
   },
   methods: {
-    resize() {
-      const width = window.innerWidth
-      const height = width * 2.59
-      this.playerWidth = width
-      this.playerHeight = height
-    },
     onReady() {
       this.play()
     },
@@ -63,7 +50,8 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: calc(100vw * 2.59);
+  height: 259vw;
+  max-height: 3626px;
   background-color: black;
   overflow-x: hidden;
 }
@@ -162,6 +150,7 @@ canvas {
 #vimeo-player-1 iframe {
    width: 100vw;
    height: 259vw;
+   max-height: 3626px;
    min-height: 100vh;
    max-width: 1400px;
    position: absolute;
