@@ -49,7 +49,7 @@
          <div v-if="(background == 'outro3')"  class="text">
             The online resources we use every day exist and work like they should, in part, because of the contributions of women coders.<br><br>
             By learning to code, girls can reach millions of people and impact the world in ways we have, and haven’t yet, seen.<br><br><br>
-            <span class="text-small">Learn more, get involved, and get a girl coding at...</span>
+            <span class="text-small">Start coding at...</span>
          </div>
       </div>
     </div>
