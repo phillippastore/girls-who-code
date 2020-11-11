@@ -28,7 +28,7 @@ export default {
     setTimeout(() => {
       this.pause()
       this.showModal = true
-    }, 20000)
+    }, 8000)
   },
   methods: {
     onReady() {
@@ -52,7 +52,7 @@ export default {
   width: 100%;
   height: 259vw;
   max-height: 3626px;
-  background-color: black;
+  background-color: #e1e1e1;
   overflow-x: hidden;
 }
 

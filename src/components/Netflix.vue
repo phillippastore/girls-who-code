@@ -28,7 +28,7 @@ export default {
     setTimeout(() => {
       this.pause()
       this.showModal = true
-    }, 20000)
+    }, 8000)
   },
   methods: {
     onReady() {
