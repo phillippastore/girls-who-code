@@ -38,26 +38,26 @@ export default {
       return gsap.timeline({ onComplete: this.onComplete })
         .from('.popup_15', duration, {
           opacity: 0,
-          scale: .95,
+          scale: 0.95,
           y: yStart,
           x: xStart,
           ease: 'back.out'
         }, 1)
         .from('.popup_16', duration, {
           opacity: 0,
-          scale: .95,
+          scale: 0.95,
           y: yStart,
           x: xStart,
           ease: 'back.out'
         })
         .from('.popup_17', duration, {
           opacity: 0,
-          scale: .95,
+          scale: 0.95,
           y: yStart,
           x: xStart,
           ease: 'back.out'
         })
-        .from('.popup_14', .4, {
+        .from('.popup_14', 0.4, {
           scale: 0,
           y: yStart,
           x: xStart,
@@ -126,7 +126,6 @@ export default {
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
 }
-
 
 @keyframes gradient {
   0% {
@@ -212,7 +211,6 @@ export default {
   z-index: 0;
 }
 
-
 @media(max-width:1250px) {
   .folders {
     width: 7%;
@@ -280,7 +278,5 @@ img {
 .cta:hover {
   background: linear-gradient(0deg, #007bff, #64d2ff);
 }
-
-
 
 </style>

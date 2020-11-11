@@ -9,35 +9,32 @@ export default {
   name: 'App'
 }
 
-
 window.addEventListener('mousemove', function(e) {
-  [1, .9, .8, .5, .1].forEach(function(i) {
-    var j = (1 - i) * 10;
-    var elem = document.createElement('div');
+  [1, 0.9, -0.8, 0.5, 0.1].forEach(function(i) {
+    // var j = (1 - i) * 10
+    var elem = document.createElement('div')
     // var size = Math.ceil(Math.random() * 30) + 'px';
-    elem.style.position = 'fixed';
-    elem.style.top = e.pageY + 'px'; // + Math.round(Math.random() * j - j / 2) + 'px';
-    elem.style.left = e.pageX + 'px'; // + Math.round(Math.random() * j - j / 2) + 'px';
-    elem.style.width = "20px";
-    elem.style.height = "20px";
-    elem.style.zIndex = 3;
+    elem.style.position = 'fixed'
+    elem.style.top = e.pageY + 'px' // + Math.round(Math.random() * j - j / 2) + 'px';
+    elem.style.left = e.pageX + 'px' // + Math.round(Math.random() * j - j / 2) + 'px';
+    elem.style.width = '20px'
+    elem.style.height = '20px'
+    elem.style.zIndex = 3
     // elem.style.background = 'hsla(' +
     //   Math.round(Math.random() * 360) + ', ' +
     //   '100%, ' +
     //   '50%, ' +
     //   i + ')';
-    elem.style.backgroundImage = "url('http://heyimphil.com/mouseStraight.png')";
-    elem.style.backgroundSize = "contain";
-    elem.style.backgroundRepeat = "no-repeat";
-    elem.style.pointerEvents = 'none';
-    document.body.appendChild(elem);
+    // elem.style.backgroundImage = url('http://heyimphil.com/mouseStraight.png')
+    elem.style.backgroundSize = 'contain'
+    elem.style.backgroundRepeat = 'no-repeat'
+    elem.style.pointerEvents = 'none'
+    document.body.appendChild(elem)
     window.setTimeout(function() {
-      document.body.removeChild(elem);
-    }, 1000); //Math.round(Math.random() * i * 
-  });
-}, false);
-
-
+      document.body.removeChild(elem)
+    }, 1000) // Math.round(Math.random() * i *
+  })
+}, false)
 </script>
 
 <style>
@@ -49,7 +46,6 @@ html {
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow: scroll;
 }
 
 @media(max-width:600px) {

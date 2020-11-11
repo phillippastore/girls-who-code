@@ -657,7 +657,6 @@ export default {
   }
 }
 
-
 .popup_14 {
   cursor: pointer;
   width: 360px;
@@ -693,9 +692,6 @@ export default {
     height: 160px;
   }
 }
-
-
-
 
 .popup_15 {
   cursor: pointer;
@@ -744,7 +740,6 @@ export default {
   }
 }
 
-
 .popup_16 {
   cursor: pointer;
   width: 944px;
@@ -791,7 +786,6 @@ export default {
     height: 250px;
   }
 }
-
 
 .popup_17 {
   cursor: pointer;
@@ -841,9 +835,6 @@ export default {
     height: 250px;
   }
 }
-
-
-
 
 img {
   width: 100%;
@@ -911,8 +902,6 @@ img {
   height: 250px;
   pointer-events: none;
 }
-
-
 
 .all_arrows.ending {
   left: 61%;
@@ -995,7 +984,6 @@ img {
     right: 25%;
   }
 }
-
 
 .text {
   color: #060606;

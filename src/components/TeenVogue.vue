@@ -9,12 +9,14 @@
       <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
       <router-link class="windows-button" :to="{ name: 'Netflix'}">NEXT</router-link>
     </div>
+    <div id="vimeo-wrapper" class="vimeo-wrapper"></div>
   </div>
 </template>
 
 <script>
-import * as PIXI from 'pixi.js'
+// import * as PIXI from 'pixi.js'
 // import { GlitchFilter } from '@pixi/filter-glitch'
+import Vimeo from '@vimeo/player'
 
 export default {
   name: 'TeenVogue',
@@ -30,6 +32,25 @@ export default {
     }
   },
   mounted() {
+    var options = {
+      id: 477844508,
+      width: 640,
+      loop: true
+    }
+
+    var player = new Vimeo('vimeo-wrapper', options)
+
+    player.setVolume(0)
+
+    player.on('play', function() {
+      console.log('played the video!')
+    })
+
+    setTimeout(() => {
+      this.showModal = true
+    }, 20000)
+
+    /*
     // Start PIXI and animate the background with the glitch filter
     this.pixi = new PIXI.Application()
     this.$refs.container.appendChild(this.pixi.view)
@@ -67,6 +88,7 @@ export default {
     loader.onComplete.add(() => {
       this.init()
     })
+    */
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resize)
@@ -100,9 +122,6 @@ export default {
       })
 
       // Timeout to show the modal
-      setTimeout(() => {
-        this.showModal = true
-      }, 20000)
 
       window.addEventListener('resize', this.resize)
       this.resize()
@@ -203,5 +222,26 @@ img {
 canvas {
   width: 100%;
   height: 100%;
+}
+
+.vimeo-wrapper {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   pointer-events: none;
+   overflow: hidden;
+}
+.vimeo-wrapper iframe {
+   width: 100vw;
+   height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+   min-height: 100vh;
+   min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 </style>

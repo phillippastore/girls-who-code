@@ -13,6 +13,7 @@
   "dependencies": {
     "98.css": "^0.1.16",
     "@pixi/filter-glitch": "^3.1.1",
+    "@vimeo/player": "^2.14.1",
     "gsap": "^3.5.1",
     "pixi.js": "^5.3.3",
     "vue": "^2.5.2",
