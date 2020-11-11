@@ -4,6 +4,9 @@ import Vue from 'vue'
 import VueMq from 'vue-mq'
 import App from './App'
 import router from './router'
+import vueVimeoPlayer from 'vue-vimeo-player'
+
+Vue.use(vueVimeoPlayer)
 
 Vue.use(VueMq, {
   breakpoints: {
