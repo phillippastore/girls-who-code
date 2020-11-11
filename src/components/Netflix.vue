@@ -7,122 +7,53 @@
         THE FIRST EVER PROGRAMMER<br>WAS A WOMAN.<br><br>AKA NONE OF THIS S%$# WOULD EVEN<br>BE POSSIBLE WITHOUT GIRLS.
       </div>
       <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
-      <router-link class="windows-button" :to="{ name: 'EndSlide'}">NEXT</router-link>
+      <router-link class="windows-button" :to="{ name: 'Sephora'}">NEXT</router-link>
     </div>
+    <vimeo-player class="vimeo-player" ref="player" :video-id="477225887" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
   </div>
 </template>
 
 <script>
-import * as PIXI from 'pixi.js'
+// import * as PIXI from 'pixi.js'
 // import { GlitchFilter } from '@pixi/filter-glitch'
 
 export default {
   name: 'TeenVogue',
   data() {
     return {
-      pixi: null,
-      bg: null,
-      showModal: false,
-      slides: {},
-      numSlides: 190,
-      currentIndex: 0,
-      counter: 0
+      showModal: false
     }
   },
   mounted() {
-    // Start PIXI and animate the background with the glitch filter
-    this.pixi = new PIXI.Application()
-    this.$refs.container.appendChild(this.pixi.view)
-
-    if (PIXI.utils.TextureCache['teenvogue']) {
-      this.bg = new PIXI.Sprite(PIXI.utils.TextureCache['teenvogue'])
-      this.init()
-    } else {
-      const loader = PIXI.Loader.shared
-
-      for (var i = 0; i < this.numSlides; i++) {
-        var num = 0
-        if (i < 10) {
-          num = `0000${i}`
-        } else if (i < 100) {
-          num = `000${i}`
-        } else {
-          num = `00${i}`
-        }
-        loader.add(`netflix_${i}`, require(`@/assets/NetflixCompressed30/Netflix Final_2_${num}.jpg`))
-      }
-
-      loader.load((loader, resources) => {
-        for (var i = 0; i < this.numSlides; i++) {
-          this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`netflix_${i}`].texture)
-        }
-      })
-
-      loader.onLoad.add(() => {
-        console.log('added')
-      })
-
-      loader.onComplete.add(() => {
-        this.init()
-      })
-    }
-  },
-  destroy() {
-    window.removeEventListener('resize', this.resize)
-    this.pixi.destroy()
-    PIXI.Texture.removeTextureFromCache('teenvogue').destroy(true)
+    setTimeout(() => {
+      this.pause()
+      this.showModal = true
+    }, 20000)
   },
   methods: {
-    init() {
-      this.pixi.stage.addChild(this.slides['slide_0'])
-
-      /*
-      const glitchFilter = new GlitchFilter({
-        fillMode: 1,
-        offset: 10
-      })
-      this.bg.filters = [glitchFilter]
-      */
-
-      this.pixi.ticker.speed = 0.2
-
-      this.pixi.ticker.add(time => {
-        this.counter += time
-        if (this.counter > 1) {
-          this.pixi.stage.removeChild(this.slides[`slide_${this.currentIndex}`])
-          this.currentIndex = this.currentIndex < this.numSlides - 1 ? this.currentIndex + 1 : 0
-          const slide = this.slides[`slide_${this.currentIndex}`]
-          slide.width = window.innerWidth
-          slide.height = window.innerWidth * 2.59
-          this.pixi.stage.addChild(slide)
-          this.counter = 0
-        }
-      })
-
-      // Timeout to show the modal
-      setTimeout(() => {
-        this.showModal = true
-      }, 20000)
-
-      window.addEventListener('resize', this.resize)
-      this.resize()
+    onReady() {
+      this.play()
     },
-    resize() {
-      const width = window.innerWidth
-      const height = width * 2.59
-      this.pixi.renderer.resize(width, height)
+    play () {
+      this.$refs.player.mute()
+      this.$refs.player.play()
+    },
+    pause () {
+      this.$refs.player.pause()
     }
   }
 }
 </script>
 
-<style scoped>
+<style>
 
 .container {
   position: relative;
   width: 100%;
-  height: calc(100vw * 2.59);
+  height: 259vw;
+  max-height: 3626px;
   background-color: black;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -203,5 +134,28 @@ img {
 canvas {
   width: 100%;
   height: 100%;
+}
+
+.vimeo-wrapper {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   z-index: -1;
+   pointer-events: none;
+   overflow: hidden;
+}
+
+.vimeo-player iframe {
+   width: 100vw;
+   height: 259vw;
+   max-height: 3626px;
+   min-height: 100vh;
+   max-width: 1400px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
 }
 </style>

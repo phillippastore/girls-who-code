@@ -7,9 +7,9 @@
         THE FIRST EVER PROGRAMMER<br>WAS A WOMAN.<br><br>AKA NONE OF THIS S%$# WOULD EVEN<br>BE POSSIBLE WITHOUT GIRLS.
       </div>
       <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
-      <router-link class="windows-button" :to="{ name: 'Netflix'}">NEXT</router-link>
+      <router-link class="windows-button" :to="{ name: 'EndSlide'}">NEXT</router-link>
     </div>
-    <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+    <vimeo-player class="vimeo-player" ref="player" :video-id="477845965" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
   </div>
 </template>
 
