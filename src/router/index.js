@@ -5,6 +5,8 @@ import TeenVogue from '@/components/TeenVogue'
 import Netflix from '@/components/Netflix'
 import Sephora from '@/components/Sephora'
 import Twitter from '@/components/Twitter'
+import Spotify from '@/components/Spotify'
+import Adidas from '@/components/Adidas'
 import EndSlide from '@/components/EndSlide'
 
 Vue.use(Router)
@@ -39,6 +41,16 @@ export default new Router({
       path: '/twitter',
       name: 'Twitter',
       component: Twitter
+    },
+    {
+      path: '/adidas',
+      name: 'Adidas',
+      component: Adidas
+    },
+    {
+      path: '/spotify',
+      name: 'Spotify',
+      component: Spotify
     },
     {
       path: '/endslide',

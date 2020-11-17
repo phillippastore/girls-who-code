@@ -1,5 +1,5 @@
 <template>
-  <div class="container" ref="container">
+  <div class="container sephora" ref="container">
     <div v-if="showModal" class="modal">
       <img class="modal-header" src="@/assets/modal-header.png">
       <img class="img-404" src="@/assets/404.png">
@@ -7,9 +7,9 @@
         THE FIRST EVER PROGRAMMER<br>WAS A WOMAN.<br><br>AKA NONE OF THIS S%$# WOULD EVEN<br>BE POSSIBLE WITHOUT GIRLS.
       </div>
       <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
-      <router-link class="windows-button" :to="{ name: 'Adidas'}">NEXT</router-link>
+      <router-link class="windows-button" :to="{ name: 'Twitter'}">NEXT</router-link>
     </div>
-    <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+    <vimeo-player class="vimeo-player" ref="player" :video-id="480359675" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
   </div>
 </template>
 
@@ -18,7 +18,7 @@
 // import { GlitchFilter } from '@pixi/filter-glitch'
 
 export default {
-  name: 'TeenVogue',
+  name: 'Spotify',
   data() {
     return {
       showModal: false
@@ -50,13 +50,13 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 259vw;
-  max-height: 3626px;
+  height: 100vw;
+  max-height: 1000px;
   overflow-x: hidden;
 }
 
-.container.teenvogue {
-  background-color: #e1e1e1;
+.container.adidas {
+  background-color: black;
 }
 
 .logo {
