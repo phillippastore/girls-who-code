@@ -30,7 +30,7 @@
         'windowGray': (type == '1'),
         'windowWhite': (type == '2' || type == '3'),
         'windowToday': (background == 'today'),
-        'window24': (background == '24'),
+        'windowPercentage': (background == 'percentage'),
         'windowAll': (background == 'all'),
         'windowCoders': (background == 'coders'),
         'windowAre': (background == 'are'),
@@ -157,7 +157,7 @@ export default {
 }
 
 .windowToday { background-image: url('../assets/today.png');}
-.window24 { background-image: url('../assets/24.png');}
+.windowPercentage { background-image: url('../assets/percentage.png');}
 .windowAll { background-image: url('../assets/ofall.png');}
 .windowCoders { background-image: url('../assets/coders2.gif');}
 .windowAre { background-image: url('../assets/are.png');}

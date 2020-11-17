@@ -1,12 +1,37 @@
 <template>
   <transition @enter="enter" appear>
     <div class="container">
+      <div class="finder">
+        <div class="top_toolbar">
+          <div class="menu_options">
+            <div class="apple_logo"><img src="@/assets/apple.png"></div>
+            <div class="menu_item">Finder</div>
+            <div class="menu_item">File</div>
+            <div class="menu_item">Edit</div>
+            <div class="menu_item">View</div>
+            <div class="menu_item">Go</div>
+            <div class="menu_item">Window</div>
+            <div class="menu_item">Help</div>
+          </div>
+          <div class="system_options">
+            <div class="system_icon instagram"><img src="@/assets/instagram.png"></div>
+            <div class="system_icon twitter"><img src="@/assets/twitter.png"></div>
+            <div class="system_icon youtube"><img src="@/assets/youtube.png"></div>
+            <div class="system_icon mail"><img src="@/assets/mail.png"></div>
+            <div class="system_icon sound"><img src="@/assets/sound.png"></div>
+            <div class="system_icon time">Mon 10:57 AM</div>
+            <div class="system_icon title">GirlsWhoCode</div>
+            <div class="system_icon search"><img src="@/assets/search.png"></div>
+            <div class="system_icon list"><img src="@/assets/menu.png"></div>
+          </div>
+        </div>
+      </div>
       <div class="logo">
         <img src="@/assets/GWC_Final-Logo_White.png">
       </div>
       <div class="popup-container">
         <Popup name="popup_1" type=2 width=14 height=9 left=1 top=7.5 background="today" />
-        <Popup name="popup_2" type=1 width=13 height=8 left=11.5 top=23.7 background="24" />
+        <Popup name="popup_2" type=1 width=13 height=8 left=11.5 top=23.7 background="percentage" />
         <Popup name="popup_3" type=1 width=12.5 height=8.5 left=20.7 top=10.5 background="all" />
         <Popup name="popup_4" type=1 width=16.5 height=6.5 left=29.7 top=25 background="coders" />
         <Popup name="popup_5" type=1 width=11.35 height=7.8 left=41.7 top=13.5 background="are" />
@@ -19,7 +44,7 @@
         <Popup name="popup_12" type=1 width=11.35 height=6.5 left=39.2 top=78.2 background="without" />
         <Popup name="popup_13" type=1 width=17.6 height=10.6 left=50.4 top=67.35 background="them" />
       </div>
-      <div class="gradient_background"></div>
+      <div class="solid_background"></div>
     </div>
   </transition>
 </template>
@@ -223,7 +248,7 @@ export default {
   animation: gradient 15s ease infinite; */
 }
 
-.gradient_background {
+.gradient_background, .solid_background {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -232,6 +257,70 @@ export default {
   background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+}
+
+.solid_background {
+  background: #f9f9f9;
+  background-size: 100% 100%;
+  animation: none;
+}
+
+.top_toolbar {
+  height: 30px;
+  width: 100%;
+  box-shadow: 0px 10px 20px rgba(0,0,0,.2);
+  position: fixed;
+  z-index: 10;
+  top: 0;
+}
+
+.menu_options {
+  position: absolute;
+  left: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.menu_options div, .system_options div {
+  display: inline-block;
+  padding: 6px 10px;
+  vertical-align: top;
+  font-size: 15px;
+  letter-spacing: -.2px;
+  line-height: 20px;
+}
+
+.system_options div {
+  padding: 6px 6px;
+}
+
+.apple_logo {
+  width: 25px;
+  height: 25px;
+}
+
+.system_icon {
+  width: 20px;
+  height: 20px;
+}
+
+.system_icon.time, .system_icon.title {
+  width: auto;
+  padding: 6px 11px;
+}
+
+.apple_logo img {
+  width: 85%;
+  position: relative;
+  top: -2px;
+  margin-left: 8px;
+}
+
+.system_options {
+  position: absolute;
+  right: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 }
 
 @keyframes gradient {
@@ -272,6 +361,7 @@ export default {
   height: 100%;
   min-height: 750px;;
   margin: 0 auto;
+  margin-top: 3rem;
 }
 
 .popup {
