@@ -1,5 +1,5 @@
 <template>
-  <div class="container sephora" ref="container">
+  <div class="container spotify" ref="container">
     <Finder />
     <div v-if="showModal" class="modal">
       <Popup name="modal_6" type=1 width=16 height=5.3 left=45 top=30 background="modal_6" />
@@ -270,6 +270,9 @@ export default {
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
+}
+
+.spotify .site_content {
   background-color: #000000 !important;
 }
 
