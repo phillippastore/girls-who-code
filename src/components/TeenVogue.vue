@@ -5,7 +5,16 @@
       <Popup name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
     </div>
     <div class="browser-container" ref="browser">
-      <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+      <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
+        <div class="header_button red"></div>
+        <div class="header_button yellow"></div>
+        <div class="header_button green"></div>
+        <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
+      </div>
+      <div class="url"><img class="" src="@/assets/url.png"></div>
+      <div class="site_content">
+        <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +77,47 @@ export default {
   background-color: #e1e1e1;
 }
 
+
+.header {
+  background: #e3e3e3;
+  width: 100%;
+  height: 35px;
+  text-align: left;
+  padding-left: 6px;
+  border-radius: 6px 6px 0px 0px;
+  padding: 7px 12px;
+  box-sizing: border-box;
+}
+
+.header.editor {
+  background-image: url('../assets/headerBar.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 40px;
+}
+
+.header.outro {
+  background-image: url('../assets/popup_outro.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 116px;
+}
+
+.header_button {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.red { background-color: #ff0000; }
+.yellow { background-color: #ffbe2d; }
+.green { background-color: #2acb42; }
+
+
 .logo {
   position: absolute;
   top: 2%;
@@ -80,6 +130,24 @@ export default {
   top: 37%;
   left: 30%;
   width: 50%;
+}
+
+.browser_tab {
+    display: inline-block;
+    vertical-align: top;
+    height: 36px;
+}
+
+.browser_tab img {
+    width: auto;
+    height: 78%;
+}
+
+.header .url {
+  width: 100%;
+  height: 50px;
+  position: relative;
+  z-index: 1;
 }
 
 img {
@@ -126,13 +194,23 @@ img {
 
 .browser-container {
   position: fixed;
-  width: 74%;
-  height: 80%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  width: 65%;
+  height: 70%;
+  max-width: 1200px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
+}
+
+.browser-container .site_content {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: calc(100% + 2px);
+  left: -2px;
+  height: calc(100% - 70px);
+  position: absolute;
+  box-sizing: border-box;
 }
 
 canvas {
