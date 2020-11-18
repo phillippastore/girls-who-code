@@ -55,7 +55,7 @@
       </div>
       <div  v-if="(background == 'modal_2')">
         <img class="modal_image" src="@/assets/alerts/2.png">
-        <div class="modal_content">“coder” isn’t code for tech bro. This is what women in tech actually look like.</div>
+        <div class="modal_content windowGray">“coder” isn’t code for tech bro. This is what women in tech actually look like.</div>
         <div class="modal_buttons">
           <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
           <router-link class="windows_button" :to="{ name: 'Twitter'}">Next</router-link>
@@ -1128,6 +1128,10 @@ img {
     font-size: .8rem;
     line-height: .9rem;
   }
+}
+
+.modal_2 {
+  background-color: #ececec;
 }
 
 </style>
