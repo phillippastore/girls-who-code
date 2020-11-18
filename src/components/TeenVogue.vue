@@ -1,5 +1,5 @@
 <template>
-  <div class="container" ref="container">
+  <div class="container teenvogue" ref="container">
     <Finder />
     <div v-if="showModal" class="modal">
       <Popup name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
@@ -290,7 +290,7 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player iframe {   
+.teenvogue .vimeo-player iframe {   
   width: 73vw;
   height: 180vw;
 }

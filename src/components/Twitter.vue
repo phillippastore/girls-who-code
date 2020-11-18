@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player iframe {   
+.twitter .vimeo-player iframe {   
   width: 70vw;
   height: 180vw;
 }

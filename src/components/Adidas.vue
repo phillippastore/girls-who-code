@@ -1,5 +1,5 @@
 <template>
-  <div class="container sephora" ref="container">
+  <div class="container adidas" ref="container">
     <Finder />
     <div v-if="showModal" class="modal">
       <Popup name="modal_5" type=1 width=14 height=5.3 left=45 top=30 background="modal_5" />
@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player iframe {   
+.adidas .vimeo-player iframe {   
   width: 70vw;
   height: 180vw;
 }

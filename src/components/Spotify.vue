@@ -296,7 +296,7 @@ canvas {
   z-index: 2 !important;
 }
 
-.vimeo-player iframe {   
+.spotify .vimeo-player iframe {   
   width: 73vw;
   height: 46vw;
 }

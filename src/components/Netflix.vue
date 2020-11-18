@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player iframe {   
+.netflix .vimeo-player iframe {   
   width: 69vw;
   height: 180vw;
 }
