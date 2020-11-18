@@ -4,7 +4,18 @@
     <div v-if="showModal" class="modal">
       <Popup name="modal_1" type=1 width=14 height=5.3 left=45 top=30 background="modal_1" />
     </div>
-    <vimeo-player class="vimeo-player" ref="player" :video-id="477225887" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+    <div class="browser-container" ref="browser">
+      <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
+        <div class="header_button red"></div>
+        <div class="header_button yellow"></div>
+        <div class="header_button green"></div>
+        <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
+      </div>
+      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">netflix.com</div></div>
+      <div class="site_content">
+        <vimeo-player class="vimeo-player" ref="player" :video-id="477225887" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+      </div>
+    </div>
   </div>
 </template>
 

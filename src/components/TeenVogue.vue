@@ -11,7 +11,7 @@
         <div class="header_button green"></div>
         <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
       </div>
-      <div class="url"><img class="" src="@/assets/url.png"></div>
+      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">teenvogue.com</div></div>
       <div class="site_content">
         <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
@@ -152,6 +152,17 @@ export default {
   height: 50px;
   position: relative;
   z-index: 1;
+}
+
+.url_text {
+  position: absolute;
+  z-index: 10;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  color: #666;
+  top: 40px;
+  left: 101px;
 }
 
 img {
