@@ -94,7 +94,6 @@
         </div>
       </div>
 
-
         <router-link v-if="(background == 'them')" class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
         <a v-if="(background == 'ending')"  class="cta" href="https://girlswhocode.com/programs/code-at-home" target="_blank">Let's Go</a>
          <div v-if="(background == 'outro3')"  class="text">
