@@ -11,7 +11,7 @@
         <div class="header_button green"></div>
         <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
       </div>
-      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">teenvogue.com</div></div>
+      <div class="url"><img class="" src="@/assets/url.png"></div>
       <div class="site_content">
         <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
