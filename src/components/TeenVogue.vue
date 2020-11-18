@@ -4,7 +4,7 @@
     <div v-if="showModal" class="modal">
       <Popup name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
     </div>
-    <div class="browser-container" ref="browser">
+    <div class="browser-container">
       <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
@@ -12,7 +12,7 @@
         <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
       </div>
       <div class="url"><img class="" src="@/assets/url.png"></div>
-      <div class="site_content">
+      <div class="site_content" ref="content">
         <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
@@ -35,14 +35,15 @@ export default {
   data() {
     return {
       showModal: false,
-      isPlaying: false
+      isPlaying: false,
+      type: 2
     }
   },
   mounted() {
-    this.$refs.browser.addEventListener('scroll', this.scrollEvt)
+    this.$refs.content.addEventListener('scroll', this.scrollEvt)
   },
   beforeDestroy() {
-    this.$refs.browser.removeEventListener('scroll', this.scrollEvt)
+    this.$refs.content.removeEventListener('scroll', this.scrollEvt)
   },
   methods: {
     onReady() {
@@ -58,7 +59,7 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
-      if (this.$refs.browser.scrollHeight - this.$refs.browser.scrollTop === this.$refs.browser.clientHeight) {
+      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop === this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
       } else if (!this.isPlaying) {
