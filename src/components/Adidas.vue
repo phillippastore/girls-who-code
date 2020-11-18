@@ -290,7 +290,7 @@ canvas {
 }
 
 .adidas .vimeo-player iframe {   
-  width: 70vw;
+  width: 71vw;
   height: 180vw;
 }
 
