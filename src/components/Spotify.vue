@@ -1,5 +1,6 @@
 <template>
   <div class="container sephora" ref="container">
+    <Finder />
     <div v-if="showModal" class="modal">
       <img class="modal-header" src="@/assets/modal-header.png">
       <img class="img-404" src="@/assets/404.png">
@@ -16,9 +17,13 @@
 <script>
 // import * as PIXI from 'pixi.js'
 // import { GlitchFilter } from '@pixi/filter-glitch'
+import Finder from '@/components/Finder.vue'
 
 export default {
   name: 'Spotify',
+  components: {
+    Finder
+  },
   data() {
     return {
       showModal: false

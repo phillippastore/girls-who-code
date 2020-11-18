@@ -1,6 +1,7 @@
 <template>
   <transition @enter="enter" appear>
     <div class="container">
+    <Finder />
       <div class="popup-container">
         <Popup name="popup_15" type=3 width=17.6 height=10.6 left=50.4 top=67.35 background="outro1" />
         <Popup name="popup_16" type=3 width=17.6 height=10.6 left=50.4 top=67.35 background="outro2" />
@@ -10,7 +11,7 @@
       <div class="folders">
         <img src="@/assets/folders.png">
       </div>
-      <div class="gradient_background"></div>
+      <div class="solid_background"></div>
     </div>
   </transition>
 </template>
@@ -18,11 +19,13 @@
 <script>
 import { gsap } from 'gsap'
 import Popup from '@/components/Popup.vue'
+import Finder from '@/components/Finder.vue'
 
 export default {
   name: 'EndSlide',
   components: {
-    Popup
+    Popup,
+    Finder
   },
   mounted() {
     console.log(this.$mq)
@@ -116,7 +119,7 @@ export default {
   height: 100%;
 }
 
-.gradient_background {
+.gradient_background, .solid_background {
   width: 100%;
   height: 100%;
   position: fixed;
@@ -125,6 +128,12 @@ export default {
   background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+}
+
+.solid_background {
+  background: #f9f9f9;
+  background-size: 100% 100%;
+  animation: none;
 }
 
 @keyframes gradient {
