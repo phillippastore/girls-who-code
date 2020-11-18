@@ -44,6 +44,57 @@
         'windowThem': (background == 'them'),
         'windowEnding': (background == 'ending')
         }" :style="computedWindow" >
+
+      <div  v-if="(background == 'modal_1')">
+        <img class="modal_image" src="@/assets/alerts/1.png">
+        <div class="modal_content">back in the day, women made up almost 40% of the tech workforce. today it’s like a quarter. wtf?</div>
+        <div class="modal_buttons">
+          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
+          <router-link class="windows_button" :to="{ name: 'TeenVogue'}">Next</router-link>
+        </div>
+      </div>
+      <div  v-if="(background == 'modal_2')">
+        <img class="modal_image" src="@/assets/alerts/2.png">
+        <div class="modal_content">“coder” isn’t code for tech bro. This is what women in tech actually look like.</div>
+        <div class="modal_buttons">
+          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
+          <router-link class="windows_button" :to="{ name: 'Twitter'}">Next</router-link>
+        </div>
+      </div>
+      <div  v-if="(background == 'modal_3')">
+        <img class="modal_image" src="@/assets/alerts/3.png">
+        <div class="modal_content">coding doesn’t have to be crazy hard like in the movies. start with something small you actually care about.</div>
+        <div class="modal_buttons">
+          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
+          <router-link class="windows_button" :to="{ name: 'Sephora'}">Next</router-link>
+        </div>
+      </div>
+      <div  v-if="(background == 'modal_4')">
+        <img class="modal_image" src="@/assets/alerts/4.png">
+        <div class="modal_content">when you’re a girl who codes, you’re not alone. the sisterhood has your back. and so does lizzo.</div>
+        <div class="modal_buttons">
+          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
+          <router-link class="windows_button" :to="{ name: 'Adidas'}">Next</router-link>
+        </div>
+      </div>
+      <div  v-if="(background == 'modal_5')">
+        <img class="modal_image" src="@/assets/alerts/5.png">
+        <div class="modal_content">oh, and coding pays. a lot. so if you’re into making money, a career in tech may be for you.</div>
+        <div class="modal_buttons">
+          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
+          <router-link class="windows_button" :to="{ name: 'Spotify'}">Next</router-link>
+        </div>
+      </div>
+      <div  v-if="(background == 'modal_6')">
+        <img class="modal_image" src="@/assets/alerts/6.png">
+        <div class="modal_content">in fact, the first-ever programmer was a woman. aka none of this S%$# would even be possible without girls.</div>
+        <div class="modal_buttons">
+          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
+          <router-link class="windows_button" :to="{ name: 'EndSlide'}">Next</router-link>
+        </div>
+      </div>
+
+
         <router-link v-if="(background == 'them')" class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
         <a v-if="(background == 'ending')"  class="cta" href="https://girlswhocode.com/programs/code-at-home" target="_blank">Let's Go</a>
          <div v-if="(background == 'outro3')"  class="text">
@@ -173,6 +224,45 @@ export default {
 
 .windowGray { background-color: #ececec; }
 .windowWhite { background-color: #ffffff; }
+
+.modal_image {
+  width: 80px;
+  text-align: left;
+  display: inline-block;
+  vertical-align: top;
+  padding: 2%;
+  padding-right: 0%;
+}
+
+.modal_content {
+  display: inline-block;
+  width: 60%;
+  padding: 4%;
+  padding-left: 3%;
+  font-size: 13px;
+  line-height: 22px;
+  font-weight: bold;
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.modal_buttons {
+  float: right;
+  margin-right: 20px;
+}
+
+.windows_button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  padding: 2px 15px;
+  position: relative;
+  margin-right: 5px;
+  text-decoration: none;
+  color: black;
+}
 
 @keyframes gradient {
   0% {

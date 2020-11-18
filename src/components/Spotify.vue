@@ -2,13 +2,7 @@
   <div class="container sephora" ref="container">
     <Finder />
     <div v-if="showModal" class="modal">
-      <img class="modal-header" src="@/assets/modal-header.png">
-      <img class="img-404" src="@/assets/404.png">
-      <div class="content">
-        THE FIRST EVER PROGRAMMER<br>WAS A WOMAN.<br><br>AKA NONE OF THIS S%$# WOULD EVEN<br>BE POSSIBLE WITHOUT GIRLS.
-      </div>
-      <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows-button">LEARN MORE</a>
-      <router-link class="windows-button" :to="{ name: 'Twitter'}">NEXT</router-link>
+      <Popup name="modal_6" type=1 width=16 height=5.3 left=45 top=30 background="modal_6" />
     </div>
     <vimeo-player class="vimeo-player" ref="player" :video-id="480359675" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
   </div>
@@ -18,11 +12,13 @@
 // import * as PIXI from 'pixi.js'
 // import { GlitchFilter } from '@pixi/filter-glitch'
 import Finder from '@/components/Finder.vue'
+import Popup from '@/components/Popup.vue'
 
 export default {
   name: 'Spotify',
   components: {
-    Finder
+    Finder,
+    Popup
   },
   data() {
     return {
@@ -83,24 +79,6 @@ img {
   height: auto;
 }
 
-.modal {
-  position: fixed;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: center;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 500px;
-  z-index: 2;
-  background-color: black;
-  box-shadow:
-    inset -2px 4px 1px -2px #999999,
-    inset 0px 0px 1px 1px #000000,
-    inset 0px -4px 1px -2px #999999,
-    inset -5px 0px 1px -2px #999999;
-}
 
 .modal-header {
   width: 98%;
