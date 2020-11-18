@@ -270,7 +270,7 @@ export default {
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
-  background-color: #000000;
+  background-color: #000000 !important;
 }
 
 canvas {
@@ -291,7 +291,6 @@ canvas {
 
 .vimeo-player iframe {   
   width: 116.5vw;
-  height: 180vw;
   max-height: 3626px;
   min-height: 100vh;
   max-width: 1330px;
