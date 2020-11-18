@@ -4,7 +4,18 @@
     <div v-if="showModal" class="modal">
       <Popup name="modal_4" type=1 width=14 height=5.3 left=45 top=30 background="modal_4" />
     </div>
-    <vimeo-player class="vimeo-player" ref="player" :video-id="477849687" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+    <div class="browser-container">
+      <div class="header">
+        <div class="header_button red"></div>
+        <div class="header_button yellow"></div>
+        <div class="header_button green"></div>
+        <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
+      </div>
+      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">sephora.com</div></div>
+      <div class="site_content" ref="content">
+        <vimeo-player class="vimeo-player" ref="player" :video-id="477849687" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -22,14 +33,16 @@ export default {
   },
   data() {
     return {
-      showModal: false
+      showModal: false,
+      isPlaying: false,
+      type: 2
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.pause()
-      this.showModal = true
-    }, 8000)
+    this.$refs.content.addEventListener('scroll', this.scrollEvt)
+  },
+  beforeDestroy() {
+    this.$refs.content.removeEventListener('scroll', this.scrollEvt)
   },
   methods: {
     onReady() {
@@ -38,9 +51,20 @@ export default {
     play () {
       this.$refs.player.mute()
       this.$refs.player.play()
+      this.isPlaying = true
     },
     pause () {
       this.$refs.player.pause()
+      this.isPlaying = false
+    },
+    scrollEvt(e) {
+      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop === this.$refs.content.clientHeight) {
+        this.pause()
+        this.showModal = true
+      } else if (!this.isPlaying) {
+        this.play()
+        this.showModal = false
+      }
     }
   }
 }
@@ -51,14 +75,48 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 259vw;
-  max-height: 3626px;
+  height: 100%;
   overflow-x: hidden;
 }
 
-.container.sephora {
-  background-color: black;
+.header {
+  background: #e3e3e3;
+  width: 100%;
+  height: 35px;
+  text-align: left;
+  padding-left: 6px;
+  border-radius: 6px 6px 0px 0px;
+  padding: 7px 12px;
+  box-sizing: border-box;
 }
+
+.header.editor {
+  background-image: url('../assets/headerBar.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 40px;
+}
+
+.header.outro {
+  background-image: url('../assets/popup_outro.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 116px;
+}
+
+.header_button {
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.red { background-color: #ff0000; }
+.yellow { background-color: #ffbe2d; }
+.green { background-color: #2acb42; }
 
 .logo {
   position: absolute;
@@ -74,10 +132,45 @@ export default {
   width: 50%;
 }
 
-img {
+.browser_tab {
+    display: inline-block;
+    vertical-align: top;
+    height: 36px;
+}
+
+.browser_tab img {
+    width: auto;
+    height: 78%;
+}
+
+.url {
+  width: 100%;
+  height: 35px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.url img {
+  height: 35px;
+  width: auto;
+}
+
+.url_text {
+  position: absolute;
+  z-index: 10;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  color: #666;
+  top: 10px;
+  left: 140px;
+}
+
+/* img {
   width: 100%;
   height: auto;
-}
+} */
 
 .modal-header {
   width: 98%;
@@ -116,6 +209,28 @@ img {
   text-decoration: none;
 }
 
+.browser-container {
+  position: fixed;
+  width: 65%;
+  height: 70%;
+  max-width: 1200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
+}
+
+.browser-container .site_content {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: calc(100% + 2px);
+  left: -2px;
+  height: calc(100% - 70px);
+  position: absolute;
+  box-sizing: border-box;
+  background-color: #000000;
+}
+
 canvas {
   width: 100%;
   height: 100%;
@@ -133,14 +248,15 @@ canvas {
 }
 
 .vimeo-player iframe {
-   width: 100vw;
-   height: 259vw;
+   width: 116.5vw;
+   height: 120vw;
    max-height: 3626px;
    min-height: 100vh;
-   max-width: 1400px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
+   max-width: 1180px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
 }
 </style>

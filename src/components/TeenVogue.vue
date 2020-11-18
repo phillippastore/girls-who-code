@@ -80,10 +80,6 @@ export default {
   overflow-x: hidden;
 }
 
-.container.teenvogue {
-  background-color: #e1e1e1;
-}
-
 .header {
   background: #e3e3e3;
   width: 100%;
@@ -148,11 +144,17 @@ export default {
     height: 78%;
 }
 
-.header .url {
+.url {
   width: 100%;
-  height: 50px;
+  height: 35px;
   position: relative;
   z-index: 1;
+  overflow: hidden;
+}
+
+.url img {
+  height: 35px;
+  width: auto;
 }
 
 .url_text {
@@ -162,14 +164,14 @@ export default {
   font-weight: bold;
   font-size: 11px;
   color: #666;
-  top: 40px;
-  left: 101px;
+  top: 10px;
+  left: 140px;
 }
 
-img {
+/* img {
   width: 100%;
   height: auto;
-}
+} */
 
 .modal-header {
   width: 98%;
@@ -227,6 +229,7 @@ img {
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
+  background-color: #eeeeee;
 }
 
 canvas {
@@ -246,15 +249,16 @@ canvas {
 }
 
 .vimeo-player iframe {
-   width: 74vw;
-   height: 187vw;
+   width: 116.5vw;
+   height: 120vw;
    max-height: 3626px;
    min-height: 100vh;
-   max-width: 1400px;
+   max-width: 1180px;
 }
 
 .modal {
   width: 100%;
   height: 100%;
 }
+
 </style>

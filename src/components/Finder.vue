@@ -28,6 +28,7 @@
             <div class="icon folder"><img src="@/assets/folder.png"><div class="title">Learn more</div></div>
             <div class="icon folder"><img src="@/assets/folder.png"><div class="title">TBD</div></div>
             <div class="icon cd"><img src="@/assets/CD.png"><div class="title">MissingCode_<br>Film</div></div>
+            <div class="wallpaper"><img src="@/assets/GWC_Logo_Green.png"></div>
         </div>
     </div>
 </template>
@@ -127,6 +128,18 @@ export default {
 
 .desktop .icon:hover .title {
     text-decoration: underline;
+}
+
+.wallpaper {
+    position: fixed;
+    bottom: 50px;
+    left: 50px;
+    width: 200px;
+}
+
+.wallpaper img {
+    width: 100%;
+    height: auto;
 }
 
 .icon .title {
