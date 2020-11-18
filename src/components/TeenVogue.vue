@@ -25,7 +25,8 @@ export default {
   },
   data() {
     return {
-      showModal: false
+      showModal: false,
+      isPlaying: false
     }
   },
   mounted() {
@@ -41,14 +42,19 @@ export default {
     play () {
       this.$refs.player.mute()
       this.$refs.player.play()
+      this.isPlaying = true
     },
     pause () {
       this.$refs.player.pause()
+      this.isPlaying = false
     },
     scrollEvt(e) {
       if (this.$refs.browser.scrollHeight - this.$refs.browser.scrollTop === this.$refs.browser.clientHeight) {
         this.pause()
         this.showModal = true
+      } else if (!this.isPlaying) {
+        this.play()
+        this.showModal = false
       }
     }
   }
@@ -60,7 +66,7 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 100px;
+  height: 100%;
   overflow-x: hidden;
 }
 
@@ -157,5 +163,10 @@ canvas {
    max-height: 3626px;
    min-height: 100vh;
    max-width: 1400px;
+}
+
+.modal {
+  width: 100%;
+  height: 100%;
 }
 </style>
