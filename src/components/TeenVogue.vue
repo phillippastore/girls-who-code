@@ -83,7 +83,6 @@ export default {
   background-color: #e1e1e1;
 }
 
-
 .header {
   background: #e3e3e3;
   width: 100%;
@@ -122,7 +121,6 @@ export default {
 .red { background-color: #ff0000; }
 .yellow { background-color: #ffbe2d; }
 .green { background-color: #2acb42; }
-
 
 .logo {
   position: absolute;
