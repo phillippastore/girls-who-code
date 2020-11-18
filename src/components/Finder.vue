@@ -27,7 +27,7 @@
             <div class="icon folder"><img src="@/assets/folder.png"><div class="title">Info</div></div>
             <div class="icon folder"><img src="@/assets/folder.png"><div class="title">Learn more</div></div>
             <div class="icon folder"><img src="@/assets/folder.png"><div class="title">TBD</div></div>
-            <div class="icon cd"><img src="@/assets/cd.png"><div class="title">MissingCode_<br>Film</div></div>
+            <div class="icon cd"><img src="@/assets/CD.png"><div class="title">MissingCode_<br>Film</div></div>
         </div>
     </div>
 </template>
@@ -42,7 +42,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 
 .top_toolbar {
   height: 30px;
@@ -144,6 +143,5 @@ export default {
   top: 5px;
   line-height: 23px;
 }
-
 
 </style>

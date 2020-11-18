@@ -4,7 +4,9 @@
     <div v-if="showModal" class="modal">
       <Popup name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
     </div>
-    <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+    <div class="browser-container" ref="browser">
+      <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+    </div>
   </div>
 </template>
 
@@ -27,10 +29,10 @@ export default {
     }
   },
   mounted() {
-    setTimeout(() => {
-      this.pause()
-      this.showModal = true
-    }, 8000)
+    this.$refs.browser.addEventListener('scroll', this.scrollEvt)
+  },
+  beforeDestroy() {
+    this.$refs.browser.removeEventListener('scroll', this.scrollEvt)
   },
   methods: {
     onReady() {
@@ -42,6 +44,12 @@ export default {
     },
     pause () {
       this.$refs.player.pause()
+    },
+    scrollEvt(e) {
+      if (this.$refs.browser.scrollHeight - this.$refs.browser.scrollTop === this.$refs.browser.clientHeight) {
+        this.pause()
+        this.showModal = true
+      }
     }
   }
 }
@@ -52,8 +60,7 @@ export default {
 .container {
   position: relative;
   width: 100%;
-  height: 259vw;
-  max-height: 3626px;
+  height: 100px;
   overflow-x: hidden;
 }
 
@@ -117,6 +124,17 @@ img {
   text-decoration: none;
 }
 
+.browser-container {
+  position: fixed;
+  width: 74%;
+  height: 80%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 canvas {
   width: 100%;
   height: 100%;
@@ -134,14 +152,10 @@ canvas {
 }
 
 .vimeo-player iframe {
-   width: 100vw;
-   height: 259vw;
+   width: 74vw;
+   height: 187vw;
    max-height: 3626px;
    min-height: 100vh;
    max-width: 1400px;
-   position: absolute;
-   top: 50%;
-   left: 50%;
-   transform: translate(-50%, -50%);
 }
 </style>

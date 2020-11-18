@@ -79,7 +79,6 @@ img {
   height: auto;
 }
 
-
 .modal-header {
   width: 98%;
   margin-top: 3px;
