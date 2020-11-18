@@ -108,7 +108,7 @@ export default {
 .desktop {
     right: 70px;
     position: fixed;
-    z-index: 10;
+    z-index: 1;
     padding-top: 70px;
 }
 

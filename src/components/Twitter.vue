@@ -59,7 +59,7 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
-      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop === this.$refs.content.clientHeight) {
+      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
       } else if (!this.isPlaying) {
@@ -290,11 +290,8 @@ canvas {
 }
 
 .vimeo-player iframe {   
-  width: 116.5vw;
+  width: 70vw;
   height: 180vw;
-  max-height: 3626px;
-  min-height: 100vh;
-  max-width: 1330px;
 }
 
 .modal {

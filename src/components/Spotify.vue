@@ -59,7 +59,7 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
-      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop === this.$refs.content.clientHeight) {
+      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
       } else if (!this.isPlaying) {
@@ -289,23 +289,13 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player iframe {   
-  width: 116.5vw;
-  max-height: 3626px;
-  min-height: 100vh;
-  max-width: 1330px;
-}
-
 .popup {
   z-index: 2 !important;
 }
 
-.vimeo-player iframe {
-   width: 120.5vw;
-   height: 40vw;
-   max-height: 3626px;
-   min-height: 40vh;
-   max-width: 1324px;
+.vimeo-player iframe {   
+  width: 73vw;
+  height: 46vw;
 }
 
 .modal {

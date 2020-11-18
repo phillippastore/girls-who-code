@@ -291,11 +291,8 @@ canvas {
 }
 
 .vimeo-player iframe {   
-  width: 116.5vw;
+  width: 73vw;
   height: 180vw;
-  max-height: 3626px;
-  min-height: 100vh;
-  max-width: 1330px;
 }
 
 .modal {
