@@ -5,13 +5,13 @@
       <Popup name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
     </div>
     <div class="browser-container">
-      <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
+      <div class="header">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
         <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
       </div>
-      <div class="url"><img class="" src="@/assets/url.png"></div>
+      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">teenvogue.com</div></div>
       <div class="site_content" ref="content">
         <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>

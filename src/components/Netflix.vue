@@ -5,7 +5,7 @@
       <Popup name="modal_1" type=1 width=14 height=5.3 left=45 top=30 background="modal_1" />
     </div>
     <div class="browser-container" ref="browser">
-      <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
+      <div class="header">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>

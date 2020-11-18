@@ -1130,7 +1130,11 @@ img {
   }
 }
 
-.modal_2 {
+.modal_1, .modal_2, .modal_3, .modal_4, .modal_5, .modal_6  {
+  width: 420px;
+  height: 160px;
+  left: 50%;
+  margin-left: -210px;
   background-color: #ececec;
 }
 
