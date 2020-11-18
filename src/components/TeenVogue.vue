@@ -60,7 +60,7 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
-      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop === this.$refs.content.clientHeight) {
+      if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
       } else if (!this.isPlaying) {
