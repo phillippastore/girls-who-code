@@ -11,7 +11,7 @@
       <div class="folders">
         <img src="@/assets/folders.png">
       </div>
-      <div class="solid_background"></div>
+      <div class="gradient_background"></div>
     </div>
   </transition>
 </template>

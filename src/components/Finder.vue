@@ -25,8 +25,6 @@
         </div>
         <div class="desktop">
             <div class="icon folder"><img src="@/assets/folder.png"><div class="title">Info</div></div>
-            <div class="icon folder"><img src="@/assets/folder.png"><div class="title">Learn more</div></div>
-            <div class="icon folder"><img src="@/assets/folder.png"><div class="title">TBD</div></div>
             <div class="icon cd"><img src="@/assets/CD.png"><div class="title">MissingCode_<br>Film</div></div>
             <div class="wallpaper"><img src="@/assets/GWC_Logo_Green.png"></div>
         </div>
@@ -108,10 +106,10 @@ export default {
 }
 
 .desktop {
-    right: 50px;
+    right: 70px;
     position: fixed;
     z-index: 10;
-    padding-top: 120px;
+    padding-top: 70px;
 }
 
 .desktop .icon {
@@ -134,7 +132,7 @@ export default {
     position: fixed;
     bottom: 50px;
     left: 50px;
-    width: 200px;
+    width: 150px;
 }
 
 .wallpaper img {

@@ -9,13 +9,14 @@
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
-        <div class="browser_tab"><img class="" src="@/assets/tab.png"></div>
+        <div class="header_text">This is what the Internet would look like if girls didn't code.</div>
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">sephora.com</div></div>
       <div class="site_content" ref="content">
         <vimeo-player class="vimeo-player" ref="player" :video-id="477849687" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
+    <div class="gradient_background"></div>
   </div>
 </template>
 
@@ -72,11 +73,52 @@ export default {
 
 <style>
 
+.header_text {
+  width: 100%;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  position: absolute;
+  top: 11px;
+  left: 0;
+  font-size: 14px;
+  letter-spacing: .5px;
+}
+
 .container {
   position: relative;
   width: 100%;
   height: 100%;
   overflow-x: hidden;
+}
+
+.gradient_background, .solid_background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 0;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
+  background-size: 400% 400%;
+  animation: gradient 60s ease infinite;
+}
+
+.solid_background {
+  background: #f9f9f9;
+  background-size: 100% 100%;
+  animation: none;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .header {
@@ -210,10 +252,11 @@ export default {
 }
 
 .browser-container {
+  z-index: 1;
   position: fixed;
-  width: 65%;
-  height: 70%;
-  max-width: 1200px;
+  width: 70%;
+  height: 82%;
+  max-width: 1400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -223,12 +266,11 @@ export default {
 .browser-container .site_content {
   overflow-y: scroll;
   overflow-x: hidden;
-  width: calc(100% + 2px);
-  left: -2px;
+  width: calc(100%);
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
-  background-color: #000000;
+  background-color: #eeeeee;
 }
 
 canvas {
@@ -247,16 +289,21 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player iframe {
-   width: 116.5vw;
-   height: 120vw;
-   max-height: 3626px;
-   min-height: 100vh;
-   max-width: 1180px;
+.vimeo-player iframe {   
+  width: 116.5vw;
+  height: 180vw;
+  max-height: 3626px;
+  min-height: 100vh;
+  max-width: 1330px;
 }
 
 .modal {
   width: 100%;
   height: 100%;
 }
+
+.popup {
+  z-index: 2 !important;
+}
+
 </style>

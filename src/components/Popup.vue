@@ -94,7 +94,7 @@
         </div>
       </div>
 
-        <router-link v-if="(background == 'them')" class="cta" :to="{ name: 'TeenVogue'}">Let's See</router-link>
+        <router-link v-if="(background == 'them')" class="cta" :to="{ name: 'Netflix'}">Let's See</router-link>
         <a v-if="(background == 'ending')"  class="cta" href="https://girlswhocode.com/programs/code-at-home" target="_blank">Let's Go</a>
          <div v-if="(background == 'outro3')"  class="text">
             The online resources we use every day exist and work like they should, in part, because of the contributions of women coders.<br><br>
@@ -678,8 +678,8 @@ export default {
 
 .popup_12 {
   width: 270px;
-  left: 51%;
-  top: 77%;
+  left: 58%;
+  top: 69%;
 }
 
 .popup_12 .window_body {
@@ -713,8 +713,8 @@ export default {
 .popup_13 {
   cursor: pointer;
   width: 360px;
-  left: 70%;
-  top: 65%;
+  left: 77%;
+  top: 60%;
 }
 
 .popup_13 .window_body {
@@ -983,11 +983,11 @@ img {
 }
 
 .all_arrows {
-  z-index: 2;
+  z-index: 3;
   position: absolute;
   width: 30%;
-  left: 68%;
-  top: 65%;
+  left: 75%;
+  top: 60%;
   height: 250px;
   pointer-events: none;
 }

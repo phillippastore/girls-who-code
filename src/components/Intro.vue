@@ -20,7 +20,7 @@
         <Popup name="popup_12" type=1 width=11.35 height=6.5 left=39.2 top=78.2 background="without" />
         <Popup name="popup_13" type=1 width=17.6 height=10.6 left=50.4 top=67.35 background="them" />
       </div>
-      <div class="solid_background"></div>
+      <div class="gradient_background"></div>
     </div>
   </transition>
 </template>
