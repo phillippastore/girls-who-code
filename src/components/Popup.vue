@@ -1,106 +1,186 @@
 <template>
   <div class="popup_wrapper">
-    <div v-if="(background == 'them' || background == 'ending')" class="all_arrows" :class="{'ending': (background == 'ending')}">
+    <div
+      v-if="background == 'them' || background == 'ending'"
+      class="all_arrows"
+      :class="{ ending: background == 'ending' }"
+    >
       <div class="arrow arrow_2">
-        <img src="@/assets/mouse_1.png">
+        <img src="@/assets/mouse_1.png" />
       </div>
       <div class="arrow arrow_3">
-        <img src="@/assets/mouse_1.png">
+        <img src="@/assets/mouse_1.png" />
       </div>
       <div class="arrow arrow_4">
-        <img src="@/assets/mouse_1.png">
+        <img src="@/assets/mouse_1.png" />
       </div>
       <div class="arrow arrow_5">
-        <img src="@/assets/mouse_1.png">
+        <img src="@/assets/mouse_1.png" />
       </div>
       <div class="arrow arrow_6">
-        <img src="@/assets/mouse_1.png">
+        <img src="@/assets/mouse_1.png" />
       </div>
       <div class="arrow arrow_7">
-        <img src="@/assets/mouse_1.png">
+        <img src="@/assets/mouse_1.png" />
       </div>
     </div>
     <div class="popup" :class="name" :style="computedPositioning">
-      <div class="header" :class="{'editor': (type == '2'), 'outro': (type == '3')}">
+      <div class="header" :class="{ editor: type == '2', outro: type == '3' }">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
       </div>
-      <div class="window_body" :class="{
-        'windowGray': (type == '1'),
-        'windowWhite': (type == '2' || type == '3'),
-        'windowToday': (background == 'today'),
-        'windowPercentage': (background == 'percentage'),
-        'windowAll': (background == 'all'),
-        'windowCoders': (background == 'coders'),
-        'windowAre': (background == 'are'),
-        'windowWomen': (background == 'women'),
-        'windowWhat': (background == 'what'),
-        'windowWould': (background == 'would'),
-        'windowThe': (background == 'the'),
-        'windowInternet': (background == 'internet'),
-        'windowLooklike': (background == 'looklike'),
-        'windowWithout': (background == 'without'),
-        'windowThem': (background == 'them'),
-        'windowEnding': (background == 'ending')
-        }" :style="computedWindow" >
+      <div
+        class="window_body"
+        :class="{
+          windowGray: type == '1',
+          windowWhite: type == '2' || type == '3',
+          windowToday: background == 'today',
+          windowPercentage: background == 'percentage',
+          windowAll: background == 'all',
+          windowCoders: background == 'coders',
+          windowAre: background == 'are',
+          windowWomen: background == 'women',
+          windowWhat: background == 'what',
+          windowWould: background == 'would',
+          windowThe: background == 'the',
+          windowInternet: background == 'internet',
+          windowLooklike: background == 'looklike',
+          windowWithout: background == 'without',
+          windowThem: background == 'them',
+          windowEnding: background == 'ending'
+        }"
+        :style="computedWindow"
+      >
+        <div v-if="background == 'modal_1'">
+          <img class="modal_image" src="@/assets/alerts/1.png" />
+          <div class="modal_content">
+            back in the day, women made up almost 40% of the tech workforce.
+            today it’s like a quarter. wtf?
+          </div>
+          <div class="modal_buttons">
+            <a
+              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              target="_blank"
+              class="windows_button"
+              >Learn more</a
+            >
+            <router-link class="windows_button" :to="{ name: 'TeenVogue' }"
+              >Next</router-link
+            >
+          </div>
+        </div>
+        <div v-if="background == 'modal_2'">
+          <img class="modal_image" src="@/assets/alerts/2.png" />
+          <div class="modal_content windowGray">
+            “coder” isn’t code for tech bro. This is what women in tech actually
+            look like.
+          </div>
+          <div class="modal_buttons">
+            <a
+              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              target="_blank"
+              class="windows_button"
+              >Learn more</a
+            >
+            <router-link class="windows_button" :to="{ name: 'Twitter' }"
+              >Next</router-link
+            >
+          </div>
+        </div>
+        <div v-if="background == 'modal_3'">
+          <img class="modal_image" src="@/assets/alerts/3.png" />
+          <div class="modal_content">
+            coding doesn’t have to be crazy hard like in the movies. start with
+            something small you actually care about.
+          </div>
+          <div class="modal_buttons">
+            <a
+              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              target="_blank"
+              class="windows_button"
+              >Learn more</a
+            >
+            <router-link class="windows_button" :to="{ name: 'Sephora' }"
+              >Next</router-link
+            >
+          </div>
+        </div>
+        <div v-if="background == 'modal_4'">
+          <img class="modal_image" src="@/assets/alerts/4.png" />
+          <div class="modal_content">
+            when you’re a girl who codes, you’re not alone. the sisterhood has
+            your back. and so does lizzo.
+          </div>
+          <div class="modal_buttons">
+            <a
+              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              target="_blank"
+              class="windows_button"
+              >Learn more</a
+            >
+            <router-link class="windows_button" :to="{ name: 'Adidas' }"
+              >Next</router-link
+            >
+          </div>
+        </div>
+        <div v-if="background == 'modal_5'">
+          <img class="modal_image" src="@/assets/alerts/5.png" />
+          <div class="modal_content">
+            oh, and coding pays. a lot. so if you’re into making money, a career
+            in tech may be for you.
+          </div>
+          <div class="modal_buttons">
+            <a
+              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              target="_blank"
+              class="windows_button"
+              >Learn more</a
+            >
+            <router-link class="windows_button" :to="{ name: 'Spotify' }"
+              >Next</router-link
+            >
+          </div>
+        </div>
+        <div v-if="background == 'modal_6'">
+          <img class="modal_image" src="@/assets/alerts/6.png" />
+          <div class="modal_content">
+            in fact, the first-ever programmer was a woman. aka none of this
+            S%$# would even be possible without girls.
+          </div>
+          <div class="modal_buttons">
+            <a
+              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              target="_blank"
+              class="windows_button"
+              >Learn more</a
+            >
+            <router-link class="windows_button" :to="{ name: 'EndSlide' }"
+              >Next</router-link
+            >
+          </div>
+        </div>
 
-      <div  v-if="(background == 'modal_1')">
-        <img class="modal_image" src="@/assets/alerts/1.png">
-        <div class="modal_content">back in the day, women made up almost 40% of the tech workforce. today it’s like a quarter. wtf?</div>
-        <div class="modal_buttons">
-          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
-          <router-link class="windows_button" :to="{ name: 'TeenVogue'}">Next</router-link>
+        <router-link
+          v-if="background == 'them'"
+          class="cta"
+          :to="{ name: 'Netflix' }"
+          >Let's See</router-link
+        >
+        <a
+          v-if="background == 'ending'"
+          class="cta"
+          href="https://girlswhocode.com/programs/code-at-home"
+          target="_blank"
+          >Let's Go</a
+        >
+        <div v-if="background == 'outro3'" class="text">
+          The online resources we use every day exist and work like they should,
+          in part, because of the contributions of women coders.<br /><br />
+          By learning to code, girls can reach millions of people and impact the
+          world in ways we have, and haven’t yet, seen.<br /><br /><br />
+          <span class="text-small">Start coding at...</span>
         </div>
-      </div>
-      <div  v-if="(background == 'modal_2')">
-        <img class="modal_image" src="@/assets/alerts/2.png">
-        <div class="modal_content windowGray">“coder” isn’t code for tech bro. This is what women in tech actually look like.</div>
-        <div class="modal_buttons">
-          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
-          <router-link class="windows_button" :to="{ name: 'Twitter'}">Next</router-link>
-        </div>
-      </div>
-      <div  v-if="(background == 'modal_3')">
-        <img class="modal_image" src="@/assets/alerts/3.png">
-        <div class="modal_content">coding doesn’t have to be crazy hard like in the movies. start with something small you actually care about.</div>
-        <div class="modal_buttons">
-          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
-          <router-link class="windows_button" :to="{ name: 'Sephora'}">Next</router-link>
-        </div>
-      </div>
-      <div  v-if="(background == 'modal_4')">
-        <img class="modal_image" src="@/assets/alerts/4.png">
-        <div class="modal_content">when you’re a girl who codes, you’re not alone. the sisterhood has your back. and so does lizzo.</div>
-        <div class="modal_buttons">
-          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
-          <router-link class="windows_button" :to="{ name: 'Adidas'}">Next</router-link>
-        </div>
-      </div>
-      <div  v-if="(background == 'modal_5')">
-        <img class="modal_image" src="@/assets/alerts/5.png">
-        <div class="modal_content">oh, and coding pays. a lot. so if you’re into making money, a career in tech may be for you.</div>
-        <div class="modal_buttons">
-          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
-          <router-link class="windows_button" :to="{ name: 'Spotify'}">Next</router-link>
-        </div>
-      </div>
-      <div  v-if="(background == 'modal_6')">
-        <img class="modal_image" src="@/assets/alerts/6.png">
-        <div class="modal_content">in fact, the first-ever programmer was a woman. aka none of this S%$# would even be possible without girls.</div>
-        <div class="modal_buttons">
-          <a href="https://en.wikipedia.org/wiki/Ada_Lovelace" target="_blank" class="windows_button">Learn more</a>
-          <router-link class="windows_button" :to="{ name: 'EndSlide'}">Next</router-link>
-        </div>
-      </div>
-
-        <router-link v-if="(background == 'them')" class="cta" :to="{ name: 'Netflix'}">Let's See</router-link>
-        <a v-if="(background == 'ending')"  class="cta" href="https://girlswhocode.com/programs/code-at-home" target="_blank">Let's Go</a>
-         <div v-if="(background == 'outro3')"  class="text">
-            The online resources we use every day exist and work like they should, in part, because of the contributions of women coders.<br><br>
-            By learning to code, girls can reach millions of people and impact the world in ways we have, and haven’t yet, seen.<br><br><br>
-            <span class="text-small">Start coding at...</span>
-         </div>
       </div>
     </div>
   </div>
@@ -110,7 +190,7 @@
 // import { gsap } from 'gsap'
 
 export default {
-  name: 'Popup',
+  name: "Popup",
   props: {
     name: String,
     width: String,
@@ -123,28 +203,27 @@ export default {
   computed: {
     computedWindow() {
       return {
-        '--height': this.height + 'vw'
-      }
+        "--height": this.height + "vw"
+      };
     },
     computedPositioning() {
       return {
-        '--left': this.left + 'vw',
-        '--top': this.top + 'vh',
-        '--width': this.width + 'vw'
-      }
+        "--left": this.left + "vw",
+        "--top": this.top + "vh",
+        "--width": this.width + "vw"
+      };
     }
   },
   methods: {
     onClick() {
-      this.$router.push({ name: 'TeenVogue' })
+      this.$router.push({ name: "TeenVogue" });
     }
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-
 .container {
   position: relative;
   width: 100%;
@@ -157,30 +236,47 @@ export default {
 .popup {
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: 0px 10px 20px rgba(0,0,0,.5);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
   width: var(--width);
   left: var(--left);
   top: var(--top);
 }
 
 .header {
-  background: #e3e3e3;
   width: 100%;
-  height: 20px;
+  height: 28px;
   text-align: left;
-  padding-left: 6px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  background: rgb(223, 225, 230);
+  background: linear-gradient(
+    180deg,
+    rgba(223, 225, 230, 1) 0%,
+    rgba(213, 210, 213, 1) 100%
+  );
+  border: 1px solid #f4f5f4;
+  border-left: 1px solid #dad8da;
+  border-right: 1px solid #dad8da;
+  border-bottom: 1px solid #b7b6b8;
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 20px;
+    padding-left: 6px;
+  }
 }
 
 .header.editor {
-  background-image: url('../assets/headerBar.png');
+  background-image: url("../assets/headerBar.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
-  height: 40px;
+  height: 47px;
 }
 
 .header.outro {
-  background-image: url('../assets/popup_outro.jpg');
+  background-image: url("../assets/popup_outro.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center top;
@@ -192,12 +288,32 @@ export default {
   height: 10px;
   border-radius: 100%;
   display: inline-block;
-  margin-top: 5px;
+  margin-top: 8px;
+  box-sizing: border-box;
 }
 
-.red { background-color: #ff0000; }
-.yellow { background-color: #ffbe2d; }
-.green { background-color: #2acb42; }
+@media (max-width: 600px) {
+  .header_button {
+    margin-top: 2px;
+    width: 8px;
+    height: 8px;
+    position: relative;
+    top: -1px;
+  }
+}
+
+.red {
+  background-color: #ed6a5f;
+  /* border: 0.1px solid #d05347; */
+}
+.yellow {
+  background-color: #f5bf4f;
+  /* border: 0.1px solid #d7a244; */
+}
+.green {
+  background-color: #62c655;
+  /* border: 0.1px solid #56a842; */
+}
 
 .window_body {
   height: var(--height);
@@ -206,23 +322,57 @@ export default {
   background-position: center;
 }
 
-.windowToday { background-image: url('../assets/today.png');}
-.windowPercentage { background-image: url('../assets/percentage.png');}
-.windowAll { background-image: url('../assets/ofall.png');}
-.windowCoders { background-image: url('../assets/coders2.gif');}
-.windowAre { background-image: url('../assets/are.png');}
-.windowWomen { background-image: url('../assets/women.png');}
-.windowWhat { background-image: url('../assets/what.png');}
-.windowWould { background-image: url('../assets/would.png');}
-.windowThe { background-image: url('../assets/the.png');}
-.windowInternet { background-image: url('../assets/internet.png');}
-.windowLooklike { background-image: url('../assets/looklike.png');}
-.windowWithout { background-image: url('../assets/without.png');}
-.windowThem { background-image: url('../assets/them.gif'); background-position: center top;}
-.windowEnding { background-image: url('../assets/GWC_Logo_Black_window.png'); background-position: center top;}
+.windowToday {
+  background-image: url("../assets/today.png");
+}
+.windowPercentage {
+  background-image: url("../assets/percentage.png");
+}
+.windowAll {
+  background-image: url("../assets/ofall.png");
+}
+.windowCoders {
+  background-image: url("../assets/coders2.gif");
+}
+.windowAre {
+  background-image: url("../assets/are.png");
+}
+.windowWomen {
+  background-image: url("../assets/women.png");
+}
+.windowWhat {
+  background-image: url("../assets/what.png");
+}
+.windowWould {
+  background-image: url("../assets/would.png");
+}
+.windowThe {
+  background-image: url("../assets/the.png");
+}
+.windowInternet {
+  background-image: url("../assets/internet.png");
+}
+.windowLooklike {
+  background-image: url("../assets/looklike.png");
+}
+.windowWithout {
+  background-image: url("../assets/without.png");
+}
+.windowThem {
+  background-image: url("../assets/them.gif");
+  background-position: center top;
+}
+.windowEnding {
+  background-image: url("../assets/GWC_Logo_Black_window.png");
+  background-position: center top;
+}
 
-.windowGray { background-color: #ececec; }
-.windowWhite { background-color: #ffffff; }
+.windowGray {
+  background-color: #ececec;
+}
+.windowWhite {
+  background-color: #ffffff;
+}
 
 .modal_image {
   width: 80px;
@@ -288,7 +438,7 @@ export default {
   width: 100%;
   max-width: 1350px;
   height: 100%;
-  min-height: 750px;;
+  min-height: 750px;
   margin: 0 auto;
 }
 /*
@@ -313,7 +463,7 @@ export default {
   height: 150px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_1 {
     width: 200px;
     left: 3%;
@@ -325,7 +475,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_1 {
     width: 70vw;
     left: 3%;
@@ -347,7 +497,7 @@ export default {
   height: 130px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_2 {
     width: 200px;
     left: 16%;
@@ -359,7 +509,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_2 {
     width: 45vw;
     left: 38%;
@@ -380,7 +530,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_3 {
     width: 160px;
     left: 30%;
@@ -392,7 +542,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_3 {
     width: 60vw;
     left: 10%;
@@ -414,7 +564,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_4 {
     width: 270px;
     left: 39.5%;
@@ -426,7 +576,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_4 {
     width: 65vw;
     left: 15.5%;
@@ -448,7 +598,7 @@ export default {
   height: 90px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_5 {
     width: 150px;
     left: 59%;
@@ -460,7 +610,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_5 {
     width: 37vw;
     left: 50%;
@@ -482,7 +632,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_6 {
     width: 250px;
     left: 73%;
@@ -494,7 +644,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_6 {
     width: 80vw;
     left: 10%;
@@ -516,7 +666,7 @@ export default {
   height: 140px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_7 {
     width: 180px;
     left: 2%;
@@ -528,7 +678,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_7 {
     width: 60vw;
     left: 3%;
@@ -550,7 +700,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_8 {
     width: 200px;
     left: 19%;
@@ -562,7 +712,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_8 {
     width: 40vw;
     left: 19%;
@@ -584,7 +734,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_9 {
     width: 150px;
     left: 32%;
@@ -596,7 +746,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_9 {
     width: 40vw;
     left: 42%;
@@ -618,7 +768,7 @@ export default {
   height: 150px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_10 {
     width: 280px;
     left: 42.4%;
@@ -630,7 +780,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_10 {
     width: 85vw;
     left: 5%;
@@ -652,7 +802,7 @@ export default {
   height: 100px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_11 {
     width: 260px;
     left: 69%;
@@ -664,7 +814,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_11 {
     width: 70vw;
     left: 15%;
@@ -686,7 +836,7 @@ export default {
   height: 110px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_12 {
     width: 220px;
     left: 44%;
@@ -698,7 +848,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_12 {
     width: 60vw;
     left: 10%;
@@ -721,7 +871,7 @@ export default {
   height: 180px;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .popup_13 {
     width: 300px;
     left: 64%;
@@ -733,7 +883,7 @@ export default {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .popup_13 {
     width: 90vw;
     left: 5%;
@@ -757,7 +907,7 @@ export default {
   height: 200px;
 }
 
-@media(max-width:1250px) {
+@media (max-width: 1250px) {
   .popup_14 {
     width: 300px;
     left: 55%;
@@ -769,7 +919,7 @@ export default {
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .popup_14 {
     width: 200px;
     left: 32%;
@@ -793,7 +943,7 @@ export default {
   height: 615px;
 }
 
-@media(max-width:1250px) {
+@media (max-width: 1250px) {
   .popup_15 {
     width: 644px;
     left: 2%;
@@ -805,7 +955,7 @@ export default {
   }
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .popup_15 {
     width: 400px;
     left: 2%;
@@ -818,7 +968,7 @@ export default {
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .popup_15 {
     width: 280px;
     top: 8%;
@@ -840,7 +990,7 @@ export default {
   height: 615px;
 }
 
-@media(max-width:1250px) {
+@media (max-width: 1250px) {
   .popup_16 {
     width: 644px;
     left: 3.5%;
@@ -852,7 +1002,7 @@ export default {
   }
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .popup_16 {
     width: 400px;
     left: 3.5%;
@@ -865,7 +1015,7 @@ export default {
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .popup_16 {
     width: 280px;
     top: 5%;
@@ -887,7 +1037,7 @@ export default {
   height: 615px;
 }
 
-@media(max-width:1250px) {
+@media (max-width: 1250px) {
   .popup_17 {
     width: 644px;
     left: 5%;
@@ -899,7 +1049,7 @@ export default {
   }
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .popup_17 {
     width: 400px;
     left: 5%;
@@ -912,7 +1062,7 @@ export default {
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .popup_17 {
     width: 280px;
     left: 5%;
@@ -997,14 +1147,14 @@ img {
   top: 66.5%;
 }
 
-@media(max-width:1250px) {
+@media (max-width: 1250px) {
   .all_arrows.ending {
     left: 44.5%;
     top: 51.5%;
   }
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .all_arrows.ending {
     left: -19.5%;
     top: 41.5%;
@@ -1016,7 +1166,7 @@ img {
   display: none;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .all_arrows {
     width: 300px;
     left: 63%;
@@ -1025,7 +1175,7 @@ img {
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .all_arrows {
     width: 100vw;
     left: -5vw;
@@ -1034,7 +1184,7 @@ img {
   }
 }
 
-@media(max-width:600px) {
+@media (max-width: 600px) {
   .all_arrows.ending {
     left: -12.5%;
     top: 43.5%;
@@ -1050,7 +1200,7 @@ img {
   padding: 4px 19px;
   border-radius: 6px;
   text-decoration: none;
-  font-family: 'Bebas Neue', cursive;
+  font-family: "Bebas Neue", cursive;
   letter-spacing: 1px;
   border: 1px solid #49a2fb;
   background: linear-gradient(0deg, #007bff, #5ac7fa);
@@ -1061,14 +1211,14 @@ img {
 .cta:hover {
   background: linear-gradient(0deg, #007bff, #64d2ff);
   transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1);
-  opacity: .8;
+  opacity: 0.8;
 }
 
 .windowEnding .cta {
   right: 35%;
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .windowEnding .cta {
     right: 25%;
   }
@@ -1084,25 +1234,25 @@ img {
   text-align: left;
 }
 
-@media(max-width:1250px) {
+@media (max-width: 1250px) {
   .text {
     top: 27%;
     font-size: 1.4rem;
   }
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .text {
     font-size: 1.2rem;
     line-height: 1.4rem;
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .text {
     top: 35%;
-    font-size: .8rem;
-    line-height: .9rem;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
   }
 }
 
@@ -1110,32 +1260,36 @@ img {
   font-size: 1.6rem;
 }
 
-@media(max-width:1300px) {
+@media (max-width: 1300px) {
   .text-small {
     font-size: 1.3rem;
   }
 }
 
-@media(max-width:800px) {
+@media (max-width: 800px) {
   .text-small {
     font-size: 1.1rem;
     line-height: 1.4rem;
   }
 }
 
-@media(max-width:640px) {
+@media (max-width: 640px) {
   .text-small {
-    font-size: .8rem;
-    line-height: .9rem;
+    font-size: 0.8rem;
+    line-height: 0.9rem;
   }
 }
 
-.modal_1, .modal_2, .modal_3, .modal_4, .modal_5, .modal_6  {
+.modal_1,
+.modal_2,
+.modal_3,
+.modal_4,
+.modal_5,
+.modal_6 {
   width: 420px;
   height: 160px;
   left: 50%;
   margin-left: -210px;
   background-color: #ececec;
 }
-
 </style>

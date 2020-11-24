@@ -2,14 +2,15 @@
     <div class="finder">
         <div class="top_toolbar">
             <div class="menu_options">
+                <div class="mobile_menu"><img src="@/assets/mobile_menu.png"></div>
                 <div class="apple_logo"><img src="@/assets/apple.png"></div>
                 <div class="menu_item">Finder</div>
-                <div class="menu_item">File</div>
-                <div class="menu_item">Edit</div>
-                <div class="menu_item">View</div>
-                <div class="menu_item">Go</div>
-                <div class="menu_item">Window</div>
-                <div class="menu_item">Help</div>
+                <div class="menu_item extra_menu">File</div>
+                <div class="menu_item ">Edit</div>
+                <div class="menu_item extra_menu">View</div>
+                <div class="menu_item extra_menu">Go</div>
+                <div class="menu_item extra_menu">Window</div>
+                <div class="menu_item extra_menu">Help</div>
             </div>
             <div class="system_options">
                 <div class="system_icon instagram"><img src="@/assets/instagram.png"></div>
@@ -18,14 +19,16 @@
                 <div class="system_icon mail"><img src="@/assets/mail.png"></div>
                 <div class="system_icon sound"><img src="@/assets/sound.png"></div>
                 <div class="system_icon time">Mon 10:57 AM</div>
+                <div class="mobile_title">GirlsWhoCode</div>
+                <div class="mobile_time">10:57 AM</div>
                 <div class="system_icon title">GirlsWhoCode</div>
                 <div class="system_icon search"><img src="@/assets/search.png"></div>
                 <div class="system_icon list"><img src="@/assets/menu.png"></div>
             </div>
         </div>
         <div class="desktop">
-            <div class="icon folder"><img src="@/assets/folder.png"><div class="title">Info</div></div>
-            <div class="icon cd"><img src="@/assets/CD.png"><div class="title">MissingCode_<br>Film</div></div>
+            <div class="icon folder" :class="{'hidden': (icons == 'no')}"><img src="@/assets/folder.png"><div class="title">Info</div></div>
+            <div class="icon cd" :class="{'hidden': (icons == 'no')}"><img src="@/assets/CD.png"><div class="title">MissingCode_<br>Film</div></div>
             <div class="wallpaper"><img src="@/assets/GWC_Logo_Green.png"></div>
         </div>
     </div>
@@ -35,7 +38,10 @@
 // import { gsap } from 'gsap'
 
 export default {
-  name: 'Finder'
+  name: 'Finder',
+  props: {
+    icons: String
+  }
 }
 </script>
 
@@ -72,14 +78,42 @@ export default {
   padding: 6px 6px;
 }
 
-.apple_logo {
+.apple_logo, .mobile_menu {
   width: 25px;
   height: 25px;
+}
+
+.mobile_menu, .mobile_time, .mobile_title {
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .mobile_menu, .mobile_time, .mobile_title {
+    display: inline-block !important;
+  }
 }
 
 .system_icon {
   width: 20px;
   height: 20px;
+}
+
+@media (max-width: 1000px) {
+  .extra_menu {
+    display: none !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .system_icon, .apple_logo, .menu_item {
+    display: none !important;
+  }
+
+  .mobile_title {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+  }
 }
 
 .system_icon.time, .system_icon.title {
@@ -92,6 +126,12 @@ export default {
   position: relative;
   top: -2px;
   margin-left: 8px;
+}
+
+.mobile_menu img {
+  width: 85%;
+  position: relative;
+  top: -1px;
 }
 
 .system_options {
@@ -122,6 +162,10 @@ export default {
 .desktop .icon img {
     width: 100%;
     height: auto;
+}
+
+.desktop .icon.hidden {
+  display: none;
 }
 
 .desktop .icon:hover .title {

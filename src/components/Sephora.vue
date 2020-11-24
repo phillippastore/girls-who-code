@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.sephora .vimeo-player iframe {   
+.sephora .vimeo-player iframe {
   width: 70vw;
   height: 180vw;
 }

@@ -290,7 +290,7 @@ canvas {
    overflow: hidden;
 }
 
-.teenvogue .vimeo-player iframe {   
+.teenvogue .vimeo-player iframe {
   width: 73vw;
   height: 180vw;
 }

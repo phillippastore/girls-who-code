@@ -32,7 +32,7 @@ export default {
     Finder,
     Popup
   },
- data() {
+  data() {
     return {
       showModal: false,
       isPlaying: false,
@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.adidas .vimeo-player iframe {   
+.adidas .vimeo-player iframe {
   width: 71vw;
   height: 180vw;
 }

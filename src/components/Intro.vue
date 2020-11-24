@@ -1,7 +1,7 @@
 <template>
   <transition @enter="enter" appear>
     <div class="container">
-      <Finder />
+      <Finder icons="no" />
       <div class="logo">
         <img src="@/assets/GWC_Final-Logo_White.png">
       </div>

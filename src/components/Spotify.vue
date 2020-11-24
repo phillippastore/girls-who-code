@@ -32,7 +32,7 @@ export default {
     Finder,
     Popup
   },
- data() {
+  data() {
     return {
       showModal: false,
       isPlaying: false,
@@ -296,7 +296,7 @@ canvas {
   z-index: 2 !important;
 }
 
-.spotify .vimeo-player iframe {   
+.spotify .vimeo-player iframe {
   width: 73vw;
   height: 46vw;
 }
