@@ -294,6 +294,59 @@ canvas {
   height: 180vw;
 }
 
+@media (max-width: 600px) {
+  .header {
+    padding: 5px 9px;
+    height: 25px;
+  }
+  
+  .header_text {
+    font-size: 10px;
+    letter-spacing: 0px;
+    text-align: center;
+    /* right: 4px;
+    left: auto; */
+    top: 8px;
+  }
+
+  .header_button {
+    width: 7px;
+    height: 7px;
+    top: -2px;
+    left: -2px;
+    position: relative;
+  }
+
+  .url {
+    height: 20px;
+  }
+
+  .url img {
+    height: 24px;
+  }
+
+  .url_text {
+    top: 7px;
+    font-size: 9px;
+    left: 94px;
+  }
+
+  .netflix .vimeo-player iframe {
+    width: 95vw;
+    height: 250vw;
+  }
+
+  .browser-container {
+    width: 95vw;
+    height: 85vh;
+  }
+
+  .browser-container .site_content {
+    height: calc(100% - 46px); 
+  }
+    
+}
+
 .modal {
   width: 100%;
   height: 100%;

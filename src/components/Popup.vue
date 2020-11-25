@@ -175,11 +175,10 @@
           >Let's Go</a
         >
         <div v-if="background == 'outro3'" class="text">
-          The online resources we use every day exist and work like they should,
-          in part, because of the contributions of women coders.<br /><br />
-          By learning to code, girls can reach millions of people and impact the
-          world in ways we have, and haven’t yet, seen.<br /><br /><br />
-          <span class="text-small">Start coding at...</span>
+          The products we use every day work because of the contributions of women coders.
+          <br /><br />
+          By learning to code, girls can reach millions of people and make positive change in the world.<br /><br />
+          Learn more, get involved, and start coding at:
         </div>
       </div>
     </div>
@@ -861,7 +860,6 @@ export default {
 }
 
 .popup_13 {
-  cursor: pointer;
   width: 360px;
   left: 77%;
   top: 60%;
@@ -897,7 +895,6 @@ export default {
 }
 
 .popup_14 {
-  cursor: pointer;
   width: 360px;
   left: 70%;
   top: 65%;
@@ -933,14 +930,13 @@ export default {
 }
 
 .popup_15 {
-  cursor: pointer;
   width: 944px;
   left: 2%;
   top: 11%;
 }
 
 .popup_15 .window_body {
-  height: 615px;
+  height: 445px;
 }
 
 @media (max-width: 1250px) {
@@ -980,14 +976,13 @@ export default {
 }
 
 .popup_16 {
-  cursor: pointer;
   width: 944px;
   left: 3.5%;
   top: 9%;
 }
 
 .popup_16 .window_body {
-  height: 615px;
+  height: 445px;
 }
 
 @media (max-width: 1250px) {
@@ -1027,14 +1022,13 @@ export default {
 }
 
 .popup_17 {
-  cursor: pointer;
   width: 944px;
   left: 5%;
   top: 7%;
 }
 
 .popup_17 .window_body {
-  height: 615px;
+  height: 445px;
 }
 
 @media (max-width: 1250px) {
@@ -1218,6 +1212,7 @@ img {
   right: 35%;
 }
 
+
 @media (max-width: 640px) {
   .windowEnding .cta {
     right: 25%;
@@ -1227,24 +1222,29 @@ img {
 .text {
   color: #060606;
   position: absolute;
-  top: 22%;
+  top: 30%;
   width: 80%;
   left: 10%;
-  font-size: 2.2rem;
+  font-size: 1.75rem;
+  line-height: 2.5rem;
   text-align: left;
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: -1px;
+  text-transform: uppercase;
 }
 
 @media (max-width: 1250px) {
   .text {
     top: 27%;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
+    line-height: 2.2rem;
   }
 }
 
 @media (max-width: 800px) {
   .text {
     font-size: 1.2rem;
-    line-height: 1.4rem;
+    line-height: 1.8rem;
   }
 }
 
@@ -1252,7 +1252,7 @@ img {
   .text {
     top: 35%;
     font-size: 0.8rem;
-    line-height: 0.9rem;
+    line-height: 1.2rem;
   }
 }
 
