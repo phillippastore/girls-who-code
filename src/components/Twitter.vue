@@ -13,7 +13,9 @@
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">twitter.com</div></div>
       <div class="site_content" ref="content">
-        <vimeo-player class="vimeo-player" ref="player" :video-id="477845965" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player class="vimeo-player-left" ref="leftplayer" :video-id="482817966" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onLeftReady"/>
+        <vimeo-player class="vimeo-player" ref="player" :video-id="482818086" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
+        <vimeo-player class="vimeo-player-right" ref="rightplayer" :video-id="482818376" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
       </div>
     </div>
     <div class="gradient_background"></div>
@@ -34,28 +36,52 @@ export default {
   },
   data() {
     return {
+      options: {
+        autopause: false
+      },
       showModal: false,
       isPlaying: false,
+      centerReady: false,
+      leftReady: false,
+      rightReady: false,
       type: 2
     }
   },
   mounted() {
     this.$refs.content.addEventListener('scroll', this.scrollEvt)
+    this.$refs.player.autopause = false
   },
   beforeDestroy() {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
   },
   methods: {
     onReady() {
+      this.centerReady = true
+      this.play()
+    },
+    onLeftReady() {
+      this.leftReady = true
+      this.play()
+    },
+    onRightReady() {
+      this.rightReady = true
       this.play()
     },
     play () {
-      this.$refs.player.mute()
-      this.$refs.player.play()
-      this.isPlaying = true
+      if (this.leftReady && this.rightReady && this.centerReady) {
+        this.$refs.player.mute()
+        this.$refs.player.play()
+        this.$refs.leftplayer.mute()
+        this.$refs.leftplayer.play()
+        this.$refs.rightplayer.mute()
+        this.$refs.rightplayer.play()
+        this.isPlaying = true
+      }
     },
     pause () {
       this.$refs.player.pause()
+      this.$refs.leftplayer.pause()
+      this.$refs.rightplayer.pause()
       this.isPlaying = false
     },
     scrollEvt(e) {
@@ -270,7 +296,7 @@ export default {
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
-  background-color: #eeeeee;
+  background-color: white;
 }
 
 canvas {
@@ -289,9 +315,40 @@ canvas {
    overflow: hidden;
 }
 
+.vimeo-player {
+  margin-left: -106px;
+  margin-top: -3px;
+}
+
+.vimeo-player-left {
+  position: fixed;
+  left: 0;
+  height: calc(100% - 70px);
+  width: 22.9%;
+  top: 70px;
+}
+
+.vimeo-player-right {
+  position: fixed;
+  right: -1px;
+  height: calc(100% - 70px);
+  width: 32.4%;
+  top: 70px;
+}
+
+.twitter .vimeo-player-left iframe {
+  width: 15.8vw;
+  height: 36vw;
+}
+
+.twitter .vimeo-player-right iframe {
+  width: 20.7vw;
+  height: 36vw;
+}
+
 .twitter .vimeo-player iframe {
-  width: 70vw;
-  height: 180vw;
+  width: 78vw;
+  height: 193vw;
 }
 
 .modal {
