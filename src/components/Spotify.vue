@@ -254,11 +254,12 @@ export default {
 .browser-container {
   z-index: 1;
   position: fixed;
-  width: 70%;
-  height: 82%;
+  width: 80vw;
+  height: 50.8vw;
   max-width: 1400px;
-  top: 50%;
-  left: 50%;
+  max-height: 85vh;
+  top: 49%;
+  left: 47%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
@@ -270,10 +271,6 @@ export default {
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
-}
-
-.spotify .site_content {
-  background-color: #000000 !important;
 }
 
 canvas {
@@ -296,13 +293,17 @@ canvas {
   z-index: 2 !important;
 }
 
-.spotify .spotify-vimeo-player iframe {
-  width: 73vw;
-  height: 46vw;
-}
-
 .modal {
   width: 100%;
   height: 100%;
+}
+
+.spotify iframe {
+  width: 79vw;
+  height: 46vw;
+}
+
+.spotify .site_content {
+  background-color: #000000 !important;
 }
 </style>

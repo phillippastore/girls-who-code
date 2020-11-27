@@ -55,12 +55,11 @@
         <div v-if="background == 'modal_1'">
           <img class="modal_image" src="@/assets/alerts/1.png" />
           <div class="modal_content">
-            back in the day, women made up almost 40% of the tech workforce.
-            today it’s like a quarter. wtf?
+            Back in the day, women made up almost 40% of the tech workforce. Today it’s like a quarter. WTF?
           </div>
           <div class="modal_buttons">
             <a
-              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              href="https://girlswhocode.com/about-us"
               target="_blank"
               class="windows_button"
               >Learn more</a
@@ -73,8 +72,7 @@
         <div v-if="background == 'modal_2'">
           <img class="modal_image" src="@/assets/alerts/2.png" />
           <div class="modal_content windowGray">
-            “coder” isn’t code for tech bro. This is what women in tech actually
-            look like.
+            In fact, the first-ever programmer was a woman. AKA none of this S%$# would even be possible without girls.
           </div>
           <div class="modal_buttons">
             <a
@@ -91,12 +89,11 @@
         <div v-if="background == 'modal_3'">
           <img class="modal_image" src="@/assets/alerts/3.png" />
           <div class="modal_content">
-            coding doesn’t have to be crazy hard like in the movies. start with
-            something small you actually care about.
+            “Coder” isn’t code for tech bro. This is what women in tech actually look like.
           </div>
           <div class="modal_buttons">
             <a
-              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              href="https://www.ifthenshecan.org/ambassadors/"
               target="_blank"
               class="windows_button"
               >Learn more</a
@@ -109,12 +106,11 @@
         <div v-if="background == 'modal_4'">
           <img class="modal_image" src="@/assets/alerts/4.png" />
           <div class="modal_content">
-            when you’re a girl who codes, you’re not alone. the sisterhood has
-            your back. and so does lizzo.
+            Coding doesn’t have to be crazy hard like in the movies. Start with something small you actually care about.
           </div>
           <div class="modal_buttons">
             <a
-              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              href="https://girlswhocode.com/programs/code-at-home"
               target="_blank"
               class="windows_button"
               >Learn more</a
@@ -127,12 +123,11 @@
         <div v-if="background == 'modal_5'">
           <img class="modal_image" src="@/assets/alerts/5.png" />
           <div class="modal_content">
-            oh, and coding pays. a lot. so if you’re into making money, a career
-            in tech may be for you.
+            Oh, and coding pays. A lot. So if you’re into making money, a career in tech may be for you.
           </div>
           <div class="modal_buttons">
             <a
-              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              href="https://www.inc.com/don-reisinger/survey-reveals-which-high-tech-jobs-pay-highest-salaries.html"
               target="_blank"
               class="windows_button"
               >Learn more</a
@@ -145,12 +140,11 @@
         <div v-if="background == 'modal_6'">
           <img class="modal_image" src="@/assets/alerts/6.png" />
           <div class="modal_content">
-            in fact, the first-ever programmer was a woman. aka none of this
-            S%$# would even be possible without girls.
+            When you’re a girl who codes, you’re not alone. The Sisterhood has your back. And so does Lizzo.
           </div>
           <div class="modal_buttons">
             <a
-              href="https://en.wikipedia.org/wiki/Ada_Lovelace"
+              href="https://www.youtube.com/watch?v=xDgYDBRDkHU"
               target="_blank"
               class="windows_button"
               >Learn more</a
@@ -1289,9 +1283,39 @@ img {
 .modal_6 {
   width: 480px;
   height: 200px;
-  top: 40vh;
-  left: 50%;
+  top: 38vh;
+  left: 47%;
   margin-left: -240px;
   background-color: #ececec;
 }
+
+
+@media (max-width: 640px) {
+  .modal_1,
+  .modal_2,
+  .modal_3,
+  .modal_4,
+  .modal_5,
+  .modal_6 {
+    width: 90%;
+    height: auto;
+    top: 30vh;
+    left: 50%;
+    margin-left: -45%;
+    padding-bottom: 30px;
+  }
+
+  .modal_image {
+    padding: 0px;
+    padding-top: 2vh;
+  }
+
+  .modal_content {
+    width: 90%;
+    padding: 0% 4% 6% 4%;
+  }
+}
+
+    
+
 </style>

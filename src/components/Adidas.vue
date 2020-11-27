@@ -254,11 +254,12 @@ export default {
 .browser-container {
   z-index: 1;
   position: fixed;
-  width: 70%;
-  height: 82%;
+  width: 80vw;
+  height: 50.8vw;
   max-width: 1400px;
-  top: 50%;
-  left: 50%;
+  max-height: 85vh;
+  top: 49%;
+  left: 47%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
@@ -270,7 +271,6 @@ export default {
   height: calc(100% - 70px);
   position: absolute;
   box-sizing: border-box;
-  background-color: #eeeeee;
 }
 
 canvas {
@@ -289,9 +289,8 @@ canvas {
    overflow: hidden;
 }
 
-.adidas .adidas-vimeo-player iframe {
-  width: 71vw;
-  height: 180vw;
+.popup {
+  z-index: 2 !important;
 }
 
 .modal {
@@ -299,8 +298,12 @@ canvas {
   height: 100%;
 }
 
-.popup {
-  z-index: 2 !important;
+.adidas iframe {
+  width: 79vw;
+  height: 200vw;
 }
 
+.adidas .site_content {
+  background-color: #FFF !important;
+}
 </style>

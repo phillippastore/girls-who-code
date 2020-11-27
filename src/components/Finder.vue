@@ -349,6 +349,7 @@ a {
   left: -15px;
   top: 5px;
   line-height: 23px;
+  word-break: break-all;
 }
 
 @media (max-width: 600px) {
