@@ -13,7 +13,7 @@
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">sephora.com</div></div>
       <div class="site_content" ref="content">
-        <vimeo-player class="vimeo-player" ref="player" :video-id="477849687" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player class="sephora-vimeo-player" ref="player" :video-id="477849687" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
     <div class="gradient_background"></div>
@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.sephora .vimeo-player iframe {
+.sephora .sephora-vimeo-player iframe {
   width: 70vw;
   height: 180vw;
 }

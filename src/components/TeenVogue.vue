@@ -13,7 +13,7 @@
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">teenvogue.com</div></div>
       <div class="site_content" ref="content">
-        <vimeo-player class="vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player class="teenvogue-vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
     <div class="gradient_background"></div>
@@ -290,7 +290,7 @@ canvas {
    overflow: hidden;
 }
 
-.teenvogue .vimeo-player iframe {
+.teenvogue .teenvogue-vimeo-player iframe {
   width: 73vw;
   height: 180vw;
 }

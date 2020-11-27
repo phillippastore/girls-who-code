@@ -13,7 +13,7 @@
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">instagram.com</div></div>
       <div class="site_content" ref="content">
-        <vimeo-player class="vimeo-player" ref="player" :video-id="477225887" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player class="instagram-vimeo-player" ref="player" :video-id="477225887" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
     <div class="gradient_background"></div>
@@ -295,7 +295,7 @@ canvas {
    overflow: hidden;
 }
 
-.instagram .vimeo-player iframe {
+.instagram .instagram-vimeo-player iframe {
   width: 69vw;
   height: 180vw;
 }

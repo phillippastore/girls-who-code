@@ -14,7 +14,7 @@
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">twitter.com</div></div>
       <div class="site_content" ref="content">
         <vimeo-player class="vimeo-player-left" ref="leftplayer" :video-id="482817966" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onLeftReady"/>
-        <vimeo-player class="vimeo-player" ref="player" :video-id="482818086" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
+        <vimeo-player class="twitter-vimeo-player" ref="player" :video-id="482818086" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
         <vimeo-player class="vimeo-player-right" ref="rightplayer" :video-id="482818376" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
       </div>
     </div>
@@ -315,7 +315,7 @@ canvas {
    overflow: hidden;
 }
 
-.vimeo-player {
+.twitter-vimeo-player {
   margin-left: -106px;
   margin-top: -3px;
 }
