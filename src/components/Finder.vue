@@ -30,12 +30,12 @@
             </div>
         </div>
         <div class="finder_dropdown" v-if="menuActive">
-          <div class="menu_option noborder">Instagram<img src="@/assets/nav_arrow.png"></div>
-          <div class="menu_option">Teen Vogue<img src="@/assets/nav_arrow.png"></div>
-          <div class="menu_option">Twitter<img src="@/assets/nav_arrow.png"></div>
-          <div class="menu_option">Sephora<img src="@/assets/nav_arrow.png"></div>
-          <div class="menu_option">Adidas<img src="@/assets/nav_arrow.png"></div>
-          <div class="menu_option">Spotify<img src="@/assets/nav_arrow.png"></div>
+          <router-link :to="{ name: 'Instagram' }"><div class="menu_option noborder">Instagram<img src="@/assets/nav_arrow.png"></div></router-link>
+          <router-link :to="{ name: 'TeenVogue' }"><div class="menu_option">Teen Vogue<img src="@/assets/nav_arrow.png"></div></router-link>
+          <router-link :to="{ name: 'Twitter' }"><div class="menu_option">Twitter<img src="@/assets/nav_arrow.png"></div></router-link>
+          <router-link :to="{ name: 'Sephora' }"><div class="menu_option">Sephora<img src="@/assets/nav_arrow.png"></div></router-link>
+          <router-link :to="{ name: 'Adidas' }"><div class="menu_option">Adidas<img src="@/assets/nav_arrow.png"></div></router-link>
+          <router-link :to="{ name: 'Spotify' }"><div class="menu_option">Spotify<img src="@/assets/nav_arrow.png"></div></router-link>
         </div>
         <div class="desktop">
             <!-- <div class="icon folder" :class="{'hidden': (icons == 'no')}"><img src="@/assets/folder.png"><div class="title">Info</div></div> -->
@@ -110,6 +110,11 @@ export default {
   }
 }
 
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
 .finder_dropdown .menu_option {
   padding: 9px 15px;
   text-align: left;
@@ -117,6 +122,7 @@ export default {
   font-weight: bold;
   border-top: 1px solid #aaa;
   cursor: pointer;
+  text-decoration: none;
 }
 
 .finder_dropdown .menu_option img {
