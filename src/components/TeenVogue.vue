@@ -204,7 +204,7 @@ export default {
   z-index: 10;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 12px;
   color: #666;
   top: 10px;
   left: 140px;
@@ -264,6 +264,12 @@ export default {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
 
+@media (max-width: 600px) {
+  .browser-container {
+    top: 45%;
+  }
+}
+
 .browser-container .site_content {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -290,9 +296,61 @@ canvas {
    overflow: hidden;
 }
 
-.teenvogue .teenvogue-vimeo-player iframe {
-  width: 73vw;
+.instagram .instagram-vimeo-player iframe {
+  width: 69vw;
   height: 180vw;
+}
+
+@media (max-width: 600px) {
+  .header {
+    padding: 5px 9px;
+    height: 25px;
+  }
+
+  .header_text {
+    font-size: 10px;
+    letter-spacing: 0px;
+    text-align: center;
+    /* right: 4px;
+    left: auto; */
+    top: 8px;
+  }
+
+  .header_button {
+    width: 7px;
+    height: 7px;
+    top: -2px;
+    left: -2px;
+    position: relative;
+  }
+
+  .url {
+    height: 20px;
+  }
+
+  .url img {
+    height: 24px;
+  }
+
+  .url_text {
+    top: 7px;
+    font-size: 9px;
+    left: 94px;
+  }
+
+  .teenvogue #vimeo-player-1 iframe {
+    width: 95vw;
+    height: 236vw;
+  }
+
+  .browser-container {
+    width: 95vw;
+    height: calc(95vw * (12/16));
+  }
+
+  .browser-container .site_content {
+    height: calc(100% - 46px);
+  }
 }
 
 .modal {

@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 import Popup from '@/components/Popup.vue'
 import Finder from '@/components/Finder.vue'
 
@@ -269,7 +269,7 @@ iframe {
 
 .site_content {
   background-color: #000000 !important;
-} 
+}
 
 .video_player {
   position: relative;
@@ -279,5 +279,4 @@ iframe {
 .video_player iframe {
   box-shadow: 10px 10px 20px rgba(0, 0, 0, .3);
 }
-
 </style>

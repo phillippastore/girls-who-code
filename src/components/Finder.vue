@@ -48,7 +48,7 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap'
+import { moment } from 'vue-moment'
 
 export default {
   name: 'Finder',
@@ -57,12 +57,20 @@ export default {
   },
   data() {
     return {
-      menuActive: false
+      menuActive: false,
+      currentTime: null
     }
+  },
+  created() {
+    this.setTime()
   },
   methods: {
     toggleMenu() {
       this.menuActive = !this.menuActive
+    },
+    setTime() {
+      this.currentTime = moment().format()
+      setTimeout(this.setTime, 1000)
     }
   }
 }

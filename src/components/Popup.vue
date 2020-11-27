@@ -916,7 +916,7 @@ export default {
   .popup_14 {
     width: 200px;
     left: 32%;
-    top: 48%;
+    top: 55%;
     margin-bottom: 30vw;
   }
 
@@ -963,7 +963,7 @@ export default {
 @media (max-width: 640px) {
   .popup_15 {
     width: 280px;
-    top: 8%;
+    top: 17%;
   }
 
   .popup_15 .window_body {
@@ -1009,7 +1009,7 @@ export default {
 @media (max-width: 640px) {
   .popup_16 {
     width: 280px;
-    top: 5%;
+    top: 16%;
   }
 
   .popup_16 .window_body {
@@ -1056,7 +1056,7 @@ export default {
   .popup_17 {
     width: 280px;
     left: 5%;
-    top: 2%;
+    top: 15%;
     margin-bottom: 30vw;
   }
 
@@ -1289,7 +1289,6 @@ img {
   background-color: #ececec;
 }
 
-
 @media (max-width: 640px) {
   .modal_1,
   .modal_2,
@@ -1315,7 +1314,4 @@ img {
     padding: 0% 4% 6% 4%;
   }
 }
-
-    
-
 </style>
