@@ -2,12 +2,13 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Intro from '@/components/Intro'
 import TeenVogue from '@/components/TeenVogue'
-import Netflix from '@/components/Netflix'
+import Instagram from '@/components/Instagram'
 import Sephora from '@/components/Sephora'
 import Twitter from '@/components/Twitter'
 import Spotify from '@/components/Spotify'
 import Adidas from '@/components/Adidas'
-import EndSlide from '@/components/EndSlide'
+import Info from '@/components/Info'
+import Film from '@/components/Film'
 
 Vue.use(Router)
 
@@ -28,9 +29,9 @@ export default new Router({
       component: TeenVogue
     },
     {
-      path: '/netflix',
-      name: 'Netflix',
-      component: Netflix
+      path: '/instagram',
+      name: 'Instagram',
+      component: Instagram
     },
     {
       path: '/sephora',
@@ -53,9 +54,14 @@ export default new Router({
       component: Spotify
     },
     {
-      path: '/endslide',
-      name: 'EndSlide',
-      component: EndSlide
+      path: '/info',
+      name: 'Info',
+      component: Info
+    },
+    {
+      path: '/film',
+      name: 'Film',
+      component: Film
     }
   ]
 })

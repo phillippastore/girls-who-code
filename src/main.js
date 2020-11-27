@@ -5,8 +5,14 @@ import VueMq from 'vue-mq'
 import App from './App'
 import router from './router'
 import vueVimeoPlayer from 'vue-vimeo-player'
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
 
 Vue.use(vueVimeoPlayer)
+
+Vue.use(VueMoment, {
+  moment
+})
 
 Vue.use(VueMq, {
   breakpoints: {

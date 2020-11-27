@@ -58,17 +58,17 @@ export default {
         num = `00${i}`
       }
 
-      if (PIXI.utils.TextureCache[`netflix_${i}`]) {
+      if (PIXI.utils.TextureCache[`instagram_${i}`]) {
         console.log('cached')
-        this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`netflix_${i}`])
+        this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`instagram_${i}`])
       } else {
-        loader.add(`netflix_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
+        loader.add(`instagram_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
       }
     }
 
     loader.load((loader, resources) => {
       for (var i = 0; i < this.numSlides; i++) {
-        this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`netflix_${i}`].texture)
+        this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`instagram_${i}`].texture)
       }
     })
   },

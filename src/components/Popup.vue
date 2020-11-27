@@ -155,7 +155,7 @@
               class="windows_button"
               >Learn more</a
             >
-            <router-link class="windows_button" :to="{ name: 'EndSlide' }"
+            <router-link class="windows_button" :to="{ name: 'Info' }"
               >Next</router-link
             >
           </div>
@@ -164,7 +164,7 @@
         <router-link
           v-if="background == 'them'"
           class="cta"
-          :to="{ name: 'Netflix' }"
+          :to="{ name: 'Instagram' }"
           >Let's See</router-link
         >
         <a
@@ -189,7 +189,7 @@
 // import { gsap } from 'gsap'
 
 export default {
-  name: "Popup",
+  name: 'Popup',
   props: {
     name: String,
     width: String,
@@ -202,23 +202,23 @@ export default {
   computed: {
     computedWindow() {
       return {
-        "--height": this.height + "vw"
-      };
+        '--height': this.height + 'vw'
+      }
     },
     computedPositioning() {
       return {
-        "--left": this.left + "vw",
-        "--top": this.top + "vh",
-        "--width": this.width + "vw"
-      };
+        '--left': this.left + 'vw',
+        '--top': this.top + 'vh',
+        '--width': this.width + 'vw'
+      }
     }
   },
   methods: {
     onClick() {
-      this.$router.push({ name: "TeenVogue" });
+      this.$router.push({ name: 'TeenVogue' })
     }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -287,7 +287,9 @@ export default {
   height: 10px;
   border-radius: 100%;
   display: inline-block;
-  margin-top: 8px;
+  margin-top: 0px;
+  position: relative;
+  top: -2px;
   box-sizing: border-box;
 }
 
@@ -297,7 +299,7 @@ export default {
     width: 8px;
     height: 8px;
     position: relative;
-    top: -1px;
+    top: -5px;
   }
 }
 
@@ -374,7 +376,7 @@ export default {
 }
 
 .modal_image {
-  width: 80px;
+  width: 100px;
   text-align: left;
   display: inline-block;
   vertical-align: top;
@@ -387,8 +389,8 @@ export default {
   width: 60%;
   padding: 4%;
   padding-left: 3%;
-  font-size: 13px;
-  line-height: 22px;
+  font-size: 15px;
+  line-height: 24px;
   font-weight: bold;
   text-align: left;
   font-family: Arial, Helvetica, sans-serif;
@@ -402,10 +404,10 @@ export default {
 .windows_button {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 15px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
-  padding: 2px 15px;
+  padding: 5px 15px;
   position: relative;
   margin-right: 5px;
   text-decoration: none;
@@ -1212,7 +1214,6 @@ img {
   right: 35%;
 }
 
-
 @media (max-width: 640px) {
   .windowEnding .cta {
     right: 25%;
@@ -1286,10 +1287,11 @@ img {
 .modal_4,
 .modal_5,
 .modal_6 {
-  width: 420px;
-  height: 160px;
+  width: 480px;
+  height: 200px;
+  top: 40vh;
   left: 50%;
-  margin-left: -210px;
+  margin-left: -240px;
   background-color: #ececec;
 }
 </style>

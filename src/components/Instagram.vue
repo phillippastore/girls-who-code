@@ -1,5 +1,5 @@
 <template>
-  <div class="container netflix" ref="container">
+  <div class="container instagram" ref="container">
     <Finder />
     <div v-if="showModal" class="modal">
       <Popup name="modal_1" type=1 width=14 height=5.3 left=45 top=30 background="modal_1" />
@@ -11,7 +11,7 @@
         <div class="header_button green"></div>
         <div class="header_text">This is what the Internet would look like if girls didn't code.</div>
       </div>
-      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">netflix.com</div></div>
+      <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">instagram.com</div></div>
       <div class="site_content" ref="content">
         <vimeo-player class="vimeo-player" ref="player" :video-id="477225887" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
@@ -27,7 +27,7 @@ import Finder from '@/components/Finder.vue'
 import Popup from '@/components/Popup.vue'
 
 export default {
-  name: 'Netflix',
+  name: 'Instagram',
   components: {
     Finder,
     Popup
@@ -203,7 +203,7 @@ export default {
   z-index: 10;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  font-size: 11px;
+  font-size: 12px;
   color: #666;
   top: 10px;
   left: 140px;
@@ -263,6 +263,12 @@ export default {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
 
+@media (max-width: 600px) {
+  .browser-container {
+    top: 54%;
+  }
+}
+
 .browser-container .site_content {
   overflow-y: scroll;
   overflow-x: hidden;
@@ -289,7 +295,7 @@ canvas {
    overflow: hidden;
 }
 
-.netflix .vimeo-player iframe {
+.instagram .vimeo-player iframe {
   width: 69vw;
   height: 180vw;
 }
@@ -299,7 +305,7 @@ canvas {
     padding: 5px 9px;
     height: 25px;
   }
-  
+
   .header_text {
     font-size: 10px;
     letter-spacing: 0px;
@@ -331,20 +337,19 @@ canvas {
     left: 94px;
   }
 
-  .netflix .vimeo-player iframe {
+  .instagram .vimeo-player iframe {
     width: 95vw;
     height: 250vw;
   }
 
   .browser-container {
     width: 95vw;
-    height: 85vh;
+    height: 75vh;
   }
 
   .browser-container .site_content {
-    height: calc(100% - 46px); 
+    height: calc(100% - 46px);
   }
-    
 }
 
 .modal {

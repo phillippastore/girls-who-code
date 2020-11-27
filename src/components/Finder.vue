@@ -9,7 +9,7 @@
                 <div class="apple_logo"><img src="@/assets/apple.png"></div>
                 <div v-on:click="toggleMenu()" class="menu_item finder" :class="{'active': (menuActive == true)}">Finder</div>
                 <div class="menu_item extra_menu">File</div>
-                <div class="menu_item ">Edit</div>
+                <div class="menu_item extra_menu">Edit</div>
                 <div class="menu_item extra_menu">View</div>
                 <div class="menu_item extra_menu">Go</div>
                 <div class="menu_item extra_menu">Window</div>
@@ -21,9 +21,9 @@
                 <div class="system_icon youtube"><a href="https://www.youtube.com/user/GirlsWhoCode" target="_blank"><img src="@/assets/youtube.png"></a></div>
                 <div class="system_icon mail"><a href="mailto:info@girlswhocode.com" target="_blank"><img src="@/assets/mail.png"></a></div>
                 <div class="system_icon sound"><img src="@/assets/sound.png"></div>
-                <div class="system_icon time">Mon 10:57 AM</div>
+                <div class="system_icon time"><span>{{ new Date() | moment("ddd hh:mm A") }}</span></div>
                 <div class="mobile_title">GirlsWhoCode</div>
-                <div class="mobile_time">10:57 AM</div>
+                <div class="mobile_time"><span>{{ new Date() | moment("hh:mm A") }}</span></div>
                 <div class="system_icon title">GirlsWhoCode</div>
                 <div class="system_icon search"><img src="@/assets/search.png"></div>
                 <div class="system_icon list"><img src="@/assets/menu.png"></div>
@@ -39,7 +39,9 @@
         </div>
         <div class="desktop">
             <!-- <div class="icon folder" :class="{'hidden': (icons == 'no')}"><img src="@/assets/folder.png"><div class="title">Info</div></div> -->
-            <div class="icon cd" :class="{'hidden': (icons == 'no')}"><img src="@/assets/CD.png"><div class="title">MissingCode_<br>Film</div></div>
+            <router-link :to="{ name: 'Film' }">
+              <div class="icon cd" :class="{'hidden': (icons == 'no')}"><img src="@/assets/CD.png"><div class="title">MissingCode_Film</div></div>
+            </router-link>
             <div class="wallpaper"><img src="@/assets/GWC_Logo_Green.png"></div>
         </div>
     </div>
@@ -60,7 +62,7 @@ export default {
   },
   methods: {
     toggleMenu() {
-      this.menuActive = !this.menuActive;
+      this.menuActive = !this.menuActive
     }
   }
 }
@@ -91,7 +93,7 @@ export default {
 
 .finder_dropdown {
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   left: 50px;
   background: #bdbdbd;
   top: 26px;
@@ -282,6 +284,18 @@ export default {
     cursor: pointer;
 }
 
+@media (max-width: 600px) {
+  .desktop .icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .desktop {
+    right: 50px;
+    padding-top: 50px;
+  }
+}
+
 .desktop .icon img {
     width: 100%;
     height: auto;
@@ -307,10 +321,9 @@ export default {
     position: fixed;
     bottom: 62px;
     left: 29px;
-    width: 250px; 
+    width: 250px;
   }
 }
-
 
 .wallpaper img {
     width: 100%;
@@ -330,6 +343,15 @@ export default {
   left: -15px;
   top: 5px;
   line-height: 23px;
+}
+
+@media (max-width: 600px) {
+  .icon .title {
+    font-size: 11px;
+    width: 130px;
+    left: -42px;
+    top: 0px;
+  }
 }
 
 </style>

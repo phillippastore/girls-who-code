@@ -22,7 +22,7 @@ import Popup from '@/components/Popup.vue'
 import Finder from '@/components/Finder.vue'
 
 export default {
-  name: 'EndSlide',
+  name: 'Info',
   components: {
     Popup,
     Finder
