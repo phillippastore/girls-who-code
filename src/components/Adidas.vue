@@ -13,7 +13,7 @@
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">adidas.com</div></div>
       <div class="site_content" ref="content">
-        <vimeo-player class="vimeo-player" ref="player" :video-id="480356492" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player class="adidas-vimeo-player" ref="player" :video-id="480356492" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
     <div class="gradient_background"></div>
@@ -289,7 +289,7 @@ canvas {
    overflow: hidden;
 }
 
-.adidas .vimeo-player iframe {
+.adidas .adidas-vimeo-player iframe {
   width: 71vw;
   height: 180vw;
 }

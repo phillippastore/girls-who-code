@@ -13,7 +13,7 @@
       </div>
       <div class="url"><img class="" src="@/assets/url.png"><div class="url_text">spotify.com</div></div>
       <div class="site_content" ref="content">
-        <vimeo-player class="vimeo-player" ref="player" :video-id="480359675" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player class="spotify-vimeo-player" ref="player" :video-id="480359675" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
     </div>
     <div class="gradient_background"></div>
@@ -296,7 +296,7 @@ canvas {
   z-index: 2 !important;
 }
 
-.spotify .vimeo-player iframe {
+.spotify .spotify-vimeo-player iframe {
   width: 73vw;
   height: 46vw;
 }
