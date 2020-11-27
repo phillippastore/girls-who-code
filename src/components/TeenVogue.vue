@@ -265,7 +265,7 @@ export default {
 }
 
 @media (max-width: 600px) {
-  .browser-container {
+  .teenvogue .browser-container {
     top: 45%;
   }
 }
@@ -296,7 +296,7 @@ canvas {
    overflow: hidden;
 }
 
-.instagram .instagram-vimeo-player iframe {
+.teenvogue .teenvogue-vimeo-player iframe {
   width: 69vw;
   height: 180vw;
 }
@@ -343,12 +343,12 @@ canvas {
     height: 236vw;
   }
 
-  .browser-container {
+  .teenvogue .browser-container {
     width: 95vw;
     height: calc(95vw * (12/16));
   }
 
-  .browser-container .site_content {
+  .teenvogue .browser-container .site_content {
     height: calc(100% - 46px);
   }
 }
