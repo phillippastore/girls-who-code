@@ -1,11 +1,11 @@
 <template>
-  <div class="popup_wrapper" ref="popup_container">
+  <div class="browser_wrapper" ref="popup_container">
     <div v-if="background == 'them' || background == 'ending'" class="all_arrows" :class="{ ending: background == 'ending' }"></div>
     <div class="popup" :class="name" :style="computedPositioning">
-    <div v-if="showModal" class="modal">
-      <Popup v-if="name == 'instagram'" name="modal_1" type=1 width=16 height=5.3 left=45 top=30 background="modal_1" />
-    </div>
     <div class="browser-container" id="browser2">
+      <div v-show="showModal" class="modal">
+        <Popup v-if="name == 'instagram'" name="modal_1" type=1 width=16 height=5.3 background="modal_1" />
+      </div>
       <div class="header" id="browser2_header">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
@@ -175,7 +175,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-.popup_wrapper {
+.browser_wrapper {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -497,8 +497,9 @@ export default {
 }
 
 .modal {
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  z-index: 3;
+  left: 50%;
 }
 
 .popup {
