@@ -20,49 +20,74 @@ export default {
 
 <style>
 
-.instagram-vimeo-player {
+
+.instagram iframe {
+  width: 100% !important;
+  /* height: 40vw; */
+}
+
+.instagram .site_content {
+  background-color: #FFFFFF !important;
+}
+
+#vimeo-player-1 {
   position: absolute;
-  left: 0;
-  height: 415%;
-  /* margin-left: -106px; */
-  /* margin-top: -3px; */
-  width: 51.75%;
-  top: 71px;
+  left: 0px;
+  width: calc(61.3% - 7.5px);
+  top: 2px;
 }
 
-.instagram-player-main {
-  position: fixed;
-  /* left: -1px; */
-  height: calc(100% - 61px);
-  width: calc(51.75% - 8.5px);
-  top: 61px;
+#vimeo-player-1 iframe {
+  height: 270vw;
 }
 
-.instagram-player-right {
+#vimeo-player-2 {
   position: fixed;
   right: 17px;
-  height: calc(100% - 61px);
-  width: calc(48.25% - 8.5px);
-  top: 61px;
+  width: calc(38.69% - 7.5px);
+  top: -14px;
 }
 
-.instagram-vimeo-player {
-  position: absolute;
-}
-
-.instagram .instagram-player-right iframe {
-  width: 100%;
-  background-color: blueviolet;
-}
-
-.instagram .instagram-player-main iframe {
-  width: 100%;
-  height: 108%;
-  background-color: green;
+#vimeo-player-2 iframe {
+  height: 49vw;
 }
 
 .instagram .browser-container {
-  height: 64% !important;
+  height: 42vw !important;
+  width: 70vw !important;
+  max-height: 80vh;
+  overflow: hidden;
 }
+
+@media (max-width: 1000px) {
+  .instagram .browser-container {
+    height: 50.7vw !important;
+    width: 80vw !important;
+  }
+
+  .instagram iframe {
+    width: 78vw;
+    height: 45vw;
+  }
+
+  #vimeo-player-2 {
+    top: 0px;
+  }
+}
+
+@media (max-width: 600px) {
+  .instagram .browser-container {
+    width: 95vw !important;
+    height: 66vw !important;
+    top: 45% !important;
+  }
+
+  .instagram iframe {
+    width: 95vw;
+    height: 54vw;
+  }
+}
+
+
 
 </style>
