@@ -33,7 +33,7 @@ export default {
   position: fixed;
   left: 0px;
   width: 24.479%;
-  top: 62px;
+  top: 61px;
 }
 
 #vimeo-player-1 iframe {
@@ -44,7 +44,7 @@ export default {
   position: absolute;
   left: 24.479%;
   width: 43.958%;
-  top: -14px;
+  top: 0px;
 }
 
 #vimeo-player-2 iframe {
@@ -55,7 +55,7 @@ export default {
   position: fixed;
   right: 17px;
   width: 31.5625%;
-  top: 62px;
+  top: 61px;
 }
 
 #vimeo-player-3 iframe {
@@ -78,6 +78,10 @@ export default {
   .twitter iframe {
     width: 78vw;
     height: 45vw;
+  }
+
+  #vimeo-player-2 {
+    top: -14px;
   }
 }
 
