@@ -80,6 +80,15 @@ export default {
     height: 45vw;
   }
 
+  #vimeo-player-1 iframe,
+  #vimeo-player-3 iframe {
+    height: 45vw;
+  } 
+  
+  #vimeo-player-2 iframe {
+    height: 204.5vw;
+  }
+
   #vimeo-player-2 {
     top: 0px;
   }
@@ -96,6 +105,21 @@ export default {
     width: 95vw;
     height: 54vw;
   }
+
+  #vimeo-player-1 iframe,
+  #vimeo-player-3 iframe {
+    height: 55vw;
+  }
+
+  #vimeo-player-2 iframe {
+    height: 240.5vw;
+  }
+
+  #vimeo-player-1,
+  #vimeo-player-3 {
+    top: 46px;
+  }
+
 }
 
 
