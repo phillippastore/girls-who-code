@@ -293,7 +293,7 @@ export default {
 .modal_4 .header_button,
 .modal_5 .header_button,
 .modal_6 .header_button {
-  top: 5px;
+  top: -1px;
 }
 
 @media (max-width: 600px) {
@@ -311,7 +311,7 @@ export default {
   .modal_4 .header_button,
   .modal_5 .header_button,
   .modal_6 .header_button {
-    top: 0px;
+    top: -7px;
   }
 }
 
