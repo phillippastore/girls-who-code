@@ -451,8 +451,8 @@ export default {
   }
 
   .header_button {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     top: -2px;
     left: -2px;
     position: relative;
