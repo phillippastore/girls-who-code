@@ -31,6 +31,11 @@
         <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
+      <div class="scroll_indicator" v-show="showScrollIndicator">
+        <div><img src="@/assets/scroll.png"></div>
+        <div class="scroll_text">Scroll</div>
+        <div><img src="@/assets/scroll.png"></div>
+      </div>
 
     </div>
       <div
@@ -484,6 +489,39 @@ export default {
     height: calc(100% - 45px);
     top: 45px;
   }
+}
+
+
+
+.scroll_indicator {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  background-color: black;
+  padding: 5px 10px;
+}
+
+.scroll_indicator div {
+    display: inline-block;
+}
+
+.scroll_indicator img {
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
+}
+
+.scroll_text {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 25px;
+  vertical-align: top;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0px 15px 0px 17px;
 }
 
 </style>

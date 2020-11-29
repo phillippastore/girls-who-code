@@ -1305,7 +1305,7 @@ img {
   left: 47%;
   margin-left: -240px;
   background-color: #ececec;
-  z-index: 3;
+  z-index: 3000;
 }
 
 @media (max-width: 640px) {

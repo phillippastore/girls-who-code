@@ -25,8 +25,13 @@
         <vimeo-player v-if="name == 'instagram'" class="instagram-player-main" ref="player" :video-id="484920495" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
         <vimeo-player v-if="name == 'instagram'" class="instagram-player-right" ref="rightplayer" :video-id="484920596" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
       </div>
-      <div class="scroll_indicator" v-show="showScrollIndicator"><img src="@/assets/scroll.png"></div>
+      <div class="scroll_indicator" v-show="showScrollIndicator">
+        <div><img src="@/assets/scroll.png"></div>
+        <div class="scroll_text">Scroll</div>
+        <div><img src="@/assets/scroll.png"></div>
+      </div>
     </div>
+    
       <div
         class="window_body"
         :class="{
@@ -173,7 +178,7 @@ export default {
 .popup_wrapper {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  position: fixed;
 }
 
 .header_text {
@@ -547,9 +552,34 @@ export default {
 }
 
 .scroll_indicator {
-  position: fixed;
-  bottom: 0;
+  position: absolute;
+  bottom: 50px;
   left: 50%;
+  margin-left: -100px;
+  width: 200px;
+  background-color: black;
+  padding: 5px 10px;
+}
+
+.scroll_indicator div {
+    display: inline-block;
+}
+
+.scroll_indicator img {
+    width: 20px;
+    height: 20px;
+    padding-top: 2px;
+}
+
+.scroll_text {
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  line-height: 25px;
+  vertical-align: top;
+  color: #FFFFFF;
+  text-align: center;
+  padding: 0px 15px 0px 17px;
 }
 
 </style>
