@@ -18,9 +18,9 @@
         <div class="header_text">This is what the Internet would look like if girls didn't code.</div>
       </div>
       <div class="url">
-        <div class="browser_back"><img src="@/assets/arrow_left.png" /></div>
-        <div class="browser_forward"><img src="@/assets/arrow_right.png" /></div>
-        <div class="browser_refresh"><img src="@/assets/refresh.png" /></div>
+        <div v-on:click="goBack()" class="browser_back"><img src="@/assets/arrow_left.png" /></div>
+        <div v-on:click="goForward()" class="browser_forward"><img src="@/assets/arrow_right.png" /></div>
+        <div v-on:click="refresh()" class="browser_refresh"><img src="@/assets/refresh.png" /></div>
         <div class="browser_url">
           <div class="browser_lock"><img src="@/assets/lock.png" /></div>
           <div class="url_copy">{{url}}</div>
@@ -189,6 +189,16 @@ export default {
       this.showModal = false
       this.play()
       this.startNoScrollTimer()
+    },
+    goBack() {
+      this.$router.go(-1)
+    },
+    goForward() {
+      console.log(this.$router);
+      this.$router.go(1)
+    },
+    refresh() {
+      location.reload()
     }
   }
 }
@@ -357,7 +367,6 @@ export default {
   height: 30px;
   margin: 2px 0px;
   vertical-align: top;
-  opacity: .4;
 }
 
 .browser_refresh {
@@ -366,6 +375,13 @@ export default {
   height: 30px;
   margin: 2px 0px;
   vertical-align: top;
+}
+
+.browser_back:hover,
+.browser_forward:hover,
+.browser_refresh:hover {
+  opacity: .4;
+  cursor: pointer;
 }
 
 .browser_back img,
@@ -484,7 +500,7 @@ export default {
     text-align: center;
     /* right: 4px;
     left: auto; */
-    top: 8px;
+    top: 7px;
   }
 
   .header_button {
