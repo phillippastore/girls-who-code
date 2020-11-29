@@ -483,4 +483,51 @@ export default {
   z-index: 2 !important;
 }
 
+
+@media (max-width: 600px) {
+  .browser_back,
+  .browser_forward,
+  .browser_refresh {
+    width: 18px;
+    height: 18px;
+  }
+
+  .browser_back img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .browser_url {
+    width: 50%;
+    height: 18px;
+  }
+
+  .browser_lock {
+    width: 15px;
+    height: 15px;
+  }
+
+  .url {
+    height: 22px;
+  }
+
+  .url_copy {
+    font-size: 8px;
+    line-height: 18px;
+    left: -8px;
+    top: -1px;
+  }
+
+  .browser-container {
+    width: 95%;
+    height: 74%;
+    top: 60%;
+  }
+
+  .browser-container .site_content {
+    height: calc(100% - 45px);
+    top: 45px;
+  }
+}
+
 </style>

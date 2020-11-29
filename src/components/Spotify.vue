@@ -32,6 +32,7 @@ export default {
 .spotify .browser-container {
   height: 43.7vw !important;
   width: 70vw !important;
+  max-height: 80vh;
 }
 
 @media (max-width: 1000px) {
