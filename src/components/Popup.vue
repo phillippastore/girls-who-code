@@ -24,8 +24,8 @@
         <img src="@/assets/mouse_1.png" />
       </div>
     </div>
-    <div class="popup" :class="name" :style="computedPositioning">
-      <div class="header" :class="{ editor: type == '2', outro: type == '3' }">
+    <div class="popup draggable" :class="name" :style="computedPositioning">
+      <div class="header draggable_header" :class="{ editor: type == '2', outro: type == '3' }">
         <div @click="closeModal" class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
@@ -214,12 +214,37 @@ export default {
     closeModal() {
       this.$emit('close')
     }
+  },
+  mounted() {
+    Draggable.create('.draggable', {
+      type: 'x, y',
+      trigger: '.draggable_header',
+      bounds: this.$refs.popup_container,
+      edgeResistance: 0.65,
+      onClick: function() {
+        console.log('clicked')
+      },
+      onDragEnd: function() {
+        console.log('drag ended')
+      }
+    })
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -320,6 +345,7 @@ export default {
 
 .red {
   background-color: #ed6a5f;
+  cursor: pointer;
   /* border: 0.1px solid #d05347; */
 }
 .yellow {
