@@ -123,14 +123,14 @@ export default {
   width: 100%;
   box-shadow: 0px 10px 20px rgba(0,0,0,.2);
   position: fixed;
-  z-index: 10;
+  z-index: 3001;
   top: 0;
   background-color: #FFFFFF;
 }
 
 .finder_dropdown {
   position: fixed;
-  z-index: 3;
+  z-index: 3000;
   left: 50px;
   background: #bdbdbd;
   top: 26px;
