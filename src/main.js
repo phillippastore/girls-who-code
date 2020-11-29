@@ -7,6 +7,7 @@ import router from './router'
 import vueVimeoPlayer from 'vue-vimeo-player'
 import VueMoment from 'vue-moment'
 import moment from 'moment-timezone'
+import VueGtag from 'vue-gtag'
 
 Vue.use(vueVimeoPlayer)
 
@@ -21,6 +22,10 @@ Vue.use(VueMq, {
     lg: 2000,
     xl: Infinity
   }
+})
+
+Vue.use(VueGtag, {
+  config: { id: 'UA-184173915-1' }
 })
 
 Vue.config.productionTip = false

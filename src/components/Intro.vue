@@ -79,6 +79,8 @@ export default {
   methods: {
     onClick() {
       this.$router.push({ name: 'TeenVogue' })
+
+      this.$gtag.event('Intro', { method: 'next' })
     },
     enter(el, done) {
       const duration = 0.4

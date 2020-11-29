@@ -1311,7 +1311,6 @@ img {
   z-index: 3000;
 }
 
-
 @media (max-width: 640px) {
   .modal_1,
   .modal_2,
