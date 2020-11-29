@@ -44,7 +44,7 @@ export default {
   position: absolute;
   left: 24.479%;
   width: 43.958%;
-  top: 0px;
+  top: -14px;
 }
 
 #vimeo-player-2 iframe {
@@ -81,7 +81,7 @@ export default {
   }
 
   #vimeo-player-2 {
-    top: -14px;
+    top: 0px;
   }
 }
 
