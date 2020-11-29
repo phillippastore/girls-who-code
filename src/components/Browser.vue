@@ -9,7 +9,7 @@
         <Popup v-if="name == 'twitter'" name="modal_3" type=1 width=14 height=5.3 left=45 top=30 background="modal_3" />
         <Popup v-if="name == 'sephora'" name="modal_4" type=1 width=14 height=5.3 left=45 top=30 background="modal_4" />
         <Popup v-if="name == 'adidas'" name="modal_5" type=1 width=14 height=5.3 left=45 top=30 background="modal_5" />
-        <Popup v-if="name == 'spotify'" name="modal_6" type=1 width=14 height=5.3 left=45 top=30 background="modal_6" />
+        <Popup v-if="name == 'spotify'" @close="onModalClose" name="modal_6" type=1 width=14 height=5.3 left=45 top=30 background="modal_6" />
       </div>
       <div class="header" id="browser1_header">
         <div class="header_button red"></div>
@@ -86,7 +86,12 @@ export default {
     left: String,
     top: String,
     background: String,
-    url: String
+    url: String,
+    noScroll: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   computed: {
     computedWindow() {
@@ -115,7 +120,6 @@ export default {
     gsap.registerPlugin(Draggable)
   },
   mounted() {
-    this.$refs.content.addEventListener('scroll', this.scrollEvt)
     Draggable.create('#browser1', {
       type: 'x, y',
       trigger: '#browser1_header',
@@ -128,7 +132,12 @@ export default {
         console.log('drag ended')
       }
     })
-    this.startScrollTimer()
+    if (this.noScroll) {
+      this.startNoScrollTimer()
+    } else {
+      this.$refs.content.addEventListener('scroll', this.scrollEvt)
+      this.startScrollTimer()
+    }
   },
   beforeDestroy() {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
@@ -169,6 +178,17 @@ export default {
       if (this.scrollTimer) {
         clearTimeout(this.scrollTimer)
       }
+    },
+    startNoScrollTimer() {
+      setTimeout(() => {
+        this.showModal = true
+        this.pause()
+      }, 8000)
+    },
+    onModalClose() {
+      this.showModal = false
+      this.play()
+      this.startNoScrollTimer()
     }
   }
 }

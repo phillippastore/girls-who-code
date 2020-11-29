@@ -1,7 +1,7 @@
 <template>
   <div class="container spotify" ref="container">
     <Finder />
-    <Browser name="spotify" width=85 height=60 left=50 top=50 url="spotify.com" />
+    <Browser :noScroll="true" name="spotify" width=85 height=60 left=50 top=50 url="spotify.com" />
   </div>
 </template>
 

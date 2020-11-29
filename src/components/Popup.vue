@@ -26,7 +26,7 @@
     </div>
     <div class="popup" :class="name" :style="computedPositioning">
       <div class="header" :class="{ editor: type == '2', outro: type == '3' }">
-        <div class="header_button red"></div>
+        <div @click="closeModal" class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
       </div>
@@ -210,6 +210,9 @@ export default {
   methods: {
     onClick() {
       this.$router.push({ name: 'TeenVogue' })
+    },
+    closeModal() {
+      this.$emit('close')
     }
   }
 }
