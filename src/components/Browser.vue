@@ -266,7 +266,7 @@ export default {
   /* border: 0.1px solid #d05347; */
 }
 .yellow {
-  background-color: #f5bf4f;
+  background-color: #f3bd4e;
   /* border: 0.1px solid #d7a244; */
 }
 .green {
@@ -468,8 +468,8 @@ export default {
   }
 
   .header_button {
-    width: 7px;
-    height: 7px;
+    width: 8px;
+    height: 8px;
     top: -2px;
     left: -2px;
     position: relative;

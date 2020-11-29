@@ -320,7 +320,7 @@ export default {
   /* border: 0.1px solid #d05347; */
 }
 .yellow {
-  background-color: #f5bf4f;
+  background-color: #f3bd4e;
   /* border: 0.1px solid #d7a244; */
 }
 .green {
@@ -1301,19 +1301,13 @@ img {
 .modal_6 {
   width: 480px;
   height: 200px;
-  top: 22vh;
-  left: 47%;
+  top: 28vh;
+  left: 50%;
   margin-left: -240px;
   background-color: #ececec;
   z-index: 3000;
 }
 
-.modal_2,
-.modal_4,
-.modal_5 {
-  top: 28vh;
-  left: 50%;
-}
 
 @media (max-width: 640px) {
   .modal_1,
@@ -1324,16 +1318,14 @@ img {
   .modal_6 {
     width: 90%;
     height: auto;
-    top: 1vh;
+    top: 18vh;
     left: 50%;
     margin-left: -45%;
     padding-bottom: 30px;
   }
 
-  .modal_2,
-  .modal_4,
-  .modal_5 {
-    top: 18vh;
+  .modal_6 {
+    top: 1vh;
   }
 
   .modal_image {
