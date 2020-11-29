@@ -25,7 +25,7 @@
         <vimeo-player v-if="name == 'instagram'" class="instagram-player-main" ref="player" :video-id="484920495" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
         <vimeo-player v-if="name == 'instagram'" class="instagram-player-right" ref="rightplayer" :video-id="484920596" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
       </div>
-
+      <div class="scroll_indicator" v-show="showScrollIndicator"><img src="@/assets/scroll.png"></div>
     </div>
       <div
         class="window_body"
@@ -96,7 +96,8 @@ export default {
       isPlaying: false,
       centerReady: false,
       rightReady: false,
-      type: 2
+      type: 2,
+      showScrollIndicator: true
     }
   },
   created() {
@@ -151,12 +152,15 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
+      console.log(this.$refs.content.scrollTop)
       if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
+        this.showScrollIndicator = false
       } else if (!this.isPlaying) {
         this.play()
         this.showModal = false
+        this.showScrollIndicator = true
       }
     }
   }
@@ -540,6 +544,12 @@ export default {
     height: calc(100% - 45px);
     top: 45px;
   }
+}
+
+.scroll_indicator {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
 }
 
 </style>
