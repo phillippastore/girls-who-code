@@ -102,7 +102,8 @@ export default {
       centerReady: false,
       rightReady: false,
       type: 2,
-      showScrollIndicator: true
+      showScrollIndicator: true,
+      scrollTimer: null
     }
   },
   created() {
@@ -123,6 +124,7 @@ export default {
         console.log('drag ended')
       }
     })
+    this.startScrollTimer()
   },
   beforeDestroy() {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
@@ -157,15 +159,24 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
-      console.log(this.$refs.content.scrollTop)
+      this.stopScrollTimer()
       if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
-        this.showScrollIndicator = false
       } else if (!this.isPlaying) {
         this.play()
         this.showModal = false
+        this.startScrollTimer()
+      }
+    },
+    startScrollTimer() {
+      this.scrollTimer = setTimeout(() => {
         this.showScrollIndicator = true
+      }, 4000)
+    },
+    stopScrollTimer() {
+      if (this.scrollTimer) {
+        clearTimeout(this.scrollTimer)
       }
     }
   }
