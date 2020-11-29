@@ -34,12 +34,13 @@
         <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
-      <div class="scroll_indicator" v-show="showScrollIndicator">
-        <div><img src="@/assets/scroll.png"></div>
-        <div class="scroll_text">Scroll</div>
-        <div><img src="@/assets/scroll.png"></div>
-      </div>
-
+      <transition name="fade">
+        <div class="scroll_indicator" v-show="showScrollIndicator">
+          <div><img src="@/assets/scroll.png"></div>
+          <div class="scroll_text">Scroll</div>
+          <div><img src="@/assets/scroll.png"></div>
+        </div>
+      </transition>
     </div>
       <div
         class="window_body"
@@ -105,7 +106,9 @@ export default {
     return {
       showModal: false,
       isPlaying: false,
-      type: 2
+      type: 2,
+      showScrollIndicator: false,
+      scrollTimer: null
     }
   },
   created() {
@@ -125,6 +128,7 @@ export default {
         console.log('drag ended')
       }
     })
+    this.startScrollTimer()
   },
   beforeDestroy() {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
@@ -143,14 +147,27 @@ export default {
       this.isPlaying = false
     },
     scrollEvt(e) {
+      this.showScrollIndicator = false
+      this.stopScrollTimer()
       if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
-        this.showScrollIndicator = false
-      } else if (!this.isPlaying) {
-        this.play()
+      } else {
+        if (!this.isPlaying) {
+          this.play()
+        }
         this.showModal = false
+        this.startScrollTimer()
+      }
+    },
+    startScrollTimer() {
+      this.scrollTimer = setTimeout(() => {
         this.showScrollIndicator = true
+      }, 4000)
+    },
+    stopScrollTimer() {
+      if (this.scrollTimer) {
+        clearTimeout(this.scrollTimer)
       }
     }
   }
@@ -515,8 +532,6 @@ export default {
   }
 }
 
-
-
 .scroll_indicator {
   position: absolute;
   bottom: 50px;
@@ -546,6 +561,14 @@ export default {
   color: #FFFFFF;
   text-align: center;
   padding: 0px 15px 0px 17px;
+}
+
+.fade-enter-active, .fade-leave-active {
+  transition: all .4s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+  transform: translateY(10px);
 }
 
 </style>
