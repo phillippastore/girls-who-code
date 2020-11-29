@@ -26,13 +26,10 @@
         </div>
       </div>
       <div class="site_content" ref="content">
-        <vimeo-player v-if="name == 'teenvogue'" class="teenvogue-vimeo-player" ref="player" :video-id="477844508" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'sephora'" class="sephora-vimeo-player" ref="player" :video-id="477849687" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="480356492" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player v-if="name == 'teenvogue'" class="teenvogue-vimeo-player" ref="player" :video-id="483217171" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player v-if="name == 'sephora'" class="sephora-vimeo-player" ref="player" :video-id="483217394" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'twitter'"  class="vimeo-player-left" ref="leftplayer" :video-id="482817966" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onLeftReady"/>
-        <vimeo-player v-if="name == 'twitter'"  class="twitter-vimeo-player" ref="player" :video-id="482818086" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
-        <vimeo-player v-if="name == 'twitter'"  class="vimeo-player-right" ref="rightplayer" :video-id="482818376" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
       </div>
 
     </div>

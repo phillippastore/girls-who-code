@@ -27,7 +27,7 @@ export default {
 }
 
 .instagram .site_content {
-  background-color: red !important; /*fbfafb*/
+  background-color: #fbfafb !important; /*fbfafb*/
 }
 
 #vimeo-player-1 {
@@ -117,15 +117,29 @@ export default {
 
 @media only screen 
   and (min-device-width: 768px) 
+  and (max-device-width: 960px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #vimeo-player-2 {
+      right: 0px;
+      width: 39%;
+    }
+
+    #vimeo-player-1 iframe {
+      height: 306w;
+    }
+}
+
+@media only screen 
+  and (min-device-width: 961) 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 1) {
     #vimeo-player-2 {
       right: 0px;
       width: 39%;
     }
-    
+
     #vimeo-player-1 iframe {
-      height: 375vw;
+      height: 315vw;
     }
 }
 
@@ -139,7 +153,7 @@ export default {
     }
 
     #vimeo-player-1 iframe {
-      height: 375vw;
+      height: 374vw;
     }
     
 }
