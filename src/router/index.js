@@ -3,8 +3,10 @@ import Router from 'vue-router'
 import Intro from '@/components/Intro'
 import TeenVogue from '@/components/TeenVogue'
 import Instagram from '@/components/Instagram'
+import Instagram1 from '@/components/Instagram1'
 import Sephora from '@/components/Sephora'
 import Twitter from '@/components/Twitter'
+import Twitter1 from '@/components/Twitter1'
 import Spotify from '@/components/Spotify'
 import Adidas from '@/components/Adidas'
 import Info from '@/components/Info'
@@ -31,7 +33,7 @@ export default new Router({
     {
       path: '/instagram',
       name: 'Instagram',
-      component: Instagram
+      component: Instagram1
     },
     {
       path: '/sephora',
@@ -41,7 +43,7 @@ export default new Router({
     {
       path: '/twitter',
       name: 'Twitter',
-      component: Twitter
+      component: Twitter1
     },
     {
       path: '/adidas',

@@ -4,7 +4,9 @@
     <div class="popup" :class="name" :style="computedPositioning">
     <div class="browser-container" id="browser1">
       <div v-if="showModal" class="modal">
+        <Popup v-if="name == 'instagram'" name="modal_1" type=1 width=14 height=5.3 left=45 top=30 background="modal_1" />
         <Popup v-if="name == 'teenvogue'" name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
+        <Popup v-if="name == 'twitter'" name="modal_3" type=1 width=14 height=5.3 left=45 top=30 background="modal_3" />
         <Popup v-if="name == 'sephora'" name="modal_4" type=1 width=14 height=5.3 left=45 top=30 background="modal_4" />
         <Popup v-if="name == 'adidas'" name="modal_5" type=1 width=14 height=5.3 left=45 top=30 background="modal_5" />
         <Popup v-if="name == 'spotify'" name="modal_6" type=1 width=14 height=5.3 left=45 top=30 background="modal_6" />
@@ -25,7 +27,9 @@
         </div>
       </div>
       <div class="site_content" ref="content">
+        <vimeo-player v-if="name == 'instagram'" class="instagram-vimeo-player" ref="player" :video-id="485204423" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'teenvogue'" class="teenvogue-vimeo-player" ref="player" :video-id="483217171" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player v-if="name == 'twitter'" class="twitter-vimeo-player" ref="player" :video-id="485207971" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'sephora'" class="sephora-vimeo-player" ref="player" :video-id="483217394" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
