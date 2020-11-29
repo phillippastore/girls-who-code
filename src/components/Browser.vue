@@ -447,7 +447,7 @@ export default {
     text-align: center;
     /* right: 4px;
     left: auto; */
-    top: 8px;
+    top: 7px;
   }
 
   .header_button {
