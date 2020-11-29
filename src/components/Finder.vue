@@ -21,9 +21,9 @@
                 <div class="system_icon youtube"><a href="https://www.youtube.com/user/GirlsWhoCode" target="_blank"><img src="@/assets/youtube.png"></a></div>
                 <div class="system_icon mail"><a href="mailto:info@girlswhocode.com" target="_blank"><img src="@/assets/mail.png"></a></div>
                 <div class="system_icon sound"><img src="@/assets/sound.png"></div>
-                <div class="system_icon time"><span>{{ new Date() | moment("ddd hh:mm A") }}</span></div>
+                <div class="system_icon time"><span>{{ currentTime | moment("ddd h:mm A") }}</span></div>
                 <div class="mobile_title">GirlsWhoCode</div>
-                <div class="mobile_time"><span>{{ new Date() | moment("hh:mm A") }}</span></div>
+                <div class="mobile_time"><span>{{ currentTime | moment("h:mm A") }}</span></div>
                 <div class="system_icon title">GirlsWhoCode</div>
                 <div class="system_icon search"><img src="@/assets/search.png"></div>
                 <div class="system_icon list"><img src="@/assets/menu.png"></div>
@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import { moment } from 'vue-moment'
 
 export default {
   name: 'Finder',
@@ -63,15 +62,14 @@ export default {
     }
   },
   created() {
-    this.setTime()
+    setInterval(this.setTime, 1000)
   },
   methods: {
     toggleMenu() {
       this.menuActive = !this.menuActive
     },
     setTime() {
-      this.currentTime = moment().format()
-      setTimeout(this.setTime, 1000)
+      this.currentTime = new Date()
     }
   }
 }

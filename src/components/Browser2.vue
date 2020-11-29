@@ -1,12 +1,12 @@
 <template>
-  <div class="popup_wrapper">
+  <div class="popup_wrapper" ref="popup_container">
     <div v-if="background == 'them' || background == 'ending'" class="all_arrows" :class="{ ending: background == 'ending' }"></div>
     <div class="popup" :class="name" :style="computedPositioning">
     <div v-if="showModal" class="modal">
       <Popup v-if="name == 'instagram'" name="modal_1" type=1 width=16 height=5.3 left=45 top=30 background="modal_1" />
     </div>
-    <div class="browser-container">
-      <div class="header">
+    <div class="browser-container" id="browser2">
+      <div class="header" id="browser2_header">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
@@ -55,7 +55,8 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap'
+import { gsap } from 'gsap'
+import Draggable from 'gsap/Draggable'
 import Popup from '@/components/Popup.vue'
 
 export default {
@@ -98,9 +99,24 @@ export default {
       type: 2
     }
   },
+  created() {
+    gsap.registerPlugin(Draggable)
+  },
   mounted() {
     this.$refs.content.addEventListener('scroll', this.scrollEvt)
     this.$refs.player.autopause = false
+    Draggable.create('#browser2', {
+      type: 'x, y',
+      trigger: '#browser2_header',
+      bounds: this.$refs.popup_container,
+      edgeResistance: 0.65,
+      onClick: function() {
+        console.log('clicked')
+      },
+      onDragEnd: function() {
+        console.log('drag ended')
+      }
+    })
   },
   beforeDestroy() {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
@@ -149,6 +165,12 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+.popup_wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
 
 .header_text {
   width: 100%;
@@ -390,12 +412,12 @@ export default {
 .browser-container {
   z-index: 1;
   position: fixed;
+  margin-top: 100px;
   width: 70%;
   height: 82%;
   max-width: 1400px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin-top: 5%;
+  margin-left: 15%;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
 
@@ -473,7 +495,6 @@ export default {
 .popup {
   z-index: 2 !important;
 }
-
 
 @media (max-width: 600px) {
   .browser_back,

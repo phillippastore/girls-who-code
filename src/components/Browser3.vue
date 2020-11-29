@@ -483,7 +483,6 @@ export default {
   z-index: 2 !important;
 }
 
-
 @media (max-width: 600px) {
   .browser_back,
   .browser_forward,

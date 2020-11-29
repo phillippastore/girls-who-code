@@ -1,7 +1,7 @@
 <template>
   <div class="container instagram" ref="container">
     <Finder />
-    <Browser2 name="instagram" width=85 height=60 left=50 top=50 url="instagram.com" />
+    <Browser2 id="browser2" name="instagram" width=85 height=60 left=50 top=50 url="instagram.com" />
   </div>
 </template>
 
@@ -19,7 +19,6 @@ export default {
 </script>
 
 <style>
-
 
 .instagram iframe {
   width: 100% !important;
@@ -87,7 +86,5 @@ export default {
     height: 54vw;
   }
 }
-
-
 
 </style>
