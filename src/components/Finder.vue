@@ -44,6 +44,7 @@
             </router-link>
             <div class="wallpaper"><img src="@/assets/GWC_Logo_Green.png"></div>
         </div>
+        <div class="gradient_background"></div>
     </div>
 </template>
 
@@ -87,6 +88,36 @@ export default {
         -ms-user-select: none; /* Internet Explorer/Edge */
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+
+.gradient_background, .solid_background {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 0;
+  left: 0px;
+  top: 0px;
+  background: linear-gradient(-45deg, #173346, #3067d8, #71d2b9, #f7d962);
+  background-size: 400% 400%;
+  animation: gradient 60s ease infinite;
+}
+
+.solid_background {
+  background: #f9f9f9;
+  background-size: 100% 100%;
+  animation: none;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .top_toolbar {

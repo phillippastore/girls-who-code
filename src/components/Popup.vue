@@ -287,6 +287,15 @@ export default {
   box-sizing: border-box;
 }
 
+.modal_1 .header_button,
+.modal_2 .header_button,
+.modal_3 .header_button,
+.modal_4 .header_button,
+.modal_5 .header_button,
+.modal_6 .header_button {
+  top: 5px;
+}
+
 @media (max-width: 600px) {
   .header_button {
     margin-top: 2px;
@@ -294,6 +303,15 @@ export default {
     height: 8px;
     position: relative;
     top: -5px;
+  }
+
+  .modal_1 .header_button,
+  .modal_2 .header_button,
+  .modal_3 .header_button,
+  .modal_4 .header_button,
+  .modal_5 .header_button,
+  .modal_6 .header_button {
+    top: 0px;
   }
 }
 
@@ -1287,6 +1305,7 @@ img {
   left: 47%;
   margin-left: -240px;
   background-color: #ececec;
+  z-index: 3;
 }
 
 @media (max-width: 640px) {
