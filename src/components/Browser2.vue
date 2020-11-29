@@ -65,7 +65,7 @@ import Draggable from 'gsap/Draggable'
 import Popup from '@/components/Popup.vue'
 
 export default {
-  name: 'Browser3',
+  name: 'Browser2',
   components: {
     Popup
   },
@@ -304,10 +304,10 @@ export default {
 .url {
   width: 100%;
   height: 35px;
-  position: relative;
+  position: absolute;
   z-index: 1;
   overflow: hidden;
-  top: -1px;
+  top: 28px;
   background-color: #FFFFFF;
   text-align: left;
 }
@@ -426,7 +426,7 @@ export default {
   height: 82%;
   max-width: 1400px;
   margin-top: 5%;
-  margin-left: 15%;
+  margin-left: 10%;
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
 
@@ -531,6 +531,7 @@ export default {
 
   .url {
     height: 22px;
+    top: 24px;
   }
 
   .url_copy {

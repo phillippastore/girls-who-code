@@ -62,6 +62,7 @@ export default {
   .instagram .browser-container {
     height: 50.7vw !important;
     width: 80vw !important;
+    top: 16vh !important;
   }
 
   .instagram #vimeo-player-2 {
@@ -94,7 +95,7 @@ export default {
   .instagram .browser-container {
     width: 95vw !important;
     height: 66vw !important;
-    top: 45% !important;
+    top: 32% !important;
   }
 
   .instagram #vimeo-player-2 {

@@ -1194,8 +1194,8 @@ img {
 
 @media (max-width: 600px) {
   .all_arrows.ending {
-    left: -12.5%;
-    top: 43.5%;
+    left: -15.5%;
+    top: 46.5%;
   }
 }
 
@@ -1301,11 +1301,18 @@ img {
 .modal_6 {
   width: 480px;
   height: 200px;
-  top: 38vh;
+  top: 22vh;
   left: 47%;
   margin-left: -240px;
   background-color: #ececec;
   z-index: 3000;
+}
+
+.modal_2,
+.modal_4,
+.modal_5 {
+  top: 28vh;
+  left: 50%;
 }
 
 @media (max-width: 640px) {
@@ -1317,13 +1324,20 @@ img {
   .modal_6 {
     width: 90%;
     height: auto;
-    top: 30vh;
+    top: 1vh;
     left: 50%;
     margin-left: -45%;
     padding-bottom: 30px;
   }
 
+  .modal_2,
+  .modal_4,
+  .modal_5 {
+    top: 18vh;
+  }
+
   .modal_image {
+    width: 80px;
     padding: 0px;
     padding-top: 2vh;
   }

@@ -2,11 +2,11 @@
   <div class="popup_wrapper">
     <div v-if="background == 'them' || background == 'ending'" class="all_arrows" :class="{ ending: background == 'ending' }"></div>
     <div class="popup" :class="name" :style="computedPositioning">
-    <div v-if="showModal" class="modal">
-      <Popup v-if="name == 'twitter'" name="modal_3" type=1 width=16 height=5.3 left=45 top=30 background="modal_3" />
-    </div>
-    <div class="browser-container">
-      <div class="header">
+    <div class="browser-container" id="browser3">
+      <div v-if="showModal" class="modal">
+        <Popup v-if="name == 'twitter'" name="modal_3" type=1 width=16 height=5.3 left=45 top=30 background="modal_3" />
+      </div>
+      <div class="header" id="browser3_header">
         <div class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
@@ -61,7 +61,8 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap'
+import { gsap } from 'gsap'
+import Draggable from 'gsap/Draggable'
 import Popup from '@/components/Popup.vue'
 
 export default {
@@ -108,6 +109,18 @@ export default {
   mounted() {
     this.$refs.content.addEventListener('scroll', this.scrollEvt)
     this.$refs.player.autopause = false
+    Draggable.create('#browser2', {
+      type: 'x, y',
+      trigger: '#browser2_header',
+      bounds: this.$refs.popup_container,
+      edgeResistance: 0.65,
+      onClick: function() {
+        console.log('clicked')
+      },
+      onDragEnd: function() {
+        console.log('drag ended')
+      }
+    })
   },
   beforeDestroy() {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
@@ -152,9 +165,11 @@ export default {
       if (this.$refs.content.scrollHeight - this.$refs.content.scrollTop <= this.$refs.content.clientHeight) {
         this.pause()
         this.showModal = true
+        this.showScrollIndicator = false
       } else if (!this.isPlaying) {
         this.play()
         this.showModal = false
+        this.showScrollIndicator = true
       }
     }
   }
@@ -200,6 +215,8 @@ export default {
   padding-left: 6px;
   border-radius: 6px 6px 0px 0px;
   padding: 7px 12px;
+  position: absolute;
+  top: 0px;
 }
 
 @media (max-width: 600px) {
@@ -287,10 +304,10 @@ export default {
 .url {
   width: 100%;
   height: 35px;
-  position: relative;
+  position: absolute;
   z-index: 1;
   overflow: hidden;
-  top: -1px;
+  top: 28px;
   background-color: #FFFFFF;
   text-align: left;
 }
@@ -513,6 +530,7 @@ export default {
 
   .url {
     height: 22px;
+    top: 24px;
   }
 
   .url_copy {
