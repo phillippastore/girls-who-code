@@ -22,9 +22,9 @@
         </div>
       </div>
       <div class="site_content" ref="content">
-        <vimeo-player v-if="name == 'twitter'"  class="vimeo-player-left" ref="leftplayer" :video-id="482817966" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onLeftReady"/>
-        <vimeo-player v-if="name == 'twitter'"  class="twitter-vimeo-player" ref="player" :video-id="482818086" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
-        <vimeo-player v-if="name == 'twitter'"  class="vimeo-player-right" ref="rightplayer" :video-id="482818376" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
+        <vimeo-player v-if="name == 'twitter'"  class="vimeo-player-left" ref="leftplayer" :video-id="483218196" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onLeftReady"/>
+        <vimeo-player v-if="name == 'twitter'"  class="twitter-vimeo-player" ref="player" :video-id="483218227" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onReady"/>
+        <vimeo-player v-if="name == 'twitter'"  class="vimeo-player-right" ref="rightplayer" :video-id="483218272" :loop="true" :controls="false" :autoplay="true" :options="options" @ready="onRightReady"/>
       </div>
 
     </div>

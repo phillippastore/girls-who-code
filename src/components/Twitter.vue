@@ -29,36 +29,36 @@ export default {
   background-color: #FFFFFF !important;
 }
 
-#vimeo-player-1 {
+.twitter #vimeo-player-1 {
   position: fixed;
   left: 0px;
   width: 24.479%;
   top: 61px;
 }
 
-#vimeo-player-1 iframe {
+.twitter #vimeo-player-1 iframe {
   height: 38vw;
 }
 
-#vimeo-player-2 {
+.twitter #vimeo-player-2 {
   position: absolute;
   left: 24.479%;
   width: 43.958%;
   top: -14px;
 }
 
-#vimeo-player-2 iframe {
+.twitter #vimeo-player-2 iframe {
   height: 181.5vw;
 }
 
-#vimeo-player-3 {
+.twitter #vimeo-player-3 {
   position: fixed;
   right: 17px;
   width: 31.5625%;
   top: 61px;
 }
 
-#vimeo-player-3 iframe {
+.twitter #vimeo-player-3 iframe {
   height: 38vw;
 }
 
@@ -80,7 +80,16 @@ export default {
     height: 45vw;
   }
 
-  #vimeo-player-2 {
+  .twitter #vimeo-player-1 iframe,
+  .twitter #vimeo-player-3 iframe {
+    height: 45vw;
+  } 
+  
+  .twitter #vimeo-player-2 iframe {
+    height: 204.5vw;
+  }
+
+  .twitter #vimeo-player-2 {
     top: 0px;
   }
 }
@@ -96,6 +105,21 @@ export default {
     width: 95vw;
     height: 54vw;
   }
+
+  .twitter #vimeo-player-1 iframe,
+  .twitter #vimeo-player-3 iframe {
+    height: 55vw;
+  }
+
+  .twitter #vimeo-player-2 iframe {
+    height: 240.5vw;
+  }
+
+  .twitter #vimeo-player-1,
+  .twitter #vimeo-player-3 {
+    top: 46px;
+  }
+
 }
 
 </style>

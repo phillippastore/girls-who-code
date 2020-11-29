@@ -228,6 +228,13 @@ export default {
   box-shadow: 0px 15px 30px rgba(0, 0, 0, .3);
 }
 
+@media (max-width: 600px) {
+  .browser-container, .video_player iframe {
+    width: 95vw;
+    left: 50%;
+  }
+}
+
 .browser-container .site_content {
   overflow-y: scroll;
   overflow-x: hidden;
