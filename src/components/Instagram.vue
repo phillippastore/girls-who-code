@@ -30,25 +30,25 @@ export default {
   background-color: #fbfafb !important; /*fbfafb*/
 }
 
-#vimeo-player-1 {
+.instagram #vimeo-player-1 {
   position: absolute;
   left: 0px;
   width: 61.3%;
   top: 5px;
 }
 
-#vimeo-player-1 iframe {
+.instagram #vimeo-player-1 iframe {
   height: 270vw;
 }
 
-#vimeo-player-2 {
+.instagram #vimeo-player-2 {
   position: fixed;
   right: 17px;
   width: 38%;
   top: 51px;
 }
 
-#vimeo-player-2 iframe {
+.instagram #vimeo-player-2 iframe {
   height: 38vw;
 }
 
@@ -65,19 +65,19 @@ export default {
     width: 80vw !important;
   }
 
-  #vimeo-player-2 {
+  .instagram #vimeo-player-2 {
     top: 61px;
   }
   
-  #vimeo-player-2 iframe {
+  .instagram #vimeo-player-2 iframe {
     height: 42vw;
   }
 
-  #vimeo-player-1 {
+  .instagram #vimeo-player-1 {
     top: 1px;
   }
 
-  #vimeo-player-1 iframe {
+  .instagram #vimeo-player-1 iframe {
     height: 306vw;
   }
 
@@ -98,19 +98,19 @@ export default {
     top: 45% !important;
   }
 
-  #vimeo-player-2 {
+  .instagram #vimeo-player-2 {
     top: 45px;
   }
   
-  #vimeo-player-2 iframe {
+  .instagram #vimeo-player-2 iframe {
     height: 49vw;
   }
 
-  #vimeo-player-1 {
+  .instagram #vimeo-player-1 {
     top: 1px;
   }
 
-  #vimeo-player-1 iframe {
+  .instagram #vimeo-player-1 iframe {
     height: 362vw;
   }
 }
@@ -119,12 +119,12 @@ export default {
   and (min-device-width: 768px) 
   and (max-device-width: 960px) 
   and (-webkit-min-device-pixel-ratio: 1) {
-    #vimeo-player-2 {
+    .instagram #vimeo-player-2 {
       right: 0px;
       width: 39%;
     }
 
-    #vimeo-player-1 iframe {
+    .instagram #vimeo-player-1 iframe {
       height: 306w;
     }
 }
@@ -133,12 +133,12 @@ export default {
   and (min-device-width: 961) 
   and (max-device-width: 1024px) 
   and (-webkit-min-device-pixel-ratio: 1) {
-    #vimeo-player-2 {
+    .instagram #vimeo-player-2 {
       right: 0px;
       width: 39%;
     }
 
-    #vimeo-player-1 iframe {
+    .instagram #vimeo-player-1 iframe {
       height: 315vw;
     }
 }
@@ -147,12 +147,12 @@ export default {
   and (min-device-width: 320px) 
   and (max-device-width: 480px)
   and (-webkit-min-device-pixel-ratio: 2) {
-    #vimeo-player-2 {
+    .instagram #vimeo-player-2 {
       right: 0px;
       width: 39%;
     }
 
-    #vimeo-player-1 iframe {
+    .instagram #vimeo-player-1 iframe {
       height: 374vw;
     }
     
