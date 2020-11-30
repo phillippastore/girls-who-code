@@ -948,7 +948,7 @@ export default {
   .popup_14 {
     width: 200px;
     left: 34%;
-    top: 58%;
+    top: 60%;
     margin-bottom: 30vw;
   }
 
