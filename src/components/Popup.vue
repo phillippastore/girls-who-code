@@ -180,7 +180,6 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap'
 
 export default {
   name: 'Popup',
@@ -214,20 +213,6 @@ export default {
     closeModal() {
       this.$emit('close')
     }
-  },
-  mounted() {
-    Draggable.create('.draggable', {
-      type: 'x, y',
-      trigger: '.draggable_header',
-      bounds: this.$refs.popup_container,
-      edgeResistance: 0.65,
-      onClick: function() {
-        console.log('clicked')
-      },
-      onDragEnd: function() {
-        console.log('drag ended')
-      }
-    })
   }
 }
 </script>
@@ -962,8 +947,8 @@ export default {
 @media (max-width: 640px) {
   .popup_14 {
     width: 200px;
-    left: 32%;
-    top: 55%;
+    left: 34%;
+    top: 58%;
     margin-bottom: 30vw;
   }
 
