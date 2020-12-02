@@ -568,8 +568,8 @@ export default {
 
   .browser-container {
     width: 95%;
-    height: 80vh;
-    top: 50%;
+    height: 70vh;
+    top: 55%;
   }
 
   .browser-container .site_content {
