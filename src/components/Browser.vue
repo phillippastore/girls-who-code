@@ -183,7 +183,7 @@ export default {
       setTimeout(() => {
         this.showModal = true
         this.pause()
-      }, 8000)
+      }, 5000)
     },
     onModalClose() {
       this.showModal = false
@@ -568,8 +568,8 @@ export default {
 
   .browser-container {
     width: 95%;
-    height: 74%;
-    top: 60%;
+    height: 90vh;
+    top: 50%;
   }
 
   .browser-container .site_content {

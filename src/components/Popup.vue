@@ -1332,25 +1332,30 @@ img {
   .modal_6 {
     width: 90%;
     height: auto;
-    top: 18vh;
+    top: 30vh;
     left: 50%;
     margin-left: -45%;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .modal_6 {
-    top: 1vh;
+    top: 6vh;
   }
 
   .modal_image {
-    width: 80px;
-    padding: 0px;
-    padding-top: 2vh;
+    width: 20%;
+    padding: 2vh 0 0 10px;
   }
 
   .modal_content {
-    width: 90%;
-    padding: 0% 4% 6% 4%;
+    width: 65%;
+    padding: 6% 0% 6% 4%;
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .windows_button {
+    font-size: 11px;
   }
 }
 </style>

@@ -20,6 +20,11 @@ export default {
 
 <style>
 
+
+.sephora .site_content {
+  background-color: #000 !important;
+}
+
 .sephora .sephora-vimeo-player iframe {
   width: 69vw;
   height: 179vw;

@@ -6,7 +6,7 @@
                   <img v-if="menuActive" src="@/assets/mobile_menu_active.png">
                   <img v-if="!menuActive" src="@/assets/mobile_menu.png">
                 </div>
-                <div class="apple_logo"><img src="@/assets/apple.png"></div>
+                <router-link :to="{ name: 'Intro' }"><div class="apple_logo"><img src="@/assets/apple.png"></div></router-link>
                 <div v-on:click="toggleMenu()" class="menu_item finder" :class="{'active': (menuActive == true)}">Finder</div>
                 <div class="menu_item extra_menu">File</div>
                 <div class="menu_item extra_menu">Edit</div>
@@ -22,12 +22,15 @@
                 <div class="system_icon mail"><a href="mailto:info@girlswhocode.com" target="_blank"><img src="@/assets/mail.png"></a></div>
                 <div class="system_icon sound"><img src="@/assets/sound.png"></div>
                 <div class="system_icon time"><span>{{ currentTime | moment("ddd h:mm A") }}</span></div>
-                <div class="mobile_title">GirlsWhoCode</div>
-                <div class="mobile_time"><span>{{ currentTime | moment("h:mm A") }}</span></div>
-                <div class="system_icon title">GirlsWhoCode</div>
+                <div class="mobile_title"><a href="https://girlswhocode.com" target="_black">GirlsWhoCode</a></div>
+                <div v-on:click="toggleCD()" :class="{'active': (cdActive == true)}" class="mobile_cd"><img src="@/assets/CD.png"></div>
+                <div class="system_icon title"><a href="https://girlswhocode.com" target="_black">GirlsWhoCode</a></div>
                 <div class="system_icon search"><img src="@/assets/search.png"></div>
                 <div class="system_icon list"><img src="@/assets/menu.png"></div>
             </div>
+        </div>
+        <div class="cd_dropdown" v-if="cdActive">
+          <router-link :to="{ name: 'Film' }"><div class="menu_option noborder">Watch the film<img src="@/assets/nav_arrow.png"></div></router-link>
         </div>
         <div class="finder_dropdown" v-if="menuActive">
           <router-link :to="{ name: 'Instagram' }"><div class="menu_option noborder">Instagram<img src="@/assets/nav_arrow.png"></div></router-link>
@@ -67,6 +70,9 @@ export default {
   methods: {
     toggleMenu() {
       this.menuActive = !this.menuActive
+    },
+    toggleCD() {
+      this.cdActive = !this.cdActive
     },
     setTime() {
       this.currentTime = new Date()
@@ -128,7 +134,7 @@ export default {
   background-color: #FFFFFF;
 }
 
-.finder_dropdown {
+.finder_dropdown, .cd_dropdown {
   position: fixed;
   z-index: 3000;
   left: 50px;
@@ -141,9 +147,23 @@ export default {
   box-shadow: 0px 0px 20px rgba(0,0,0,.4);
 }
 
+.cd_dropdown {
+  width: 150px;
+  right: 50px;
+  left: auto;
+}
+
 @media (max-width: 600px) {
   .finder_dropdown {
     left: 10px;
+  }
+
+  .cd_dropdown {
+    right: 10px;
+  }
+
+  .icon.cd {
+    display: none;
   }
 }
 
@@ -152,7 +172,7 @@ a {
   color: #000000;
 }
 
-.finder_dropdown .menu_option {
+.finder_dropdown .menu_option, .cd_dropdown .menu_option {
   padding: 9px 15px;
   text-align: left;
   font-size: 14px;
@@ -162,7 +182,7 @@ a {
   text-decoration: none;
 }
 
-.finder_dropdown .menu_option img {
+.finder_dropdown .menu_option img, .cd_dropdown .menu_option img {
   width: 10px;
   height: 10px;
   float: right;
@@ -173,7 +193,9 @@ a {
   opacity: .7;
 }
 
-.finder_dropdown .menu_option.noborder {
+
+.finder_dropdown .menu_option.noborder,
+.cd_dropdown .menu_option.noborder {
   border-top: none !important;
 }
 
@@ -209,12 +231,31 @@ a {
   position: relative;
 }
 
-.mobile_menu.active {
+.mobile_menu.active, .mobile_cd.active {
   background-color: #548def;
 }
 
 .mobile_title {
   pointer-events: none;
+}
+
+.mobile_cd {
+  width: 25px;
+  height: 18px;
+  right: 10px;
+  position: relative;
+  display: none !important;
+}
+
+@media (max-width: 600px) {
+  .mobile_cd {
+    display: inline-block !important;
+  }
+}
+
+.mobile_cd img {
+  width: 20px !important;
+  height: 20px !important;
 }
 
 .mobile_menu, .mobile_time, .mobile_title {
@@ -247,11 +288,13 @@ a {
   cursor: pointer;
 }
 
+.apple_logo:hover,
 .menu_item.finder:hover,
 .system_icon.instagram:hover,
 .system_icon.twitter:hover,
 .system_icon.youtube:hover,
-.system_icon.mail:hover {
+.system_icon.mail:hover,
+.system_icon.title:hover {
   opacity: .7;
 }
 
@@ -279,8 +322,8 @@ a {
 
   .mobile_title {
     position: fixed;
-    left: 0px;
-    width: 100%;
+    left: 25%;
+    width: 50%;
   }
 }
 
