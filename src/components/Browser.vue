@@ -110,7 +110,7 @@ export default {
   data() {
     return {
       options: {
-        quality: "720p"
+        quality: "360p"
       },
       showModal: false,
       isPlaying: false,
