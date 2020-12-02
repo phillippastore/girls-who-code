@@ -109,6 +109,9 @@ export default {
   },
   data() {
     return {
+      options: {
+        quality: "720p"
+      },
       showModal: false,
       isPlaying: false,
       type: 2,
@@ -120,6 +123,7 @@ export default {
     gsap.registerPlugin(Draggable)
   },
   mounted() {
+    this.$refs.player.quality = "720p"
     Draggable.create('#browser1', {
       type: 'x, y',
       trigger: '#browser1_header',
