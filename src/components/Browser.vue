@@ -36,9 +36,8 @@
       </div>
       <transition name="fade">
         <div class="scroll_indicator" v-show="showScrollIndicator">
-          <div><img src="@/assets/scroll.png"></div>
           <div class="scroll_text">Scroll</div>
-          <div><img src="@/assets/scroll.png"></div>
+          <div><img src="@/assets/scroll_green.png"></div>
         </div>
       </transition>
     </div>
@@ -588,27 +587,24 @@ export default {
   left: 50%;
   margin-left: -100px;
   width: 200px;
-  background-color: black;
   padding: 5px 10px;
 }
 
-.scroll_indicator div {
-    display: inline-block;
-}
-
 .scroll_indicator img {
-    width: 20px;
-    height: 20px;
-    padding-top: 2px;
+    width: 30px;
+    height: 30px;
+    padding-top: 4px;
 }
 
 .scroll_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  font-weight: bold;
+  letter-spacing: .4rem;
   line-height: 25px;
   vertical-align: top;
-  color: #FFFFFF;
+  color: #10a195;
   text-align: center;
   padding: 0px 15px 0px 17px;
 }

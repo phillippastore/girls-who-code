@@ -22,7 +22,7 @@ export default {
 
 .instagram iframe {
   width: 69vw;
-  height: 280vw;
+  height: 174vw;
 }
 
 @media (max-width: 600px) {
@@ -32,7 +32,7 @@ export default {
 
   .instagram iframe {
     width: 95vw !important;
-    height: 386vw !important;
+    height: 243vw !important;
   }
 }
 
