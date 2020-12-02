@@ -572,8 +572,8 @@ export default {
 
   .browser-container {
     width: 95%;
-    height: 70vh;
-    top: 55%;
+    height: 75vh;
+    top: 53%;
   }
 
   .browser-container .site_content {
