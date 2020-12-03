@@ -3,7 +3,7 @@
     <div class="container">
     <Finder />
       <div class="video_player">
-        <iframe src="https://www.youtube.com/embed/bmA45AMqVK4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/bmA45AMqVK4&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
       <div class="folders">
         <img src="@/assets/folders.png">
