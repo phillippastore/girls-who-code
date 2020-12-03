@@ -35,7 +35,7 @@
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
       <transition name="fade">
-        <div class="scroll_indicator" v-show="showScrollIndicator">
+        <div class="scroll_indicator bounce" v-show="showScrollIndicator">
           <div class="scroll_text">Scroll</div>
           <div><img src="@/assets/scroll_green.png"></div>
         </div>
@@ -591,9 +591,19 @@ export default {
 }
 
 .scroll_indicator img {
-    width: 30px;
-    height: 30px;
-    padding-top: 4px;
+  width: 30px;
+  height: 30px;
+  padding-top: 4px;
+}
+
+.bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
 }
 
 .scroll_text {

@@ -1332,7 +1332,7 @@ img {
   .modal_6 {
     width: 90%;
     height: auto;
-    top: 30vh;
+    top: 28vh;
     left: 50%;
     margin-left: -45%;
     padding-bottom: 20px;

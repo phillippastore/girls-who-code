@@ -61,6 +61,7 @@ export default {
   data() {
     return {
       menuActive: false,
+      cdActive: false,
       currentTime: null
     }
   },
