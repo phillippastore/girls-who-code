@@ -20,7 +20,6 @@ export default {
 
 <style>
 
-
 .sephora .site_content {
   background-color: #000 !important;
 }

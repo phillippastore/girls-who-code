@@ -194,7 +194,6 @@ a {
   opacity: .7;
 }
 
-
 .finder_dropdown .menu_option.noborder,
 .cd_dropdown .menu_option.noborder {
   border-top: none !important;
