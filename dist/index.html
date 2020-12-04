@@ -1,1 +1,67 @@
-<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Girls Who Code</title><link href=/static/css/app.2838dafad40a4c46a5a5e034b3d56594.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script><script type=text/javascript src=/static/js/vendor.012146ccf48675d5d7b0.js></script><script type=text/javascript src=/static/js/app.5c774df30968df6bbf3f.js></script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>Girls Who Code</title>
+    <link href=/static/css/app.361e1e80374f8dc22b18fdd33ab53c48.css rel=stylesheet>
+    <link rel="apple-touch-icon" sizes="57x57" href="/static/img/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/static/img/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/static/img/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/static/img/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/static/img/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/static/img/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/static/img/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/static/img/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/img/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="/static/img/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/static/img/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/static/img/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/static/img/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <meta charset="utf-8">
+    <meta property="og:title" content="">
+    <meta property="og:image" content="https://missing-code.com/static/img/GWC_Logo_Green.fb326f3.png">
+    <meta property="og:description" content="Professionalism beyond words.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Veep Your Video">
+    <?php if (isset($_GET['v'])) { 
+        echo '<meta property="og:url" content="https://veepyourvideo.com/?v='.$_GET['v'].'&s='.$_GET['s'].'&e='.$_GET['e'].'&m='.$_GET['m'].'">'; 
+        echo '<meta property="og:image:width" content="480">';
+        echo '<meta property="og:image:height" content="360">'; 
+    } else {
+        echo '<meta property="og:url" content="https://veepyourvideo.com/">';
+        echo '<meta property="og:image:width" content="1200">';
+        echo '<meta property="og:image:height" content="630">'; 
+    }?>
+    
+
+    
+    <meta name="twitter:image:width" content="1200">
+    <meta name="twitter:image:height" content="630"> 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="<?php if (isset($_GET['v'])) { echo "https://veepyourvideo.com/saves/".$_GET['v'].".jpg"; } else { echo "https://veepyourvideo.com/img/shareimage.jpg"; } ?>">
+    <meta name="twitter:title" content="Veep Your Video">
+    <meta name="twitter:description" content="Professionalism beyond words.">
+    <?php if (isset($_GET['v'])) { 
+        echo '<meta name="twitter:url" content="https://veepyourvideo.com/?v='.$_GET['v'].'&s='.$_GET['s'].'&e='.$_GET['e'].'&m='.$_GET['m'].'">'; 
+    } else {
+        echo '<meta name="twitter:url" content="https://veepyourvideo.com/">';
+    }?>
+
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+</head>
+
+<body>
+    <div id=app></div>
+    <script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script>
+    <script type=text/javascript src=/static/js/vendor.dc75a5727b7f0ba6a035.js></script>
+    <script type=text/javascript src=/static/js/app.1171658493989d2f60be.js></script>
+</body>
+
+</html>
