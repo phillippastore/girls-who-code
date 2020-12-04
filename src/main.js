@@ -24,9 +24,10 @@ Vue.use(VueMq, {
   }
 })
 
-Vue.use(VueGtag, {
-  config: { id: 'UA-184173915-1' }
-})
+Vue.use(
+  VueGtag, { config: { id: 'UA-184173915-1' } },
+  router
+)
 
 Vue.config.productionTip = false
 

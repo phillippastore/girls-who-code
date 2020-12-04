@@ -197,7 +197,7 @@ export default {
       this.$router.go(-1)
     },
     goForward() {
-      console.log(this.$router);
+      console.log(this.$router)
       this.$router.go(1)
     },
     refresh() {

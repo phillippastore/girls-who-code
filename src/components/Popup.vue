@@ -65,7 +65,7 @@
               >Learn more</a
             >
             <router-link class="windows_button" :to="{ name: 'TeenVogue' }"
-              >Next</router-link
+              ><span @click="onClick">Next</span></router-link
             >
           </div>
         </div>
@@ -156,6 +156,7 @@
         </div>
 
         <router-link
+          @click="onClick"
           v-if="background == 'them'"
           class="cta"
           :to="{ name: 'Instagram' }"
@@ -208,6 +209,7 @@ export default {
   },
   methods: {
     onClick() {
+      console.log('CLICKED')
       this.$router.push({ name: 'TeenVogue' })
     },
     closeModal() {
@@ -1321,7 +1323,6 @@ img {
   background-color: #ececec;
   z-index: 3000;
 }
-
 
 @media (max-width: 640px) {
   .modal_1,
