@@ -220,7 +220,7 @@ export default {
   },
   methods: {
     nextFrom(current) {
-      this.$gtag.event('Next from '+current, { method: 'next' })
+      this.$gtag.event('Next from ' + current, { method: 'next' })
     },
     tracking(label) {
       this.$gtag.event(label, { method: 'next' })

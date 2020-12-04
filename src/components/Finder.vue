@@ -84,7 +84,7 @@ export default {
     },
     tracking(label) {
       this.$gtag.event(label, { method: 'next' })
-    },
+    }
   }
 }
 </script>
