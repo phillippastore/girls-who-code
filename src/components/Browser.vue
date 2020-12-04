@@ -471,7 +471,6 @@ export default {
   position: fixed;
   width: 70%;
   height: 82%;
-  max-width: 1400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

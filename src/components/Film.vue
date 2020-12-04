@@ -220,7 +220,6 @@ export default {
   position: fixed;
   width: 80vw;
   height: 50.8vw;
-  max-width: 1400px;
   max-height: 85vh;
   top: 49%;
   left: 47%;
