@@ -25,35 +25,19 @@
     <meta name="theme-color" content="#ffffff">
 
     <meta charset="utf-8">
-    <meta property="og:title" content="">
-    <meta property="og:image" content="https://missing-code.com/static/img/GWC_Logo_Green.fb326f3.png">
-    <meta property="og:description" content="Professionalism beyond words.">
+    <meta property="og:title" content="Missing Code">
+    <meta property="og:image" content="/static/share.png">
+    <meta property="og:description" content="">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Veep Your Video">
-    <?php if (isset($_GET['v'])) { 
-        echo '<meta property="og:url" content="https://veepyourvideo.com/?v='.$_GET['v'].'&s='.$_GET['s'].'&e='.$_GET['e'].'&m='.$_GET['m'].'">'; 
-        echo '<meta property="og:image:width" content="480">';
-        echo '<meta property="og:image:height" content="360">'; 
-    } else {
-        echo '<meta property="og:url" content="https://veepyourvideo.com/">';
-        echo '<meta property="og:image:width" content="1200">';
-        echo '<meta property="og:image:height" content="630">'; 
-    }?>
-    
-
-    
+    <meta property="og:site_name" content="Missing Code">
+    <meta property="og:url" content="https://missing-code.com/">'; 
     <meta name="twitter:image:width" content="1200">
     <meta name="twitter:image:height" content="630"> 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="<?php if (isset($_GET['v'])) { echo "https://veepyourvideo.com/saves/".$_GET['v'].".jpg"; } else { echo "https://veepyourvideo.com/img/shareimage.jpg"; } ?>">
-    <meta name="twitter:title" content="Veep Your Video">
-    <meta name="twitter:description" content="Professionalism beyond words.">
-    <?php if (isset($_GET['v'])) { 
-        echo '<meta name="twitter:url" content="https://veepyourvideo.com/?v='.$_GET['v'].'&s='.$_GET['s'].'&e='.$_GET['e'].'&m='.$_GET['m'].'">'; 
-    } else {
-        echo '<meta name="twitter:url" content="https://veepyourvideo.com/">';
-    }?>
-
+    <meta name="twitter:image" content="/static/share.png">
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:url" content="https://missing-code.com/">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 </head>
 
@@ -62,6 +46,23 @@
     <script type=text/javascript src=/static/js/manifest.2ae2e69a05c33dfc65f8.js></script>
     <script type=text/javascript src=/static/js/vendor.dc75a5727b7f0ba6a035.js></script>
     <script type=text/javascript src=/static/js/app.1171658493989d2f60be.js></script>
+
+    <!-- Default Statcounter code for Missing Code
+    https://missing-code.com -->
+    <script type="text/javascript">
+        var sc_project=12440179; 
+        var sc_invisible=1; 
+        var sc_security="cd37d28d"; 
+        var sc_https=1; 
+        var sc_remove_link=1; 
+        </script>
+        <script type="text/javascript"
+        src="https://www.statcounter.com/counter/counter.js"
+        async></script>
+        <noscript><div class="statcounter"><img class="statcounter"
+        src="https://c.statcounter.com/12440179/0/cd37d28d/1/"
+        alt="real time web analytics"></div></noscript>
+        <!-- End of Statcounter Code -->
 </body>
 
 </html>
