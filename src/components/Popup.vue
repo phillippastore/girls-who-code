@@ -24,8 +24,8 @@
         <img src="@/assets/mouse_1.png" />
       </div>
     </div>
-    <div class="popup" :class="name" :style="computedPositioning">
-      <div class="header" :class="{ editor: type == '2', outro: type == '3' }">
+    <div class="popup draggable" :class="name" :style="computedPositioning">
+      <div class="header draggable_header" :class="{ editor: type == '2', outro: type == '3' }">
         <div @click="closeModal" class="header_button red"></div>
         <div class="header_button yellow"></div>
         <div class="header_button green"></div>
@@ -181,7 +181,6 @@
 </template>
 
 <script>
-// import { gsap } from 'gsap'
 
 export default {
   name: 'Popup',
@@ -222,6 +221,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 .container {
   position: relative;
   width: 100%;
@@ -322,6 +332,7 @@ export default {
 
 .red {
   background-color: #ed6a5f;
+  cursor: pointer;
   /* border: 0.1px solid #d05347; */
 }
 .yellow {
@@ -938,8 +949,8 @@ export default {
 @media (max-width: 640px) {
   .popup_14 {
     width: 200px;
-    left: 32%;
-    top: 55%;
+    left: 34%;
+    top: 60%;
     margin-bottom: 30vw;
   }
 
@@ -1322,25 +1333,30 @@ img {
   .modal_6 {
     width: 90%;
     height: auto;
-    top: 18vh;
+    top: 28vh;
     left: 50%;
     margin-left: -45%;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
 
   .modal_6 {
-    top: 1vh;
+    top: 6vh;
   }
 
   .modal_image {
-    width: 80px;
-    padding: 0px;
-    padding-top: 2vh;
+    width: 20%;
+    padding: 2vh 0 0 10px;
   }
 
   .modal_content {
-    width: 90%;
-    padding: 0% 4% 6% 4%;
+    width: 65%;
+    padding: 6% 0% 6% 4%;
+    font-size: 11px;
+    line-height: 18px;
+  }
+
+  .windows_button {
+    font-size: 11px;
   }
 }
 </style>

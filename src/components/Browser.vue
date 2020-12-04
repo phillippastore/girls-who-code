@@ -35,10 +35,9 @@
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
       <transition name="fade">
-        <div class="scroll_indicator" v-show="showScrollIndicator">
-          <div><img src="@/assets/scroll.png"></div>
+        <div class="scroll_indicator bounce" v-show="showScrollIndicator">
           <div class="scroll_text">Scroll</div>
-          <div><img src="@/assets/scroll.png"></div>
+          <div><img src="@/assets/scroll_green.png"></div>
         </div>
       </transition>
     </div>
@@ -109,6 +108,9 @@ export default {
   },
   data() {
     return {
+      options: {
+        quality: "2K"
+      },
       showModal: false,
       isPlaying: false,
       type: 2,
@@ -120,6 +122,7 @@ export default {
     gsap.registerPlugin(Draggable)
   },
   mounted() {
+    this.$refs.player.quality = "2K"
     Draggable.create('#browser1', {
       type: 'x, y',
       trigger: '#browser1_header',
@@ -183,7 +186,7 @@ export default {
       setTimeout(() => {
         this.showModal = true
         this.pause()
-      }, 8000)
+      }, 5000)
     },
     onModalClose() {
       this.showModal = false
@@ -206,6 +209,16 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+
+* {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
 
 .header_text {
   width: 100%;
@@ -558,8 +571,8 @@ export default {
 
   .browser-container {
     width: 95%;
-    height: 74%;
-    top: 60%;
+    height: 75vh;
+    top: 53%;
   }
 
   .browser-container .site_content {
@@ -574,27 +587,34 @@ export default {
   left: 50%;
   margin-left: -100px;
   width: 200px;
-  background-color: black;
   padding: 5px 10px;
 }
 
-.scroll_indicator div {
-    display: inline-block;
+.scroll_indicator img {
+  width: 30px;
+  height: 30px;
+  padding-top: 4px;
 }
 
-.scroll_indicator img {
-    width: 20px;
-    height: 20px;
-    padding-top: 2px;
+.bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-50px); }
+  100% { transform: translateY(0); }
 }
 
 .scroll_text {
-  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-family: 'Roboto Mono', monospace;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  font-weight: bold;
+  letter-spacing: .4rem;
   line-height: 25px;
   vertical-align: top;
-  color: #FFFFFF;
+  color: #10a195;
   text-align: center;
   padding: 0px 15px 0px 17px;
 }

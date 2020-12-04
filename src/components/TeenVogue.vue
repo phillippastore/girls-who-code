@@ -25,10 +25,14 @@ export default {
   height: 170vw;
 }
 
+.teenvogue .site_content {
+  background-color: #FFF !important;
+}
+
 @media (max-width: 600px) {
   .teenvogue .browser-container {
     width: 95vw !important;
-    height: 74% !important;
+    /* height: 74% !important; */
   }
 
   .teenvogue iframe {
