@@ -58,14 +58,16 @@
             Back in the day, women made up almost 40% of the tech workforce. Today it’s like a quarter. WTF?
           </div>
           <div class="modal_buttons">
+            <span @click="tracking('Learn More - Instagram')">
             <a
               href="https://girlswhocode.com/about-us"
               target="_blank"
               class="windows_button"
               >Learn more</a
             >
+            </span>
             <router-link class="windows_button" :to="{ name: 'TeenVogue' }"
-              ><span @click="onClick">Next</span></router-link
+              ><span @click="nextFrom('Instagram')">Next</span></router-link
             >
           </div>
         </div>
@@ -75,14 +77,16 @@
             In fact, the first-ever programmer was a woman. AKA none of this S%$# would even be possible without girls.
           </div>
           <div class="modal_buttons">
+            <span @click="tracking('Learn More - TeenVogue')">
             <a
               href="https://en.wikipedia.org/wiki/Ada_Lovelace"
               target="_blank"
               class="windows_button"
               >Learn more</a
             >
+            </span>
             <router-link class="windows_button" :to="{ name: 'Twitter' }"
-              >Next</router-link
+              ><span @click="nextFrom('TeenVogue')">Next</span></router-link
             >
           </div>
         </div>
@@ -92,14 +96,16 @@
             “Coder” isn’t code for tech bro. This is what women in tech actually look like.
           </div>
           <div class="modal_buttons">
+            <span @click="tracking('Learn More - Twitter')">
             <a
               href="https://www.ifthenshecan.org/ambassadors/"
               target="_blank"
               class="windows_button"
               >Learn more</a
             >
+            </span>
             <router-link class="windows_button" :to="{ name: 'Sephora' }"
-              >Next</router-link
+              ><span @click="nextFrom('Twitter')">Next</span></router-link
             >
           </div>
         </div>
@@ -109,14 +115,16 @@
             Coding doesn’t have to be crazy hard like in the movies. Start with something small you actually care about.
           </div>
           <div class="modal_buttons">
+            <span @click="tracking('Learn More - Sephora')">
             <a
               href="https://girlswhocode.com/programs/code-at-home"
               target="_blank"
               class="windows_button"
               >Learn more</a
             >
+            </span>
             <router-link class="windows_button" :to="{ name: 'Adidas' }"
-              >Next</router-link
+              ><span @click="nextFrom('Sephora')">Next</span></router-link
             >
           </div>
         </div>
@@ -126,14 +134,16 @@
             Oh, and coding pays. A lot. So if you’re into making money, a career in tech may be for you.
           </div>
           <div class="modal_buttons">
+            <span @click="tracking('Learn More - Adidas')">
             <a
               href="https://www.inc.com/don-reisinger/survey-reveals-which-high-tech-jobs-pay-highest-salaries.html"
               target="_blank"
               class="windows_button"
               >Learn more</a
             >
+            </span>
             <router-link class="windows_button" :to="{ name: 'Spotify' }"
-              >Next</router-link
+              ><span @click="nextFrom('Adidas')">Next</span></router-link
             >
           </div>
         </div>
@@ -143,26 +153,27 @@
             When you’re a girl who codes, you’re not alone. The Sisterhood has your back. And so does Lizzo.
           </div>
           <div class="modal_buttons">
+            <span @click="tracking('Learn More - Spotify')">
             <a
               href="https://www.youtube.com/watch?v=xDgYDBRDkHU"
               target="_blank"
               class="windows_button"
               >Learn more</a
             >
+            </span>
             <router-link class="windows_button" :to="{ name: 'Info' }"
-              >Next</router-link
+              ><span @click="nextFrom('Spotify')">Next</span></router-link
             >
           </div>
         </div>
 
         <router-link
-          @click="onClick"
           v-if="background == 'them'"
           class="cta"
           :to="{ name: 'Instagram' }"
-          >Let's See</router-link
+          ><span @click="nextFrom('Intro')">Let's See</span></router-link
         >
-        <a
+        <a @click="tracking('Ending - Lets Go')"
           v-if="background == 'ending'"
           class="cta"
           href="https://girlswhocode.com/programs/code-at-home"
@@ -208,9 +219,11 @@ export default {
     }
   },
   methods: {
-    onClick() {
-      console.log('CLICKED')
-      this.$router.push({ name: 'TeenVogue' })
+    nextFrom(current) {
+      this.$gtag.event('Next from '+current, { method: 'next' })
+    },
+    tracking(label) {
+      this.$gtag.event(label, { method: 'next' })
     },
     closeModal() {
       this.$emit('close')

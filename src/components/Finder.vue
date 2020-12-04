@@ -6,7 +6,7 @@
                   <img v-if="menuActive" src="@/assets/mobile_menu_active.png">
                   <img v-if="!menuActive" src="@/assets/mobile_menu.png">
                 </div>
-                <router-link :to="{ name: 'Intro' }"><div class="apple_logo"><img src="@/assets/apple.png"></div></router-link>
+                <router-link :to="{ name: 'Intro' }"><div class="apple_logo"><span @click="tracking('Click Apple Logo')"><img src="@/assets/apple.png"></span></div></router-link>
                 <div v-on:click="toggleMenu()" class="menu_item finder" :class="{'active': (menuActive == true)}">Finder</div>
                 <div class="menu_item extra_menu">File</div>
                 <div class="menu_item extra_menu">Edit</div>
@@ -16,13 +16,13 @@
                 <div class="menu_item extra_menu">Help</div>
             </div>
             <div class="system_options">
-                <div class="system_icon instagram"><a href="https://instagram.com/girlswhocode" target="_blank"><img src="@/assets/instagram.png"></a></div>
-                <div class="system_icon twitter"><a href="https://twitter.com/girlswhocode" target="_blank"><img src="@/assets/twitter.png"></a></div>
-                <div class="system_icon youtube"><a href="https://www.youtube.com/user/GirlsWhoCode" target="_blank"><img src="@/assets/youtube.png"></a></div>
-                <div class="system_icon mail"><a href="mailto:info@girlswhocode.com" target="_blank"><img src="@/assets/mail.png"></a></div>
+                <div class="system_icon instagram"><span @click="tracking('Click Instagram Icon')"><a href="https://instagram.com/girlswhocode" target="_blank"><img src="@/assets/instagram.png"></a></span></div>
+                <div class="system_icon twitter"><span @click="tracking('Click Twitter Icon')"><a href="https://twitter.com/girlswhocode" target="_blank"><img src="@/assets/twitter.png"></a></span></div>
+                <div class="system_icon youtube"><span @click="tracking('Click YouTube Icon')"><a href="https://www.youtube.com/user/GirlsWhoCode" target="_blank"><img src="@/assets/youtube.png"></a></span></div>
+                <div class="system_icon mail"><span @click="tracking('Click Mail Icon')"><a href="mailto:info@girlswhocode.com" target="_blank"><img src="@/assets/mail.png"></a></span></div>
                 <div class="system_icon sound"><img src="@/assets/sound.png"></div>
                 <div class="system_icon time"><span>{{ currentTime | moment("ddd h:mm A") }}</span></div>
-                <div class="mobile_title"><a href="https://girlswhocode.com" target="_black">GirlsWhoCode</a></div>
+                <div class="mobile_title"><span @click="tracking('Click GirlsWhoCode Text')"><a href="https://girlswhocode.com" target="_black">GirlsWhoCode</a></span></div>
                 <div v-on:click="toggleCD()" :class="{'active': (cdActive == true)}" class="mobile_cd"><img src="@/assets/CD.png"></div>
                 <div class="system_icon title"><a href="https://girlswhocode.com" target="_black">GirlsWhoCode</a></div>
                 <div class="system_icon search"><img src="@/assets/search.png"></div>
@@ -33,17 +33,19 @@
           <router-link :to="{ name: 'Film' }"><div class="menu_option noborder">Watch the film<img src="@/assets/nav_arrow.png"></div></router-link>
         </div>
         <div class="finder_dropdown" v-if="menuActive">
-          <router-link :to="{ name: 'Instagram' }"><div class="menu_option noborder">Instagram<img src="@/assets/nav_arrow.png"></div></router-link>
-          <router-link :to="{ name: 'TeenVogue' }"><div class="menu_option">Teen Vogue<img src="@/assets/nav_arrow.png"></div></router-link>
-          <router-link :to="{ name: 'Twitter' }"><div class="menu_option">Twitter<img src="@/assets/nav_arrow.png"></div></router-link>
-          <router-link :to="{ name: 'Sephora' }"><div class="menu_option">Sephora<img src="@/assets/nav_arrow.png"></div></router-link>
-          <router-link :to="{ name: 'Adidas' }"><div class="menu_option">Adidas<img src="@/assets/nav_arrow.png"></div></router-link>
-          <router-link :to="{ name: 'Spotify' }"><div class="menu_option">Spotify<img src="@/assets/nav_arrow.png"></div></router-link>
+          <router-link :to="{ name: 'Instagram' }"><span @click="tracking('Click Menu - Instagram')"><div class="menu_option noborder">Instagram<img src="@/assets/nav_arrow.png"></div></span></router-link>
+          <router-link :to="{ name: 'TeenVogue' }"><span @click="tracking('Click Menu - TeenVogue')"><div class="menu_option">Teen Vogue<img src="@/assets/nav_arrow.png"></div></span></router-link>
+          <router-link :to="{ name: 'Twitter' }"><span @click="tracking('Click Menu - Twitter')"><div class="menu_option">Twitter<img src="@/assets/nav_arrow.png"></div></span></router-link>
+          <router-link :to="{ name: 'Sephora' }"><span @click="tracking('Click Menu - Sephora')"><div class="menu_option">Sephora<img src="@/assets/nav_arrow.png"></div></span></router-link>
+          <router-link :to="{ name: 'Adidas' }"><span @click="tracking('Click Menu - Adidas')"><div class="menu_option">Adidas<img src="@/assets/nav_arrow.png"></div></span></router-link>
+          <router-link :to="{ name: 'Spotify' }"><span @click="tracking('Click Menu - Spotify')"><div class="menu_option">Spotify<img src="@/assets/nav_arrow.png"></div></span></router-link>
         </div>
         <div class="desktop">
             <!-- <div class="icon folder" :class="{'hidden': (icons == 'no')}"><img src="@/assets/folder.png"><div class="title">Info</div></div> -->
             <router-link :to="{ name: 'Film' }">
-              <div class="icon cd" :class="{'hidden': (icons == 'no')}"><img src="@/assets/CD.png"><div class="title">MissingCode_Film</div></div>
+              <span @click="tracking('Click Film CD')">
+                <div class="icon cd" :class="{'hidden': (icons == 'no')}"><img src="@/assets/CD.png"><div class="title">MissingCode_Film</div></div>
+              </span>
             </router-link>
             <div class="wallpaper"><img src="@/assets/GWC_Logo_Green.png"></div>
         </div>
@@ -70,14 +72,19 @@ export default {
   },
   methods: {
     toggleMenu() {
+      this.tracking('Toggle Menu Button')
       this.menuActive = !this.menuActive
     },
     toggleCD() {
+      this.tracking('Toggle CD Button')
       this.cdActive = !this.cdActive
     },
     setTime() {
       this.currentTime = new Date()
-    }
+    },
+    tracking(label) {
+      this.$gtag.event(label, { method: 'next' })
+    },
   }
 }
 </script>

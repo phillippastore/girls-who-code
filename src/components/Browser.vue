@@ -129,11 +129,9 @@ export default {
       bounds: this.$refs.popup_container,
       edgeResistance: 0.65,
       onClick: function() {
-        console.log('clicked')
+        // console.log('clicked')
       },
-      onDragEnd: function() {
-        console.log('drag ended')
-      }
+      onDragEnd: this.trackingBrowser
     })
     if (this.noScroll) {
       this.startNoScrollTimer()
@@ -146,6 +144,9 @@ export default {
     this.$refs.content.removeEventListener('scroll', this.scrollEvt)
   },
   methods: {
+    trackingBrowser() {
+      this.$gtag.event('Browser Dragged', { method: 'next' })
+    },
     onReady() {
       this.play()
     },
@@ -174,6 +175,7 @@ export default {
     },
     startScrollTimer() {
       this.scrollTimer = setTimeout(() => {
+        this.$gtag.event('Show Scroll', { method: 'next' })
         this.showScrollIndicator = true
       }, 4000)
     },
@@ -194,13 +196,15 @@ export default {
       this.startNoScrollTimer()
     },
     goBack() {
+      this.$gtag.event('Browser Back Icon', { method: 'next' })
       this.$router.go(-1)
     },
     goForward() {
-      console.log(this.$router)
+      this.$gtag.event('Browser Forward Icon', { method: 'next' })
       this.$router.go(1)
     },
     refresh() {
+      this.$gtag.event('Browser Reload Icon', { method: 'next' })
       location.reload()
     }
   }
