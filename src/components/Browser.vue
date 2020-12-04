@@ -4,11 +4,11 @@
     <div class="popup" :class="name" :style="computedPositioning">
     <div class="browser-container" id="browser1">
       <div v-if="showModal" class="modal">
-        <Popup v-if="name == 'instagram'" name="modal_1" type=1 width=14 height=5.3 left=45 top=30 background="modal_1" />
-        <Popup v-if="name == 'teenvogue'" name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
-        <Popup v-if="name == 'twitter'" name="modal_3" type=1 width=14 height=5.3 left=45 top=30 background="modal_3" />
-        <Popup v-if="name == 'sephora'" name="modal_4" type=1 width=14 height=5.3 left=45 top=30 background="modal_4" />
-        <Popup v-if="name == 'adidas'" name="modal_5" type=1 width=14 height=5.3 left=45 top=30 background="modal_5" />
+        <Popup v-if="name == 'instagram'" @close="onModalClose" name="modal_1" type=1 width=14 height=5.3 left=45 top=30 background="modal_1" />
+        <Popup v-if="name == 'teenvogue'" @close="onModalClose" name="modal_2" type=1 width=14 height=5.3 left=45 top=30 background="modal_2" />
+        <Popup v-if="name == 'twitter'" @close="onModalClose" name="modal_3" type=1 width=14 height=5.3 left=45 top=30 background="modal_3" />
+        <Popup v-if="name == 'sephora'" @close="onModalClose" name="modal_4" type=1 width=14 height=5.3 left=45 top=30 background="modal_4" />
+        <Popup v-if="name == 'adidas'" @close="onModalClose" name="modal_5" type=1 width=14 height=5.3 left=45 top=30 background="modal_5" />
         <Popup v-if="name == 'spotify'" @close="onModalClose" name="modal_6" type=1 width=14 height=5.3 left=45 top=30 background="modal_6" />
       </div>
       <div class="header" id="browser1_header">
@@ -109,7 +109,7 @@ export default {
   data() {
     return {
       options: {
-        quality: "2K"
+        quality: '2K'
       },
       showModal: false,
       isPlaying: false,
@@ -122,7 +122,7 @@ export default {
     gsap.registerPlugin(Draggable)
   },
   mounted() {
-    this.$refs.player.quality = "2K"
+    this.$refs.player.quality = '2K'
     Draggable.create('#browser1', {
       type: 'x, y',
       trigger: '#browser1_header',
@@ -193,7 +193,9 @@ export default {
     onModalClose() {
       this.showModal = false
       this.play()
-      this.startNoScrollTimer()
+      if (this.noScroll) {
+        this.startNoScrollTimer()
+      }
     },
     goBack() {
       this.$gtag.event('Browser Back Icon', { method: 'next' })
