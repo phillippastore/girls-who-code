@@ -34,6 +34,7 @@
         <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
       </div>
+      <div class="site_loading"><img src="@/assets/loading.gif" /></div>
       <transition name="fade">
         <div class="scroll_indicator bounce" v-show="showScrollIndicator">
           <div class="scroll_text">Scroll</div>
@@ -486,6 +487,17 @@ export default {
   position: absolute;
   box-sizing: border-box;
   background-color: #eeeeee;
+  z-index: 1;
+}
+
+.browser-container .site_loading {
+  width: 100%;
+  height: 100%;
+}
+
+.browser-container .site_loading img {
+  position: relative;
+  top: 50%;
 }
 
 @media (max-width: 600px) {
@@ -518,7 +530,7 @@ export default {
     text-align: center;
     /* right: 4px;
     left: auto; */
-    top: 7px;
+    top: 6px;
   }
 
   .header_button {

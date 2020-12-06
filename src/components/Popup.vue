@@ -1119,6 +1119,7 @@ img {
 
 .arrow {
   position: absolute;
+  pointer-events: none;
 }
 
 .arrow_1 {
@@ -1217,7 +1218,7 @@ img {
     width: 100vw;
     left: -5vw;
     top: 155%;
-    height: 80vw;
+    height: 85vw;
   }
 }
 
@@ -1230,7 +1231,7 @@ img {
 
 .cta {
   position: absolute;
-  bottom: 20px;
+  bottom: 30px;
   right: 30px;
   color: white;
   font-size: 20px;
