@@ -29,7 +29,6 @@
 import { gsap } from 'gsap'
 import Popup from '@/components/Popup.vue'
 import Finder from '@/components/Finder.vue'
-import * as PIXI from 'pixi.js'
 
 export default {
   name: 'Intro',
@@ -43,34 +42,6 @@ export default {
       slides: {},
       numSlides: 190
     }
-  },
-  mounted() {
-    console.log(this.$mq)
-    const loader = PIXI.Loader.shared
-
-    for (var i = 0; i < this.numSlides; i++) {
-      var num = 0
-      if (i < 10) {
-        num = `0000${i}`
-      } else if (i < 100) {
-        num = `000${i}`
-      } else {
-        num = `00${i}`
-      }
-
-      if (PIXI.utils.TextureCache[`instagram_${i}`]) {
-        console.log('cached')
-        this.slides[`slide_${i}`] = new PIXI.Sprite(PIXI.utils.TextureCache[`instagram_${i}`])
-      } else {
-        loader.add(`instagram_${i}`, require(`@/assets/TeenVogue/GWC TeenVogue_${num}.jpg`))
-      }
-    }
-
-    loader.load((loader, resources) => {
-      for (var i = 0; i < this.numSlides; i++) {
-        this.slides[`slide_${i}`] = new PIXI.Sprite(resources[`instagram_${i}`].texture)
-      }
-    })
   },
   beforeDestroy() {
     const loader = PIXI.Loader.shared
