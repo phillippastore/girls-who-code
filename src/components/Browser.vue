@@ -35,7 +35,8 @@
         <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
       </div>
       <div v-if="!playerReady" class="site_loading">
-        <div class="loading_wrapper"><img src="@/assets/loading.gif" /></div>
+        <div v-if="name == 'instagram' || name == 'teenvogue' || name == 'twitter' || name == 'adidas'" class="loading_wrapper"><img src="@/assets/loading_black.gif" /></div>
+        <div v-if="name == 'sephora' || name == 'spotify'" class="loading_wrapper"><img src="@/assets/loading_white.gif" /></div>
       </div>
       <transition name="fade">
         <div class="scroll_indicator bounce" v-show="showScrollIndicator">
@@ -506,8 +507,8 @@ export default {
   top: 50%;
   z-index: 5;
   left: 50%;
-  margin-left: -35px;
-  margin-top: -35px;
+  margin-left: -16px;
+  margin-top: -16px;
 }
 
 @media (max-width: 600px) {
