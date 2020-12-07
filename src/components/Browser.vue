@@ -616,6 +616,7 @@ export default {
   margin-left: -100px;
   width: 200px;
   padding: 5px 10px;
+  z-index: 1;
 }
 
 .scroll_indicator img {
