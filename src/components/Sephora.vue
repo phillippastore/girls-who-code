@@ -21,7 +21,7 @@ export default {
 <style>
 
 .sephora .site_content {
-  background-color: #000 !important;
+  background-color: #000000 !important;
 }
 
 .sephora .sephora-vimeo-player iframe {
