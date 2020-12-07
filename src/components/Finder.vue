@@ -242,10 +242,6 @@ a {
   background-color: #548def;
 }
 
-.mobile_title {
-  pointer-events: none;
-}
-
 .mobile_cd {
   width: 25px;
   height: 18px;
