@@ -157,6 +157,7 @@ export default {
     },
     onPlaying() {
       this.playerReady = true
+      this.startScrollTimerLonger()
     },
     play () {
       this.$refs.player.mute()
@@ -179,6 +180,7 @@ export default {
         }
         this.showModal = false
         this.startScrollTimer()
+        this.startScrollTimerLonger()
       }
     },
     startScrollTimer() {
@@ -198,11 +200,19 @@ export default {
         this.pause()
       }, 5000)
     },
+    startScrollTimerLonger() {
+      setTimeout(() => {
+        this.showModal = true
+        this.pause()
+      }, 6000)
+    },
     onModalClose() {
       this.showModal = false
       this.play()
       if (this.noScroll) {
         this.startNoScrollTimer()
+      } else {
+        this.startScrollTimerLonger()
       }
     },
     goBack() {
