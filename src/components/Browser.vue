@@ -27,14 +27,14 @@
         </div>
       </div>
       <div class="site_content" ref="content">
-        <vimeo-player v-if="name == 'instagram'" class="instagram-vimeo-player" ref="player" :video-id="485204423" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'teenvogue'" class="teenvogue-vimeo-player" ref="player" :video-id="483217171" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'twitter'" class="twitter-vimeo-player" ref="player" :video-id="485207971" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'sephora'" class="sephora-vimeo-player" ref="player" :video-id="483217394" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
-        <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady"/>
+        <vimeo-player v-if="name == 'instagram'" class="instagram-vimeo-player" ref="player" :video-id="485204423" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
+        <vimeo-player v-if="name == 'teenvogue'" class="teenvogue-vimeo-player" ref="player" :video-id="483217171" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
+        <vimeo-player v-if="name == 'twitter'" class="twitter-vimeo-player" ref="player" :video-id="485207971" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
+        <vimeo-player v-if="name == 'sephora'" class="sephora-vimeo-player" ref="player" :video-id="483217394" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
+        <vimeo-player v-if="name == 'adidas'"  class="adidas-vimeo-player" ref="player" :video-id="483217749" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
+        <vimeo-player v-if="name == 'spotify'"  class="spotify-vimeo-player" ref="player" :video-id="483217398" :loop="true" :controls="false" :autoplay="true" @ready="onReady" @progress="onPlaying"/>
       </div>
-      <div class="site_loading"><img src="@/assets/loading.gif" /></div>
+      <div v-if="!playerReady" class="site_loading"><img src="@/assets/loading.gif" /></div>
       <transition name="fade">
         <div class="scroll_indicator bounce" v-show="showScrollIndicator">
           <div class="scroll_text">Scroll</div>
@@ -116,7 +116,8 @@ export default {
       isPlaying: false,
       type: 2,
       showScrollIndicator: false,
-      scrollTimer: null
+      scrollTimer: null,
+      playerReady: false
     }
   },
   created() {
@@ -150,6 +151,9 @@ export default {
     },
     onReady() {
       this.play()
+    },
+    onPlaying() {
+      this.playerReady = true
     },
     play () {
       this.$refs.player.mute()
@@ -496,8 +500,9 @@ export default {
 }
 
 .browser-container .site_loading img {
-  position: relative;
+  position: fixed;
   top: 50%;
+  z-index: 5;
 }
 
 @media (max-width: 600px) {
