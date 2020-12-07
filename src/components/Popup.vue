@@ -226,6 +226,7 @@ export default {
       this.$gtag.event(label, { method: 'next' })
     },
     closeModal() {
+      this.$gtag.event('Closed Popup', { method: 'next' })
       this.$emit('close')
     }
   }
